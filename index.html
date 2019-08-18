@@ -39,6 +39,13 @@
 	<!-- Changed Level -->
 	<input type="hidden" id=changedLevel name="entry.502099535" value="changedLevel" />
 
+	
+	<p>
+	The scores are automatically adjusted to their final CEFR grade. I.e. A low B2 will have all 3s whereas a high B2 will have all 4s.<br>
+	but you can then nudge higher or lower particular skills.<br>
+	Note: While you can never nudge beyond 5. nudging -2 if the score is already 3 will bring them to 1. (not desired).
+	If they have changed level (CEFR grade, i.e. B2 - C1) The system will automatically give all 5s. Nudging will have no effect. 
+	</p>
 	<!-- Fluency -->
 	<input type="hidden" id=fluency name="entry.1839803024" value="3" />
 	Nudge Fluency: <input type="number" id="nudgeFluency" min="-2" max="2" value="0"> <br>
@@ -184,9 +191,11 @@ function appendRedundancy()
 		var result = Math.floor(score / stepSize) + 1;
 
 		result += parseFloat(nudge);
+		
+		// don't let the result go below 3
+		if (result < 3) result = 3;
 
 		if (result > 5) result = 5;
-		if (result < 2) result = 2;
 	
 		return result;
 	}
