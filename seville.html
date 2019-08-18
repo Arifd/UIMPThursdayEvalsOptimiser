@@ -200,6 +200,17 @@ function appendRedundancy()
 	document.getElementById("vocabulary").value = adjustToScore(endLvl, nudgeD);
 	document.getElementById("comprehension").value = adjustToScore(endLvl, nudgeE);
 	*/
+
+	// If the level has changed, make sure all the skills are set at 5!
+	if (levelChanged)
+	{
+		document.getElementById("fluency").value = 5;
+		document.getElementById("pronunciation").value = 5;
+		document.getElementById("grammar").value = 5;
+		document.getElementById("vocabulary").value = 5;
+		document.getElementById("comprehension").value = 5;
+	}
+
 }
 </script>
 
