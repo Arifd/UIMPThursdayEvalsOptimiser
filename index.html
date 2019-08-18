@@ -39,33 +39,19 @@
 	<!-- Changed Level -->
 	<input type="hidden" id=changedLevel name="entry.502099535" value="changedLevel" />
 
-	<!--
-	<p>
-	The scores are automatically adjusted to their final CEFR grade. I.e. A low B2 will have all 3s whereas a high B2 will have all 4s.<br>
-	but you can then nudge higher or lower particular skills.<br>
-	Note: While you can never nudge beyond 5. nudging -2 if the score is already 3 will bring them to 1. (not desired).
-	If they have changed level (CEFR grade, i.e. B2 - C1) The system will automatically give all 5s. Nudging will have no effect. 
-	</p>
-	-->
-	<!-- Fluency -->
-	<input type="hidden" id=fluency name="entry.1839803024" value="3" />
-	Nudge Fluency: <input type="number" id="nudgeFluency" min="-2" max="2" value="0"> <br>
-	<!-- Pronunciation -->
-	<input type="hidden" id=pronunciation name="entry.498561152" value="3" />
-	Nudge Pronunciation: <input type="number" id="nudgePronunciation" min="-2" max="2" value="0"> <br>
-	<!-- Grammar -->
-	<input type="hidden" id=grammar name="entry.1379348697" value="3" />
-	Nudge Grammar: <input type="number" id="nudgeGrammar" min="-2" max="2" value="0"> <br>
-	<!-- Vocabulary -->
-	<input type="hidden" id=vocabulary name="entry.835827768" value="3" />
-	Nudge Vocabulary: <input type="number" id="nudgeVocabulary" min="-2" max="2" value="0"> <br>
-	<!-- Comprehension -->
-	<input type="hidden" id=comprehension name="entry.1952347568" value="3" />
-	Nudge Comprehension: <input type="number" id="nudgeComprehension" min="-2" max="2" value="0"> <br> <br>
-	<!-- Homework -->
-	(Absolute) Homework: <input type="number" id="formHomework" name="entry.2054164790" value="5"> <br>
-	<!-- Participation -->
-	(Ansolute) Participation: <input type="number" id="formParticipation" name="entry.230056582" value="5"> <br> <br>
+	Fluency: <input type="number" id="nudgeFluency" name="entry.1839803024" min="1" max="5" value="3"> <br>
+
+	Pronunciation: <input type="number" id="nudgePronunciation" name="entry.498561152" min="1" max="5" value="3"> <br>
+
+	Grammar: <input type="number" id="nudgeGrammar" name="entry.1379348697" min="1" max="5" value="3"> <br>
+
+	Vocabulary: <input type="number" id="nudgeVocabulary" name="entry.835827768" min="1" max="5" value="3"> <br>
+
+	Comprehension: <input type="number" id="nudgeComprehension" name="entry.1952347568" min="1" max="5" value="3"> <br> <br>
+
+	Homework: <input type="number" id="formHomework" name="entry.2054164790" min="1" max="5" value="5"> <br>
+
+	Participation: <input type="number" id="formParticipation" name="entry.230056582" min="1" max="5" value="5"> <br> <br>
 
 	Comment: <textarea cols="40" rows="5" name="entry.1141405581"></textarea> <br>
 
@@ -146,7 +132,8 @@ function appendRedundancy()
 		levelChanged = true;
 	}
 
-
+	// REMOVED IN FAVOUR OF SIMPLER 'DEFAULT 3' SYSTEM
+	/*
 	function adjustToScore(endLvl, nudge)
 	{
 		var distanceLow = 0.0;
@@ -212,6 +199,7 @@ function appendRedundancy()
 	document.getElementById("grammar").value = adjustToScore(endLvl, nudgeC);
 	document.getElementById("vocabulary").value = adjustToScore(endLvl, nudgeD);
 	document.getElementById("comprehension").value = adjustToScore(endLvl, nudgeE);
+	*/
 }
 </script>
 
