@@ -1,5 +1,4 @@
-<script>
-export function appendRedundancy()
+function appendRedundancy()
 {
 	// Separate Name
 	var nameValue = document.getElementById("formName").value;
@@ -133,11 +132,7 @@ export function appendRedundancy()
 	}
 }
 
-window.popup = export function popup()
+function popup()
 {
 	alert("Hello! I am an alert box!");
 }
-
-// module.exports = { appendRedundancy, popup } 
-
-</script>
