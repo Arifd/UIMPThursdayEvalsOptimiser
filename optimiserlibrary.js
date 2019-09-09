@@ -138,7 +138,7 @@ function afterSubmit()
 	document.getElementById("formName").value = "";
 	document.getElementById("formName").placeholder = nameValue;
 	
-	alert("begLvl"); alert("endLvl");
+	alert(begLvl); alert(endLvl);
 	
 	document.getElementById("beginningLevel").value = null;
 	document.getElementById("beginningLevel").placeholder = begLvl;
