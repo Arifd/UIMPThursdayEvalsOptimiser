@@ -134,8 +134,7 @@ function appendRedundancy()
 
 function cleanForm()
 {
-	//document.getElementById("formName").value = "";
-	alert("test");
+	document.getElementById("formName").value = "";
 }
 
 function popup()
