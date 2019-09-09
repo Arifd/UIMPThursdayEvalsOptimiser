@@ -134,7 +134,7 @@ function appendRedundancy()
 
 function cleanForm()
 {
-	document.getElementById("formName").value = null;
+	document.getElementById("formName").value = "";
 	
 }
 
