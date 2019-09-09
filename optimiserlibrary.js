@@ -31,8 +31,8 @@ function appendRedundancy()
 	// Process ISO week number
 	document.getElementById("processedISOWeekNumber").value = getWeekNumber(today);
 	// START Process Levels + Changed
-	var begLvl = parseFloat(document.getElementById("beginningLevel").value);
-	var endLvl = parseFloat(document.getElementById("endLevel").value);
+	begLvl = parseFloat(document.getElementById("beginningLevel").value);
+	endLvl = parseFloat(document.getElementById("endLevel").value);
 	var begCEFRLvl = ""; // A1, A2, B1, B2, C1, C2
 	var endCEFRLvl = ""; // A1, A2, B1, B2, C1, C2
 	var levelChanged = false;
@@ -137,6 +137,11 @@ function afterSubmit()
 	// clean certain form fields
 	document.getElementById("formName").value = "";
 	document.getElementById("formName").placeholder = nameValue;
+	
+	document.getElementById("beginningLevel").value = null;
+	document.getElementById("beginningLevel").placeholder = begLvl;
+	document.getElementById("endLevel").value = null;
+	document.getElementById("endLevel").placeholder = endLvl;
 	
 	// add information of previous form to html
 	// (not yet implemented)
