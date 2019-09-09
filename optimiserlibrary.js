@@ -1,7 +1,7 @@
 function appendRedundancy()
 {
 	// Separate Name
-	var nameValue = document.getElementById("formName").value;
+	nameValue = document.getElementById("formName").value;
 	var splitName = nameValue.split(", ");
 	document.getElementById("processedLastName").value = splitName[0];
 	document.getElementById("processedFirstName").value = splitName[1];
@@ -136,6 +136,7 @@ function afterSubmit()
 {	
 	// clean certain form fields
 	document.getElementById("formName").value = "";
+	document.getElementById("formName").placeholder = nameValue;
 	
 	// add information of previous form to html
 	// (not yet implemented)
