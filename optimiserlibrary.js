@@ -7,13 +7,14 @@ function appendRedundancy()
 	document.getElementById("processedFirstName").value = splitName[1];
 	// Process date
 	var today = new Date();
-	if (today.getDay() == 4) var theFriday = new Date(today.getTime() + (24 * 60 * 60 * 1000));
-	else if (today.getDay() == 5) var theFriday = today;
-	else var theFriday = "ERROR";
+	if (today.getDay() == 4) { var theFriday = new Date(today.getTime() + (24 * 60 * 60 * 1000)); alert("shit"); }
+	else if (today.getDay() == 5) { var theFriday = today; alert("fuck"); }
+	else { var theFriday = "ERROR"; alert("bong"); }
  	//document.getElementById("formDate").value = d.toDateString();
  	document.getElementById("formMonth").value = theFriday.getMonth()+1;
  	document.getElementById("formDay").value = theFriday.getDate();
  	document.getElementById("formYear").value = theFriday.getFullYear();
+	alert("done");
 	function getWeekNumber(d)
 	{
 	    // Copy date so don't modify original
