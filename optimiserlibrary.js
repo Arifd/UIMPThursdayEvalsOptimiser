@@ -15,7 +15,6 @@ function appendRedundancy()
  	document.getElementById("formMonth").value = theFriday.getMonth()+1;
  	document.getElementById("formDay").value = theFriday.getDate();
  	document.getElementById("formYear").value = theFriday.getFullYear();
-	alert("done");
 	function getWeekNumber(d)
 	{
 	    // Copy date so don't modify original
