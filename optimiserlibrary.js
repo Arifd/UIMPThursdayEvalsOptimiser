@@ -132,6 +132,12 @@ function appendRedundancy()
 	}
 }
 
+function cleanForm()
+{
+	document.getElementById("formName").value = null;
+	
+}
+
 function popup()
 {
 	alert("Hello! I am an alert box!");
