@@ -10,7 +10,7 @@ function appendRedundancy()
 	if (today.getDay() == 4) var theFriday = new Date(today.getTime() + (24 * 60 * 60 * 1000));
 	else if (today.getDay() == 5) var theFriday = today;
 	else if (today.getDay() == 6) var theFriday = new Date(today.getTime() - (24 * 60 * 60 * 1000));
-	else var theFriday = var theFriday = new Date(today.getTime() + ((24 * 60 * 60 * 1000) * (5 - today.getDay()));
+	else var theFriday = new Date(today.getTime() + ((24 * 60 * 60 * 1000) * (5 - today.getDay()));
  	//document.getElementById("formDate").value = d.toDateString();
  	document.getElementById("formMonth").value = theFriday.getMonth()+1;
  	document.getElementById("formDay").value = theFriday.getDate();
