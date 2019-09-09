@@ -132,9 +132,13 @@ function appendRedundancy()
 	}
 }
 
-function cleanForm()
-{
+function afterSubmit()
+{	
+	// clean certain form fields
 	document.getElementById("formName").value = "";
+	
+	// add information of previous form to html
+	// (not yet implemented)
 }
 
 function popup()
