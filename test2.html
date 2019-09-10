@@ -1,13 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script>
+var today = new Date();
+if (today.getDay() != (4 || 5)) alert("Hey! Today's not Thursday or Friday.\n\nGo away now before you perturb the UIMP gods!"); 
+</script>
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <script src="formpluginlibrary.js" type="text/javascript"></script> 
 <script src="optimiserlibrary.js" type="text/javascript"></script> 
+<script>
+	function showForm()
+	{
+		// grab the results of the selector
+		var selectedLocation = document.getElementById("locationSelector").value;
+		// loadup the right entry.xxxxxx for each form field
+		if (selectedLocation == "nothing selected") pluginBlank();
+		else if (selectedLocation == "Test") pluginDummyForm();
+		else if (selectedLocation == "Sevilla") pluginSevilla();
+		// if something valid slected hide this selector div, show the form
+		if (selectedLocation != "nothing selected")
+		{
+			document.getElementById("splashScreenDiv").style.display = "none";
+			document.getElementById("theFormDiv").style.display = "block";
+		}
+	}
+</script>
 </head>
 <body style="background-color:#F8F8FF;">
-<h2> TEST2 </h2>
 
+<!-- SPLASH SCREEN -->
+<div id="splashScreenDiv">
+<h2>UIMP Thursday Evals Optimiser</h2>
+<hr>
+<p>
+This tool is an optimisation of the regular Thursday Evals Form.
+</p>
+<p>Removing a ton of redundant user input, while still providing the UIMP <b>exactly</b> the same information.
+</p>
+<p>
+Note: For any failed students in your group, you must use the original form.
+</p>
+
+<p>
+Usage: When you click submit, this tool sends to Google all the information you would have sent anyway manually using the Google form. Once sent, google will send back a confirmation page that your browser will probably open in a new window or tab. Just close this to go back to the form, refill, and click submit again for the next student.
+</p>
+<hr>
+<select id="locationSelector">
+	<option value="nothing selected" selected disabled hidden>Select location</option>
+	<option value="Sevilla">Sevilla</option>
+	<option value="Test">Dummy Form (for testing)</option>
+</select>
+<button type="button" id="goButton" onclick="showForm()">Go!</button>
+</div>
+
+
+
+<!-- THE OPTIMISED FORM -->
+
+<div id="theFormDiv" hidden="true">
+<h2 id="title"> TEST2 </h2>
 <form id="theForm" autocomplete="off" method="post" target="_blank" onsubmit="afterSubmit()">
  
     <label for="formName">Student's Full name (Exactly as written):</label>
@@ -78,8 +129,7 @@
  	<input type="submit" onclick="appendRedundancy()" value="Submit">
   
 </form>
-
-<script>pluginDummyForm();</script>
+</div>
 
 </body>
 </html>
