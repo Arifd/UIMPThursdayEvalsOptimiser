@@ -42,6 +42,8 @@ function pluginBlank()
 	document.getElementById("comment").name = "";
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////
+
 function pluginDummyForm()
 {
 	document.getElementById("theForm").action = "https://docs.google.com/forms/d/e/1FAIpQLSeBzokJL941yd1cK6EpZZAfNr_4UjUTi-irPZdsHYHK0ksAug/formResponse";
@@ -85,3 +87,51 @@ function pluginDummyForm()
 
 	document.getElementById("comment").name = "entry.1141405581";
 }
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+
+function pluginSevilla()
+{
+	document.getElementById("theForm").action = "https://docs.google.com/forms/d/e/1FAIpQLSc3PkotOa24gfWMa-PN-gZjcvGygCEb3-c13qaEAsh2AMWX3Q/formResponse";
+
+	document.getElementById("processedLastName").name = "entry.539992332";
+	document.getElementById("processedFirstName").name = "entry.1885495846";
+
+	document.getElementById("location").name = "entry.1609186721";
+	// you need to manually fill in the location field here
+	document.getElementById("location").value = "Sevilla";
+
+	document.getElementById("formMonth").name = "entry.905372383_month";
+	document.getElementById("formDay").name = "entry.905372383_day";
+	document.getElementById("formYear").name = "entry.905372383_year";
+
+	document.getElementById("passOrFail").name = "entry.420853720";
+
+	document.getElementById("processedISOWeekNumber").name = "entry.1784072739";
+
+	document.getElementById("group").name = "entry.1771980111";
+
+	document.getElementById("teachersNames").name = "entry.42228523";
+
+	// CEFR Level at Beginning
+	document.getElementById("levelAtBeginning").name = "entry.86321645";
+	// CEFR Level at End
+	document.getElementById("levelAtEnd").name = "entry.605540039";
+	// final score
+	document.getElementById("endLevel").name = "entry.642928071";
+
+	document.getElementById("changedLevel").name = "entry.1898877679";
+
+	document.getElementById("fluency").name = "entry.916825764";
+	document.getElementById("pronunciation").name = "entry.1764100518";
+	document.getElementById("grammar").name = "entry.2128361282";
+	document.getElementById("vocabulary").name = "entry.978742957";
+	document.getElementById("comprehension").name = "entry.24510025";
+
+	document.getElementById("formHomework").name = "entry.1208927224";
+	document.getElementById("formParticipation").name = "entry.642674893";
+
+	document.getElementById("comment").name = "entry.1977146748";
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////
