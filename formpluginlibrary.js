@@ -49,9 +49,9 @@ function pluginDummyForm()
 	document.getElementById("processedLastName").name = "entry.1492703236";
 	document.getElementById("processedFirstName").name = "entry.691428241";
 
-	// document.getElementById("location").name = "entry.2016812996";
+	document.getElementById("location").name = "entry.2016812996";
 	// you need to manually fill in the location field here
-	//document.getElementById("location").value = "DummyForm";
+	document.getElementById("location").value = "Sevilla";
 
 	document.getElementById("formMonth").name = "entry.610744709_month";
 	document.getElementById("formDay").name = "entry.610744709_day";
