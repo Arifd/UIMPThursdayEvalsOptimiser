@@ -6,7 +6,7 @@ function pluginBlank()
 	document.getElementById("processedFirstName").name = "";
 
 	document.getElementById("location").name = "";
-	<!-- you need to manually fill in the location field here -->
+	// you need to manually fill in the location field here
 	document.getElementById("location").value = "";
 
 	document.getElementById("formMonth").name = "";
@@ -21,11 +21,11 @@ function pluginBlank()
 
 	document.getElementById("teachersNames").name = "";
 
-	<!-- CEFR Level at Beginning -->
+	// CEFR Level at Beginning
 	document.getElementById("levelAtBeginning").name = "";
-	<!-- CEFR Level at End -->
+	// CEFR Level at End
 	document.getElementById("levelAtEnd").name = "";
-	<!-- final score -->
+	// final score
 	document.getElementById("endLevel").name = "";
 
 	document.getElementById("changedLevel").name = "";
@@ -50,7 +50,7 @@ function pluginDummyForm()
 	document.getElementById("processedFirstName").name = "entry.691428241";
 
 	document.getElementById("location").name = "entry.2016812996";
-	<!-- you need to manually fill in the location field here -->
+	// you need to manually fill in the location field here
 	document.getElementById("location").value = "DummyForm";
 
 	document.getElementById("formMonth").name = "entry.610744709_month";
@@ -65,11 +65,11 @@ function pluginDummyForm()
 
 	document.getElementById("teachersNames").name = "entry.1453395066";
 
-	<!-- CEFR Level at Beginning -->
+	// CEFR Level at Beginning
 	document.getElementById("levelAtBeginning").name = "entry.1977718501";
-	<!-- CEFR Level at End -->
+	// CEFR Level at End
 	document.getElementById("levelAtEnd").name = "entry.1619190485";
-	<!-- final score -->
+	// final score
 	document.getElementById("endLevel").name = "entry.1815583882";
 
 	document.getElementById("changedLevel").name = "entry.502099535";
