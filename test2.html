@@ -13,10 +13,15 @@ if (today.getDay() != (4 || 5)) alert("Hey! Today's not Thursday or Friday.\n\nG
 	{
 		// grab the results of the selector
 		var selectedLocation = document.getElementById("locationSelector").value;
+
 		// loadup the right entry.xxxxxx for each form field
 		if (selectedLocation == "nothing selected") pluginBlank();
 		else if (selectedLocation == "Test") pluginDummyForm();
 		else if (selectedLocation == "Sevilla") pluginSevilla();
+
+		// prepare the title of the form
+		document.getElementById("theFormTitle").innerHTML = selectedLocation;
+
 		// if something valid slected hide this selector div, show the form
 		if (selectedLocation != "nothing selected")
 		{
@@ -58,7 +63,7 @@ Usage: When you click submit, this tool sends to Google all the information you 
 <!-- THE OPTIMISED FORM -->
 
 <div id="theFormDiv" hidden="true">
-<h2 id="title"> TEST2 </h2>
+<h2 id="theFormTitle"></h2>
 <form id="theForm" autocomplete="off" method="post" target="_blank" onsubmit="afterSubmit()">
  
     <label for="formName">Student's Full name (Exactly as written):</label>
