@@ -6,6 +6,8 @@ function pluginBlank()
 	document.getElementById("processedFirstName").name = "";
 
 	document.getElementById("location").name = "";
+	<!-- you need to manually fill in the location field here -->
+	document.getElementById("location").value = "";
 
 	document.getElementById("formMonth").name = "";
 	document.getElementById("formDay").name = "";
@@ -48,6 +50,8 @@ function pluginDummyForm()
 	document.getElementById("processedFirstName").name = "entry.691428241";
 
 	document.getElementById("location").name = "entry.2016812996";
+	<!-- you need to manually fill in the location field here -->
+	document.getElementById("location").value = "DummyForm";
 
 	document.getElementById("formMonth").name = "entry.610744709_month";
 	document.getElementById("formDay").name = "entry.610744709_day";
