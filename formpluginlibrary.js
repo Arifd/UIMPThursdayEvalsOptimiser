@@ -3,7 +3,7 @@ function pluginBlank()
 	document.getElementById("theForm").action = "";
 
 	document.getElementById("processedLastName").name = "";
-	document.getElementById("processedLastName").name = "";
+	document.getElementById("processedFirstName").name = "";
 
 	document.getElementById("location").name = "";
 
@@ -45,7 +45,7 @@ function pluginDummyForm()
 	document.getElementById("theForm").action = "https://docs.google.com/forms/d/e/1FAIpQLSeBzokJL941yd1cK6EpZZAfNr_4UjUTi-irPZdsHYHK0ksAug/formResponse";
 
 	document.getElementById("processedLastName").name = "entry.1492703236";
-	document.getElementById("processedLastName").name = "entry.691428241";
+	document.getElementById("processedFirstName").name = "entry.691428241";
 
 	document.getElementById("location").name = "entry.2016812996";
 
