@@ -68,7 +68,7 @@ Usage: When you click submit, this tool sends to Google all the information you 
 <form id="theForm" autocomplete="off" method="post" target="_blank" onsubmit="afterSubmit()">
  
     <label for="formName">Student's Full name (Exactly as written):</label>
-	<input type="text" id=formName /> <br><br>
+	<input type="text" id=formName placeholder="Name" /> <br><br>
     <input type="hidden" id=processedLastName value="lastName" />
     <input type="hidden" id=processedFirstName value="firstName" />
 
@@ -88,10 +88,10 @@ Usage: When you click submit, this tool sends to Google all the information you 
   	<input type="hidden" id=processedISOWeekNumber value="ISOWeekNumber" />
 
 	<label for="group">Group:</label>
-	<input type="text" id="group" /> <br>
+	<input type="text" id="group" placeholder="Group"/> <br>
 
 	<label for="teachersNames">Teacher's Name(s):</label>
-	<input type="text" id="teachersNames" /> <br> <br>
+	<input type="text" id="teachersNames" placeholder="Teachers" /> <br> <br>
 
 	<!-- CEFR Level at Beginning -->
 	<input type="hidden" id=levelAtBeginning value="levelAtBeginning" />
@@ -100,9 +100,9 @@ Usage: When you click submit, this tool sends to Google all the information you 
 	<input type="hidden" id=levelAtEnd value="levelAtEnd" />
 
 	<label for="beginningLevel">Berlitz Level (during the week):</label>
-	<input type="number" step=0.1 min="0.0" max="99.9" id=beginningLevel /> <br> <!-- we need beginning level to process changed level -->
+	<input type="number" step=0.1 min="0.0" max="99.9" id=beginningLevel placeholder="0.0" /> <br> <!-- we need beginning level to process changed level -->
 	<label for="endLevel">Berlitz End Level:</label>
-	<input type="number" step=0.1 min="0.0" max="99.9" id=endLevel /> <br> <br> <!-- note: also send this off as "final score" -->
+	<input type="number" step=0.1 min="0.0" max="99.9" id=endLevel placeholder="0.0" /> <br> <br> <!-- note: also send this off as "final score" -->
 
 	<!-- Changed Level -->
 	<input type="hidden" id=changedLevel value="changedLevel" />
