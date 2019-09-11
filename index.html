@@ -29,13 +29,9 @@ if (today.getDay() != (4 || 5)) alert("Hey! Today's not Thursday or Friday.\n\nG
 			document.getElementById("splashScreenDiv").style.display = "none";
 			document.getElementById("theFormDiv").style.display = "block";
 		}
-	}
-</script>
-</head>
-<body>
-<!-- go full screen -->
-<script>
-  var elem = document.documentElement;
+		
+		// go full screen
+		  var elem = document.documentElement;
   if (elem.requestFullscreen) {
     elem.requestFullscreen();
   } else if (elem.mozRequestFullScreen) { /* Firefox */
@@ -45,7 +41,10 @@ if (today.getDay() != (4 || 5)) alert("Hey! Today's not Thursday or Friday.\n\nG
   } else if (elem.msRequestFullscreen) { /* IE/Edge */
     elem.msRequestFullscreen();
   }
+	}
 </script>
+</head>
+<body>
 	
 <!-- SPLASH SCREEN -->
 <div id="splashScreenDiv">
