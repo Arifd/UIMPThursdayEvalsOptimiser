@@ -1,0 +1,47 @@
+h1 { font-family: 'Enriqueta', arial, serif; line-height: 1.25; margin: 0 0 10px; font-size: 40px; font-weight: bold; }
+
+p, label { color: #333333; font-family: "Helvetica Neue",Arial,sans-serif; font-size: 16px; font-weight: 300; line-height: 1.5625; margin-bottom: 15px; }
+
+form input {
+	line-height: 2em;
+
+	padding:1px 1px;
+	outline:none;
+	border:1px solid #bbb;
+	display:inline-block;
+	-webkit-box-sizing:border-box;
+	   -moz-box-sizing:border-box;
+	        box-sizing:border-box;
+    -webkit-transition:0.2s ease all;
+	   -moz-transition:0.2s ease all;
+	    -ms-transition:0.2s ease all;
+	     -o-transition:0.2s ease all;
+	        transition:0.2s ease all;
+}
+
+label {
+    display: inline-block;
+    width: 50%;
+    text-align: left;
+}
+
+form input:focus {
+background:#E5E4E2;
+}
+
+form textarea:focus {
+background:#E5E4E2;
+}
+
+form input[type=text]:focus,
+form input[type="password"]:focus {
+	border-color:cornflowerblue;
+}
+
+input[type=submit]:hover {
+	opacity:0.8;
+}
+
+input[type="submit"]:active {
+	opacity:0.4;
+}
