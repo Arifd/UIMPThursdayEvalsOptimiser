@@ -1,8 +1,8 @@
 body { background-color:#F8F8FF; }
 
-h1 { font-family: 'Enriqueta', arial, serif; line-height:0.8em; margin: 0 0 0 0px; padding: 0 0 0 0px; font-size: 1.5em; font-weight: bold; }
+h1 { line-height:0.8em; margin: 0 0 0 0px; padding: 0 0 0 0px; font-size: 1.5em; font-weight: bold; }
 
-p, label, input { color: #333333; font-family: "Helvetica Neue",Arial,sans-serif; font-size: 12px; font-weight: 300; margin-bottom: 2px; }
+p, label, input { color: #333333; font-size: 12px; font-weight: 300; margin-bottom: 2px; }
 
 form input {
 	line-height: 1.5em;
