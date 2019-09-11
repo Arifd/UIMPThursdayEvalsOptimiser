@@ -28,17 +28,10 @@ label {
     text-align: left;
 }
 
-form input:focus {
-background:#E5E4E2;
-}
-
+form input:focus,
 form textarea:focus {
 background:#E5E4E2;
-}
-
-form input[type=text]:focus,
-form input[type="password"]:focus {
-	border-color:cornflowerblue;
+border-color:cornflowerblue;
 }
 
 input[type=submit]:hover {
