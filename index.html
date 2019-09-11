@@ -33,7 +33,20 @@ if (today.getDay() != (4 || 5)) alert("Hey! Today's not Thursday or Friday.\n\nG
 </script>
 </head>
 <body>
-
+<!-- go full screen -->
+<script>
+  var elem = document.documentElement;
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+</script>
+	
 <!-- SPLASH SCREEN -->
 <div id="splashScreenDiv">
 <h1>UIMP Thursday Evals Optimiser</h1>
