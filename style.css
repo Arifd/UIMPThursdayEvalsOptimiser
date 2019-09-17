@@ -36,7 +36,7 @@ h1 {
   max-width: 40rem;
   background: #fff;
   width: 100%;
-  padding: 0rem 2.5rem 0;
+  padding: 1rem 2.5rem 0;
   border-radius: 1px;
 }
 .container::before {
