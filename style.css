@@ -18,8 +18,11 @@ body *::before {
   box-sizing: border-box;
 }
 
-html {
-  background: -webkit-linear-gradient(top, #f2f2f2, #e6e6e6);
+body {
+-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;  background: -webkit-linear-gradient(top, #f2f2f2, #e6e6e6);
   background: linear-gradient(top, #f2f2f2, #e6e6e6);
   background-repeat: no-repeat;
   min-height="100%";
