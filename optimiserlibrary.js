@@ -31,9 +31,12 @@ function appendRedundancy()
 	}
 	// Process ISO week number
 	document.getElementById("processedISOWeekNumber").value = getWeekNumber(today);
-	// START Process Levels + Changed
+	
+	// Process Levels + Changed
 	begLvl = parseFloat(document.getElementById("beginningLevel").value);
 	endLvl = parseFloat(document.getElementById("endLevel").value);
+	// turn "endLevel" into a string for submitting to UIMP as "Final Score"
+	document.getElementById("endLevel").value = endLvl.toString();
 	var begCEFRLvl = ""; // A1, A2, B1, B2, C1, C2
 	var endCEFRLvl = ""; // A1, A2, B1, B2, C1, C2
 	var levelChanged = false;
