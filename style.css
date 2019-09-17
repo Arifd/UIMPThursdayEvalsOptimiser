@@ -22,6 +22,7 @@ body *::before {
 body {
   background-image: -webkit-linear-gradient(top, #f2f2f2, #e6e6e6);
   background-image: linear-gradient(top, #f2f2f2, #e6e6e6);
+  background-repeat: no-repeat;
 }
 
 h1 {
@@ -33,9 +34,9 @@ h1 {
 .container {
   position: relative;
   max-width: 40rem;
-  background: #fff;
+  background: #F8F8FF;
   width: 100%;
-  padding: 3rem 5rem 0;
+  padding: 0rem 5rem 0;
   border-radius: 1px;
 }
 .container::before {
