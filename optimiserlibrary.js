@@ -38,6 +38,7 @@ function appendRedundancy()
 	// turn "endLevel" into a string for submitting to UIMP as "Final Score"
 	// document.getElementById("endLevel").value = endLvl.toString();
 	document.getElementById("endLevel").value = "9.9";
+	document.getElementById("comment").value = document.getElementById("endLevel").value;
 	var begCEFRLvl = ""; // A1, A2, B1, B2, C1, C2
 	var endCEFRLvl = ""; // A1, A2, B1, B2, C1, C2
 	var levelChanged = false;
