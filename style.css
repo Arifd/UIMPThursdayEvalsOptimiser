@@ -27,7 +27,6 @@ body {
 .container {
   margin: 0 auto;
   position: relative;
-  text-align: center;
   width: 95%;
   max-width: 40rem;
   background: #fff;
