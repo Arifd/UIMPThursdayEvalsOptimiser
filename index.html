@@ -69,7 +69,8 @@ Usage: When you click submit, this tool sends to Google all the information you 
 <hr>
 <form id="theForm" autocomplete="off" method="post" target="_blank" onsubmit="afterSubmit()">
  
-    <input type="text" id=formName placeholder="Student's name (exactly as written)" style="width: 100%;" /> <br><br>
+    <label for="formName">Student's Full name (Exactly as written):</label>
+	<input type="text" id=formName placeholder="Name" style="width: 90%;" /> <br><br>
     <input type="hidden" id=processedLastName value="lastName" />
     <input type="hidden" id=processedFirstName value="firstName" />
 
@@ -88,9 +89,11 @@ Usage: When you click submit, this tool sends to Google all the information you 
   	<!-- ISO Week Number -->
   	<input type="hidden" id=processedISOWeekNumber value="ISOWeekNumber" />
 
-	<input type="text" id="group" placeholder="Group" style="width: 100%;" /> <br>
+	<label for="group">Group:</label>
+	<input type="text" id="group" placeholder="Group" style="width: 90%;" /> <br>
 
-	<input type="text" id="teachersNames" placeholder="Teacher's name(s)" style="width: 100%;"/> <br> <br>
+	<label for="teachersNames">Teacher's Name(s):</label>
+	<input type="text" id="teachersNames" placeholder="Teacher(s)" style="width: 90%;" /> <br> <br>
 
 	<!-- CEFR Level at Beginning -->
 	<input type="hidden" id=levelAtBeginning value="levelAtBeginning" />
