@@ -34,9 +34,9 @@ h1 {
 .container {
   position: relative;
   max-width: 40rem;
-  background: #F8F8FF;
+  background: #fff;
   width: 100%;
-  padding: 0rem 5rem 0;
+  padding: 0rem 2.5rem 0;
   border-radius: 1px;
 }
 .container::before {
