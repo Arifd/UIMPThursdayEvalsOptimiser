@@ -139,13 +139,13 @@ function appendRedundancy()
 function afterSubmit()
 {	
 	// clean certain form fields
-	// document.getElementById("formName").value = "";
+	document.getElementById("formName").value = "";
 	document.getElementById("formName").placeholder = nameValue;
 	
-	// document.getElementById("beginningLevel").value = null;
+	document.getElementById("beginningLevel").value = null;
 	document.getElementById("beginningLevel").placeholder = begLvl;
-	// document.getElementById("endLevel").value = null;
-	document.getElementById("endLevel").placeholder = endLvl;
+	document.getElementById("formEndLevel").value = null;
+	document.getElementById("formEndLevel").placeholder = endLvl;
 	
 	// add information of previous form to html
 	// (not yet implemented)
