@@ -19,8 +19,8 @@ body *::before {
 }
 
 body {
-  background-image: -webkit-linear-gradient(top, #f2f2f2, #e6e6e6);
-  background-image: linear-gradient(top, #f2f2f2, #e6e6e6);
+  background: -webkit-linear-gradient(top, #f2f2f2, #e6e6e6);
+  background: linear-gradient(top, #f2f2f2, #e6e6e6);
   background-repeat: no-repeat;
   min-height="100%";
 }
