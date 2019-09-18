@@ -28,6 +28,9 @@ body {
   min-height="100%";
 }
 
+.titlebar { background-color: #6200EE;
+  overflow: hidden; }
+
 .container {
   margin-top: 0.75rem;
   margin-bottom: 0.75rem;
@@ -37,7 +40,6 @@ body {
   width: 95%;
   max-width: 40rem;
   background: #fafafa;
-  padding: 0.25rem 0.25rem 0.25rem;
   border-radius: 1px;
 }
 
@@ -71,7 +73,7 @@ hr {
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-h1, p { margin: 0 0 0 0px; padding: 0 0 0 0px; }
+h1, p, label, input { margin: 0 0 0 0px; padding: 0.25rem 0.25rem 0.25rem; }
 
 h1 { line-height:0.8em; font-size: 1.5em; font-weight: bold; }
 
