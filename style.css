@@ -42,9 +42,7 @@ display: table-cell;
     }
 
 .container {
-  margin-top: 0.75rem;
-  margin-bottom: 0.75rem;
-  /* margin: 0 auto; */
+  margin: 0.75rem auto;
   text-align: center;
   position: relative;
   width: 95%;
