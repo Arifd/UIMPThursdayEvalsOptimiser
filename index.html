@@ -64,14 +64,14 @@ This tool is an optimisation of the regular Thursday Evals Form.
 
 
 <!-- THE OPTIMISED FORM -->
-
 <div id="theFormDiv" hidden>
 <div class="container">
 <div class="titlebar"><h1 id="theFormTitle"></h1></div>
+<hr>
 <form id="theForm" autocomplete="off" method="post" target="_blank" onsubmit="afterSubmit()">
  
-    <label for="formName">Student's Full name (Exactly as written):</label>
-	<input type="text" id=formName placeholder="Name" /> <br><br>
+    <p>Student's Full name (Exactly as written):</p>
+    <input type="text" style="width: 60%" id=formName placeholder="Name" /> <br><br>
     <input type="hidden" id=processedLastName value="lastName" />
     <input type="hidden" id=processedFirstName value="firstName" />
 
@@ -136,8 +136,7 @@ This tool is an optimisation of the regular Thursday Evals Form.
 <div class="divTableBody">
 <div class="divTableRow">
 <div class="divTableCell">
-<label for="comment">Comment:</label>
-	<textarea id="comment" minlength="30" rows="3" style="width: 100%"></textarea>
+<textarea id="comment" minlength="30" rows="2" style="width: 100%" placeholder="Comment (min 30 characters)"></textarea>
     </div>
 <div class="divTableCell">
 <br><br>	
@@ -158,7 +157,7 @@ This tool is an optimisation of the regular Thursday Evals Form.
 	
     
 <input type="submit" onclick="appendRedundancy()" value="Submit">
-  
+  <hr>
 </form>
 </div>
 </div>
