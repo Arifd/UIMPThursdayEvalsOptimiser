@@ -27,6 +27,7 @@ if (today.getDay() != (4 || 5)) alert("Hey! Today's not Thursday.\n\nGo away now
 		if (selectedLocation != "nothing selected")
 		{
 			document.getElementById("splashScreenDiv").style.display = "none";
+			document.getElementById("locationSelectorDiv").style.display = "none";
 			document.getElementById("theFormDiv").style.display = "block";
 		}
 	}
@@ -50,7 +51,8 @@ Note: For any failed students in your group, you must use the original form.
 <p>
 Usage: When you click submit, this tool sends to Google all the information you would have sent anyway manually using the Google form. Once sent, google will send back a confirmation page that your browser will probably open in a new window or tab. Just close this to go back to the form, refill, and click submit again for the next student.
 </p>
-<hr>
+</div>
+<div id="locationSelectorDiv" class="container">
 <select id="locationSelector">
 	<option value="nothing selected" selected disabled hidden>Select location</option>
 	<option value="Sevilla">Sevilla</option>
