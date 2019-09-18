@@ -28,8 +28,18 @@ body {
   min-height="100%";
 }
 
-.titlebar { background-color: #6200EE;
-  overflow: hidden; }
+.titlebar { background-color: #3700B3;
+  overflow: hidden;
+  width: 100%;
+  min-height: 2.5rem;
+  display: table;
+  }
+
+.titlebar h1 {
+display: table-cell;
+    vertical-align: middle;
+    color: #ffffff;
+    }
 
 .container {
   margin-top: 0.75rem;
