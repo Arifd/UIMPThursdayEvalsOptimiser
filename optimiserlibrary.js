@@ -1,5 +1,10 @@
 function appendRedundancy()
 {
+	// determin if passed or failed
+	var passOrFailStatus = document.getElementById("formPassOrFail").checked;
+	if (passOrFailStatus) document.getElementById("passOrFail").value = "Pass";
+	else document.getElementById("passOrFail").value = "Fail";
+	
 	// Separate Name
 	nameValue = document.getElementById("formName").value;
 	var splitName = nameValue.split(", ");
