@@ -95,6 +95,7 @@ form input {
 	padding:1px 1px;
         margin-bottom: 1px;
 	outline:none;
+        border: none;
         border-bottom: 2px solid #999999;
         border-radius: 2px;
 	display:inline-block;
