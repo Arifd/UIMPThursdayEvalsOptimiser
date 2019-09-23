@@ -123,10 +123,10 @@ function pluginSevilla()
 	document.getElementById("changedLevel").name = "entry.1898877679";
 
 	for (i = 1; i < 6; i++) {document.getElementById("fluency-"+i).name = "entry.916825764";}
-	document.getElementById("pronunciation").name = "entry.1764100518";
-	document.getElementById("grammar").name = "entry.2128361282";
-	document.getElementById("vocabulary").name = "entry.978742957";
-	document.getElementById("comprehension").name = "entry.24510025";
+	for (i = 1; i < 6; i++) {document.getElementById("pronunciation-"+i).name = "entry.1764100518";
+	for (i = 1; i < 6; i++) {document.getElementById("grammar-"+i).name = "entry.2128361282";
+	for (i = 1; i < 6; i++) {document.getElementById("vocabulary-"+i).name = "entry.978742957";
+	for (i = 1; i < 6; i++) {document.getElementById("comprehension-"+i).name = "entry.24510025";
 
 	document.getElementById("formHomework").name = "entry.1208927224";
 	document.getElementById("formParticipation").name = "entry.642674893";
