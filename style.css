@@ -106,7 +106,7 @@ form input {
 	        transition:0.2s ease all;
 }
 
-label:not(.onoffswitch-label) {
+label:not(.onoffswitch-label, .radio-label) {
     display: inline-block;
     width: 50%;
     max-width:350px;
