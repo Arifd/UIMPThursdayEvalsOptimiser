@@ -107,8 +107,14 @@ This tool is an optimisation of the regular Thursday Evals Form.
 	<!-- Changed Level -->
 	<input type="hidden" id=changedLevel value="changedLevel" />
 
+	<div class="radio-toolbar">
 	<label for="fluency">Fluency:</label>
-	<input type="number" id="fluency" min="1" max="5" value="3"> <br>
+	<input type="radio" id="fluency-1" name="fluency" value="1" /><label for="fluency-1">1</label>
+        <input type="radio" class="radio-label" id="fluency-2" name="fluency" value="2" /><label for="fluency-2">2</label>
+        <input type="radio" class="radio-label" id="fluency-3" name="fluency" value="3" checked /><label for="fluency-3">3</label>
+        <input type="radio" id="fluency-4" name="fluency" value="4" /><label for="fluency-4">4</label>
+        <input type="radio" id="fluency-5" name="fluency" value="5" /><label for="fluency-5">5</label>
+        </div>
 
 	<label for="pronunciation">Pronunciation:</label>
 	<input type="number" id="pronunciation" min="1" max="5" value="3"> <br>
