@@ -191,14 +191,14 @@ input[type="submit"]:active {
 }
 .onoffswitch-inner:before, .onoffswitch-inner:after {
     display: block; float: left; width: 50%; height: 22px; padding: 0; line-height: 22px;
-    font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; /*font-weight: bold;*/
+    font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
     box-sizing: border-box;
 }
 .onoffswitch-inner:before {
 	text-align: left;
     content: "PASS";
     padding-left: 7px;
-    background-color: #bfb; color: #000000;
+    background-color: #ddd; color: #000000;
 }
 .onoffswitch-inner:after {
     content: "FAIL";
