@@ -30,11 +30,11 @@ function pluginBlank()
 
 	document.getElementById("changedLevel").name = "";
 
-	document.getElementById("fluency").name = "";
-	document.getElementById("pronunciation").name = "";
-	document.getElementById("grammar").name = "";
-	document.getElementById("vocabulary").name = "";
-	document.getElementById("comprehension").name = "";
+	for (i = 1; i < 6; i++) {document.getElementById("fluency-"+i).name = "";}
+	for (i = 1; i < 6; i++) {document.getElementById("pronunciation-"+i).name = "";
+	for (i = 1; i < 6; i++) {document.getElementById("grammar-"+i).name = "";
+	for (i = 1; i < 6; i++) {document.getElementById("vocabulary-"+i).name = "";
+	for (i = 1; i < 6; i++) {document.getElementById("comprehension-"+i).name = "";
 
 	document.getElementById("formHomework").name = "";
 	document.getElementById("formParticipation").name = "";
