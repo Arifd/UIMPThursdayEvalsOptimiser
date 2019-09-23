@@ -118,6 +118,8 @@ form input {
     min-width: 5.25rem;
     max-width: 350px;
     text-align: right;
+	padding: 0 0 0 0px;
+	margin: 0 0 0 0px;
 }
 
 /*****************************************************************/
