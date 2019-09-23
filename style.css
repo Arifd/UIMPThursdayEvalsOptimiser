@@ -139,7 +139,7 @@ form input {
     background-color: #ddd;
     padding: 2px 15px;
     border: 2px solid #999999;
-    border-radius: 4px;
+    border-radius: 2px;
 }
 .radio-toolbar label:not(.radio-toolbar-title):hover {
   background-color: #dfd;
