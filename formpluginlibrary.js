@@ -31,10 +31,10 @@ function pluginBlank()
 	document.getElementById("changedLevel").name = "";
 
 	for (i = 1; i < 6; i++) {document.getElementById("fluency-"+i).name = "";}
-	for (i = 1; i < 6; i++) {document.getElementById("pronunciation-"+i).name = "";
-	for (i = 1; i < 6; i++) {document.getElementById("grammar-"+i).name = "";
-	for (i = 1; i < 6; i++) {document.getElementById("vocabulary-"+i).name = "";
-	for (i = 1; i < 6; i++) {document.getElementById("comprehension-"+i).name = "";
+	for (i = 1; i < 6; i++) {document.getElementById("pronunciation-"+i).name = "";}
+	for (i = 1; i < 6; i++) {document.getElementById("grammar-"+i).name = "";}
+	for (i = 1; i < 6; i++) {document.getElementById("vocabulary-"+i).name = "";}
+	for (i = 1; i < 6; i++) {document.getElementById("comprehension-"+i).name = "";}
 
 	document.getElementById("formHomework").name = "";
 	document.getElementById("formParticipation").name = "";
@@ -77,10 +77,10 @@ function pluginDummyForm()
 	document.getElementById("changedLevel").name = "entry.502099535";
 
 	for (i = 1; i < 6; i++) {document.getElementById("fluency-"+i).name = "entry.1839803024";}
-	for (i = 1; i < 6; i++) {document.getElementById("pronunciation-"+i).name = "entry.498561152";
-	for (i = 1; i < 6; i++) {document.getElementById("grammar-"+i).name = "entry.1379348697";
-	for (i = 1; i < 6; i++) {document.getElementById("vocabulary-"+i).name = "entry.835827768";
-	for (i = 1; i < 6; i++) {document.getElementById("comprehension-"+i).name = "entry.1952347568";
+	for (i = 1; i < 6; i++) {document.getElementById("pronunciation-"+i).name = "entry.498561152";}
+	for (i = 1; i < 6; i++) {document.getElementById("grammar-"+i).name = "entry.1379348697";}
+	for (i = 1; i < 6; i++) {document.getElementById("vocabulary-"+i).name = "entry.835827768";}
+	for (i = 1; i < 6; i++) {document.getElementById("comprehension-"+i).name = "entry.1952347568";}
 
 	document.getElementById("formHomework").name = "entry.2054164790";
 	document.getElementById("formParticipation").name = "entry.230056582";
@@ -123,10 +123,10 @@ function pluginSevilla()
 	document.getElementById("changedLevel").name = "entry.1898877679";
 
 	for (i = 1; i < 6; i++) {document.getElementById("fluency-"+i).name = "entry.916825764";}
-	for (i = 1; i < 6; i++) {document.getElementById("pronunciation-"+i).name = "entry.1764100518";
-	for (i = 1; i < 6; i++) {document.getElementById("grammar-"+i).name = "entry.2128361282";
-	for (i = 1; i < 6; i++) {document.getElementById("vocabulary-"+i).name = "entry.978742957";
-	for (i = 1; i < 6; i++) {document.getElementById("comprehension-"+i).name = "entry.24510025";
+	for (i = 1; i < 6; i++) {document.getElementById("pronunciation-"+i).name = "entry.1764100518";}
+	for (i = 1; i < 6; i++) {document.getElementById("grammar-"+i).name = "entry.2128361282";}
+	for (i = 1; i < 6; i++) {document.getElementById("vocabulary-"+i).name = "entry.978742957";}
+	for (i = 1; i < 6; i++) {document.getElementById("comprehension-"+i).name = "entry.24510025";}
 
 	document.getElementById("formHomework").name = "entry.1208927224";
 	document.getElementById("formParticipation").name = "entry.642674893";
