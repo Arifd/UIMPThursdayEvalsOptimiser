@@ -76,7 +76,7 @@ function pluginDummyForm()
 
 	document.getElementById("changedLevel").name = "entry.502099535";
 
-	document.getElementById("fluency").name = "entry.1839803024";
+	for (i = 1; i < 6; i++) {document.getElementById("fluency"+i).name = "entry.1839803024";}
 	document.getElementById("pronunciation").name = "entry.498561152";
 	document.getElementById("grammar").name = "entry.1379348697";
 	document.getElementById("vocabulary").name = "entry.835827768";
@@ -122,7 +122,7 @@ function pluginSevilla()
 
 	document.getElementById("changedLevel").name = "entry.1898877679";
 
-	document.getElementById("fluency").name = "entry.916825764";
+	for (i = 1; i < 6; i++) {document.getElementById("fluency"+i).name = "entry.916825764";}
 	document.getElementById("pronunciation").name = "entry.1764100518";
 	document.getElementById("grammar").name = "entry.2128361282";
 	document.getElementById("vocabulary").name = "entry.978742957";
