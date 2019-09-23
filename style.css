@@ -191,7 +191,7 @@ input[type="submit"]:active {
 }
 .onoffswitch-inner:before, .onoffswitch-inner:after {
     display: block; float: left; width: 50%; height: 22px; padding: 0; line-height: 22px;
-    font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif;
     box-sizing: border-box;
 }
 .onoffswitch-inner:before {
@@ -201,6 +201,7 @@ input[type="submit"]:active {
     background-color: #ddd; color: #000000;
 }
 .onoffswitch-inner:after {
+    font-weight: bold;
     content: "FAIL";
     padding-right: 10px;
     background-color: #ba000d; color: #999999;
