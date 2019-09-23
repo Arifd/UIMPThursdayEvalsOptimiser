@@ -148,7 +148,7 @@ form input {
     border: 2px dashed #444;
 }
 .radio-toolbar input[type="radio"]:checked + label {
-    background-color: #bfb;
+    background-color: #087f23;
     border-color: #4c4;
 }
 
