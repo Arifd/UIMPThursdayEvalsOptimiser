@@ -106,10 +106,17 @@ form input {
 	        transition:0.2s ease all;
 }
 
-label:not(.onoffswitch-label, .radio-toolbar) {
+.main-label {
     display: inline-block;
     width: 50%;
-    max-width:350px;
+    max-width: 350px;
+    text-align: left;
+}
+
+.radio-toolbar-title {
+    display: inline-block;
+    min-width: 100px;
+    max-width: 350px;
     text-align: left;
 }
 
@@ -131,7 +138,7 @@ label:not(.onoffswitch-label, .radio-toolbar) {
     display: inline-block;
     background-color: #ddd;
     padding: 2px 15px;
-    border: 2px solid #444;
+    border: 2px solid #999999;
     border-radius: 4px;
 }
 .radio-toolbar label:not(.radio-toolbar-title):hover {
