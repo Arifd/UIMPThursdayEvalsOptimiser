@@ -198,7 +198,7 @@ input[type="submit"]:active {
 	text-align: left;
     content: "PASS";
     padding-left: 7px;
-    background-color: #bfb; color: #FFFFFF;
+    background-color: #4c4; color: #000000;
 }
 .onoffswitch-inner:after {
     content: "FAIL";
