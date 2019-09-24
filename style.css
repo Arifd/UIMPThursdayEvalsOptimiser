@@ -257,7 +257,7 @@ border-color:cornflowerblue;
     transition: margin 0.2s ease-in 0s;
 }
 .onoffswitch-inner:before, .onoffswitch-inner:after {
-    display: block; float: left; width: 50%; height: 20px; padding: 0; line-height: 22px;
+    display: block; float: left; width: 50%; height: 22px; padding: 0; line-height: 22px;
     font-size: 14px; color: white; /* font-family: Trebuchet, Arial, sans-serif; */
     box-sizing: border-box;
 }
