@@ -149,7 +149,7 @@ border-color:cornflowerblue;
 
 
 .main-label {
-    display: inline-block;
+    display: block;
     width: 50%;
     max-width: 350px;
     text-align: left;
