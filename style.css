@@ -217,10 +217,9 @@ border-color:cornflowerblue;
 .radio-toolbar label:not(.radio-toolbar-title) {
     display: inline-block;
     background-color: #ddd;
-    padding: 0px 15px;
+    padding: 2.5px 15px;
     border: 2px solid #999999;
     border-radius: 2px;
-    height: 22px;
 }
 .radio-toolbar label:not(.radio-toolbar-title):hover {
   background-color: #dfd;
@@ -258,7 +257,7 @@ border-color:cornflowerblue;
     transition: margin 0.2s ease-in 0s;
 }
 .onoffswitch-inner:before, .onoffswitch-inner:after {
-    display: block; float: left; width: 50%; height: 22px; padding: 0; line-height: 22px;
+    display: block; float: left; width: 50%; height: 20px; padding: 0; line-height: 22px;
     font-size: 14px; color: white; /* font-family: Trebuchet, Arial, sans-serif; */
     box-sizing: border-box;
 }
