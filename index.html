@@ -97,16 +97,18 @@ This tool is an optimisation of the regular Thursday Evals Form.
 	<!-- CEFR Level at End -->
 	<input type="hidden" id=levelAtEnd value="levelAtEnd" />
 
-	<!-- Table to hold both levels horizontally -->
+
+<!-- Table to hold both levels horizontally -->
 <div class="divTable">
 <div class="divTableBody">
-<div class="divTableRow">
+<div class="divTableRow"   style="text-align: center;">
 <div class="divTableCell">
-<label class="main-label" for="beginningLevel">Berlitz Level (during the week):</label>
+
+<label style="display: block;" for="beginningLevel">Berlitz Level (during the week):</label>
 <input type="number" step=0.1 min="0.0" max="99.9" id=beginningLevel placeholder="0.0" /> <!-- we need beginning level to process changed level -->
 </div>
 <div class="divTableCell">
-<label class="main-label" for="formEndLevel">Berlitz End Level:</label>
+<label style="display: block;" for="formEndLevel">Berlitz End Level:</label>
 <input type="number" step=0.1 min="0.0" max="99.9" id=formEndLevel placeholder="0.0" /> <!-- This is "final score" -->
 	<input type="hidden" id="endLevel"> <!-- this is what we send off to google. Seperate from formEndLevel because we want to reset the form after submitting, but not the actual value sent to google -->
 </div>
