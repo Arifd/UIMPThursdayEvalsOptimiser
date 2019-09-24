@@ -250,7 +250,7 @@ border-color:cornflowerblue;
 }
 .onoffswitch-label {
     display: block; overflow: hidden; cursor: pointer;
-    border: 2px solid #999999; border-radius: 30px;
+    border: 2px solid #999999; border-radius: 2px;
 }
 .onoffswitch-inner {
     display: block; width: 200%; margin-left: -100%;
