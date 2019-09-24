@@ -148,6 +148,14 @@ form input {
 	        transition:0.2s ease all;
 }
 
+input[type="number"] {
+display: inline-block;
+    background-color: #ddd;
+   
+    border: 2px solid #999999;
+    border-radius: 2px;
+}
+
 input[type="submit"] {
   line-height: 40px;
   display: inline-block;
@@ -311,7 +319,7 @@ border-color:cornflowerblue;
 .divTableCell, .divTableHead {
 	border: 0px solid #999999;
 	display: table-cell;
-	padding: 3px 10px;
+	/*padding: 3px 10px;*/
 }
 .divTableHeading {
 	background-color: #EEE;
