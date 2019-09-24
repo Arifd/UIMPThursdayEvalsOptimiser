@@ -109,6 +109,44 @@ form input {
 	        transition:0.2s ease all;
 }
 
+input[type="submit"] {
+  line-height: 40px;
+  display: inline-block;
+  padding: 0 25px;
+  cursor: pointer;
+  color: #fff;
+  font-family: "Roboto", "Arial", "Helvetica Neue", sans-serif;
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  font-size: 14px;
+  font-weight: 700;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background: #57b846;
+}
+
+input[type="submit"]:hover {
+  background: #4dae3c;
+opacity:0.8;
+}
+
+input[type="submit"]:active {
+	opacity:0.4;
+}
+
+
+form input:focus,
+form textarea:focus {
+background:#E5E4E2;
+border-color:cornflowerblue;
+}
+
+
+
+
 .main-label {
     display: inline-block;
     width: 50%;
@@ -159,19 +197,6 @@ form input {
 
 
 
-form input:focus,
-form textarea:focus {
-background:#E5E4E2;
-border-color:cornflowerblue;
-}
-
-input[type=submit]:hover {
-	opacity:0.8;
-}
-
-input[type="submit"]:active {
-	opacity:0.4;
-}
 
 /*****************************************************************/
 /* On Off Switch */
