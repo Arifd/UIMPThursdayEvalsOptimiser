@@ -18,6 +18,8 @@ body *::before {
   box-sizing: border-box;
 }
 
+/*body { background-color:#F8F8FF; }*/
+
 /* Grey subtle gradient */
 /*body {
 -webkit-background-size: cover;
@@ -83,7 +85,6 @@ display: table-cell;
           transform: scale(1);
 }
 
-body { background-color:#F8F8FF; }
 
 hr { 
     border: 0;
