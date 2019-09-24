@@ -18,7 +18,7 @@ body *::before {
   box-sizing: border-box;
 }
 
-
+/* Grey subtle gradient */
 /*body {
 -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -29,6 +29,15 @@ body *::before {
   min-height="100%";
 }*/
 
+
+/* Blue background */
+body {
+  background-color: #0B44EF;
+  background-image: linear-gradient(-45deg, #0B44EF, #1a8bf4);
+  padding-top: 16%;
+  padding-bottom: 16%;
+  color: #c9d6fd;
+}
 
 .titlebar { background-color: #3700B3;
   overflow: hidden;
