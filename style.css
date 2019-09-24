@@ -151,7 +151,7 @@ form input {
 input[type="number"] {
 display: inline-block;
     background-color: #ddd;
-   
+    width: 3rem;
     border: 2px solid #999999;
     border-radius: 2px;
 }
