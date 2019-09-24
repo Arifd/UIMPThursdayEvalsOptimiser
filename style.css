@@ -18,7 +18,7 @@ body *::before {
   box-sizing: border-box;
 }
 
-/*body { background-color:#F8F8FF; }*/
+body { background-color:#F8F8FF; }
 
 /* Grey subtle gradient */
 /*body {
@@ -33,7 +33,7 @@ body *::before {
 
 
 /* Blue background */
-body {
+/*body {
   background-color: #0B44EF;
   background: linear-gradient(-45deg, #0B44EF, #1a8bf4);
   color: #c9d6fd;
@@ -43,7 +43,7 @@ body {
     background-size: cover;
   background-repeat: no-repeat;
   min-height="100%";
-}
+}*/
 
 .titlebar { background-color: #3700B3;
   overflow: hidden;
