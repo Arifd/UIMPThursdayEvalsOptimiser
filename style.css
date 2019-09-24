@@ -312,7 +312,7 @@ border-color:cornflowerblue;
 }
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 220px;
+  width: 180px;
   background-color: black;
   color: #fff;
   font-size: 12px;
@@ -323,7 +323,7 @@ border-color:cornflowerblue;
   z-index: 1;
   top: 150%;
   left: 50%;
-  margin-left: -110px;
+  margin-left: -90px;
   opacity: 0;
   transition: opacity 1s;
 }
