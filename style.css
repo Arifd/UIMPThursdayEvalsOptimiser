@@ -18,8 +18,8 @@ body *::before {
   box-sizing: border-box;
 }
 
-/*
-body {
+
+.container {
 -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -28,7 +28,7 @@ body {
   background-repeat: no-repeat;
   min-height="100%";
 }
-*/
+
 
 .titlebar { background-color: #3700B3;
   overflow: hidden;
@@ -49,7 +49,7 @@ display: table-cell;
   position: relative;
   width: 95%;
   max-width: 40rem;
-  background: #fafafa;
+  /*background: #fafafa;*/
   border-radius: 1px;
 }
 
