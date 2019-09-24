@@ -217,7 +217,7 @@ border-color:cornflowerblue;
 .radio-toolbar label:not(.radio-toolbar-title) {
     display: inline-block;
     background-color: #ddd;
-    padding: 2.5px 15px;
+    padding: 0px 15px;
     border: 2px solid #999999;
     border-radius: 2px;
     height: 22px;
