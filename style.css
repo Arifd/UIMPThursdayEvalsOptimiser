@@ -35,12 +35,12 @@ body *::before {
 /* Blue background */
 body {
   background-color: #0B44EF;
-  background-image: linear-gradient(-45deg, #0B44EF, #1a8bf4);
+  background: linear-gradient(-45deg, #0B44EF, #1a8bf4);
   color: #c9d6fd;
 -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;  background: -webkit-linear-gradient(top, #f2f2f2, #e6e6e6);
+    background-size: cover;
   background-repeat: no-repeat;
   min-height="100%";
 }
