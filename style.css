@@ -279,7 +279,7 @@ border-color:cornflowerblue;
     background: #FFFFFF;
     position: absolute; top: 0; bottom: 0;
     right: 48px;
-    border: 2px solid #cccccc; border-radius: 2px;
+    border: 1px solid #eeeeee; border-radius: 2px;
     transition: all 0.2s ease-in 0s; 
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
