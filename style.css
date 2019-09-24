@@ -308,11 +308,11 @@ border-color:cornflowerblue;
 .tooltip {
   position: relative;
   display: inline-block;
-  border-bottom: 1px dotted black;
+  border-bottom: 0px dotted black;
 }
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 120px;
+  width: 220px;
   background-color: black;
   color: #fff;
   text-align: center;
@@ -322,7 +322,7 @@ border-color:cornflowerblue;
   z-index: 1;
   top: 150%;
   left: 50%;
-  margin-left: -60px;
+  margin-left: -110px;
   opacity: 0;
   transition: opacity 1s;
 }
