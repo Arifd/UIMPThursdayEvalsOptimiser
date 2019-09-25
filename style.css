@@ -275,7 +275,7 @@ border-color:cornflowerblue;
     padding-left: 8px;
     background-color: #ddd; color: #000000;
 }
-.onoffswitch-inner:before::hover {
+.onoffswitch-inner:before:hover {
 	background-color: #dfd;
 }
 .onoffswitch-inner:after {
