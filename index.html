@@ -115,7 +115,7 @@ This tool is an optimisation of the regular Thursday Evals Form.
 <div class="divTableCell">
 <div class="tooltip">
 <label style="display: block;" for="formEndLevel">Final score:</label>
-<input type="number" step=0.1 min="0.0" max="99.9" id=formEndLevel placeholder="0.0" /> <!-- This is "final score" -->
+<input type="number" step=0.1 min="0.0" max="99.9" id=formEndLevel placeholder="0.0" oninput="adjustSkills()"/> <!-- This is "final score" -->
 	<input type="hidden" id="endLevel"> <!-- this is what we send off to google. Seperate from formEndLevel because we want to reset the form after submitting, but not the actual value sent to google -->
 </div>
 </div>
