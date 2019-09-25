@@ -3,237 +3,242 @@
 <head>
 <style>
 /*****************************************************************/
-/* submit button: https://codepen.io/rikschennink/pen/mjBsA */
+/* progress button: https://codepen.io/rikschennink/pen/mjBsA */
 /*****************************************************************/
-@keyframes button-loading {
-  20% {
-    color: transparent;
-    transform: scale(1, 1);
-  }
-  40% {
-    border-color: #5585ff;
-    background-color: transparent;
-    transform: scale(1, 1);
-  }
-  60% {
-    transform: scale(0.7, 1.1);
-    margin-left: 1.25rem;
-    width: 2.5rem;
-    text-indent: -0.6125rem;
-    color: transparent;
-    border-color: #5585ff;
-    background-color: #5585ff;
-  }
-  80% {
-    transform: scale(1, 1);
-  }
-  100% {
-    margin-left: 1.25rem;
-    width: 2.5rem;
-    background-color: #5585ff;
-    border-color: #5585ff;
-    color: transparent;
-  }
+.row {
+	display: flex;
+	justify-content: space-around;
+	margin-top: 50px;
 }
-@keyframes button-dot-intro {
-  0% {
-    opacity: 0;
-  }
-  60% {
-    opacity: 1;
-    transform: scale(1, 1);
-  }
-  100% {
-    transform: scale(0.75, 0.75);
-  }
+.progress-btn {
+	position: relative;
+	width: 150px;
+	height: 50px;
+	display: inline-block;
+	background: /*#f44336;*/ green;
+	font-family: "RobotoDraft", "Roboto", sans-serif;
+	color: #fff;
+	font-weight: normal;
+	font-size: 20px;
+	transition: all 0.4s ease;
 }
-@keyframes button-dot-pulse {
-  0% {
-    opacity: 1;
-    transform: scale(0.75, 0.75);
-  }
-  15% {
-    transform: scale(0.85, 0.85);
-  }
-  45% {
-    transform: scale(0.75, 0.75);
-  }
-  55% {
-    transform: scale(0.95, 0.95);
-  }
-  85% {
-    transform: scale(0.75, 0.75);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(0.75, 0.75);
-  }
-}
-@keyframes button-ready {
-  0% {
-    margin-left: 1.25rem;
-    width: 2.5rem;
-  }
-  10% {
-    background-color: #5585ff;
-    border-color: #5585ff;
-  }
-  70% {
-    margin: 0;
-    width: 7.25rem;
-    background-color: #fff;
-    transform: scale(1.1, 1.1);
-  }
-  100% {
-    margin: 0;
-    width: 7rem;
-    border-color: #8cce1e;
-    background-color: #fff;
-  }
-}
-@keyframes button-error {
-  0% {
-    margin-left: 1.25rem;
-    width: 2.5rem;
-  }
-  10% {
-    background-color: #5585ff;
-    border-color: #5585ff;
-  }
-  70% {
-    margin: 0;
-    width: 7.25rem;
-    background-color: #fff;
-    transform: scale(1.1, 1.1);
-  }
-  100% {
-    margin: 0;
-    width: 7rem;
-    border-color: #ba000d;
-    background-color: #fff;
-  }
-}
-@keyframes button-dot-outro {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1, 1);
-  }
-}
-@keyframes button-ready-label {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+.progress-btn:not(.active) {
+	cursor: pointer;
 }
 
-button {
-  position: relative;
-  overflow: hidden;
-  width: 7rem;
-  color: #5585ff;
-  border: 2px solid #5585ff;
-  border-radius: 3px;
-  background-color: transparent;
-  cursor: pointer;
-  line-height: 2;
-  margin: 0;
-  padding: 0;
-  font-size: 1.125rem;
-  text-transform: lowercase;
-  outline: none;
-  transition: transform .125s;
+.progress-btn .btn {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	line-height: 50px;
+	text-align: center;
+	z-index: 10;
+	opacity: 1;
 }
-button:hover {
-opacity:0.8;
-transition: 0.2s ease;
+
+.progress-btn .progress {
+	width: 0%;
+	z-index: 5;
+	background: #d32f2f;
+	opacity: 0;
+	transition: all 0.3s ease;
 }
-button:active {
-  transform: scale(0.9, 0.9);
+.progress-btn.active .progress {
+	opacity: 1;
+	animation: progress-anim 10s ease 0s;
 }
-button:before, button:after {
-  position: absolute;
-  opacity: 0;
-  border-radius: 50%;
-  background-color: #fff;
-  top: 50%;
-  left: 50%;
-  margin-top: -1.125rem;
-  margin-left: -1.125rem;
-  width: 2.25rem;
-  height: 2.25rem;
-  content: '';
-  z-index: 1;
+.progress-btn[data-progress-style="indefinite"].active .progress {
+	animation: progress-indefinite-anim 1s infinite linear 0s;
+    opacity: 0.125;
 }
-button.loading {
-  border-radius: 1.5rem;
-  animation: button-loading .5s forwards;
+.progress-btn[data-progress-style="fill-bottom"].active .progress,
+.progress-btn[data-progress-style="fill-top"].active .progress {
+	height: 5px;
 }
-button.loading:before {
-  opacity: 1;
-  animation: button-dot-intro .5s forwards;
+.progress-btn[data-progress-style="indefinite-circle"].active .progress {
+	animation: dash 2s ease infinite, rotate 2s linear infinite;
 }
-button.loading:after {
-  opacity: 0;
-  animation: button-dot-pulse 1.5s infinite .5s;
+
+.progress-btn[data-progress-style="indefinite-circle"].active {
+	width: 50px;
 }
-button.ready {
-  text-indent: 0;
-  color: transparent;
-  background-color: #5585ff;
-  animation: button-ready .333s forwards;
+
+.progress-btn[data-progress-style="fill-back"] .progress {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
 }
-button.ready:before {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: auto;
-  margin: 0;
-  width: auto;
-  height: auto;
-  border-radius: 0;
-  background-color: transparent;
-  color: #8cce1e;
-  content: 'success';
-  opacity: 0;
-  z-index: 2;
-  animation: button-ready-label .5s forwards .275s;
+.progress-btn[data-progress-style="fill-bottom"] .progress {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 0;
 }
-button.ready:after {
-  opacity: 1;
-  animation: button-dot-outro .333s;
+.progress-btn[data-progress-style="fill-top"] .progress {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	height: 0;
 }
-/* create error button */
-button.error {
-  text-indent: 0;
-  color: transparent;
-  background-color: #ba000d;
-  animation: button-error .333s forwards;
+.progress-btn[data-progress-style="indefinite"] .progress {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='100' viewBox='0 0 5 10'%3E%3Crect width='110%25' x='-5%25' y='-5%25' height='110%25' fill='transparent'/%3E%3Cline x1='-2' y1='1' x2='7' y2='10' stroke='%23000000' stroke-width='2'/%3E%3Cline x1='-2' y1='6' x2='7' y2='15' stroke='%23000000' stroke-width='2'/%3E%3Cline x1='-2' y1='-4' x2='7' y2='5' stroke='%23000000' stroke-width='2'/%3E%3C/svg%3E");
 }
-button.error:before {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: auto;
-  margin: 0;
-  width: auto;
-  height: auto;
-  border-radius: 0;
-  background-color: transparent;
-  color: #999999;
-  content: 'error';
-  opacity: 0;
-  z-index: 2;
-  animation: button-ready-label .5s forwards .275s;
+.progress-btn[data-progress-style="indefinite-circle"] .progress {
+	width: 40px;
+	height: 40px;
+	background: transparent;
+	position: absolute;
+	top: 5px;
+	left: calc(50% - 20px);
 }
-button.error:after {
-  opacity: 1;
-  animation: button-dot-outro .333s;
+.progress-btn[data-progress-style="indefinite-circle"].active .btn {
+	opacity: 0;
 }
+
+.circle-loader {
+	fill: transparent;
+	stroke: #eee;
+	stroke-width: 5;
+}
+
+@keyframes dash {
+	0% {
+		stroke-dasharray: 1, 95;
+		stroke-dashoffset: 0;
+	}
+	50% {
+		stroke-dasharray: 85, 95;
+		stroke-dashoffset: -25;
+	}
+	100% {
+		stroke-dasharray: 85, 95;
+		stroke-dashoffset: -93;
+	}
+}
+
+@keyframes rotate {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes progress-anim {
+	0% {
+		width: 0%;
+	}
+	5% {
+		width: 0%;
+	}
+	10% {
+		width: 15%;
+	}
+	30% {
+		width: 40%;
+	}
+	50% {
+		width: 55%;
+	}
+	80% {
+		width: 100%;
+	}
+	95% {
+		width: 100%;
+	}
+	100% {
+		width: 0%;
+	}
+}
+
+@keyframes progress-indefinite-anim {
+	0% {
+		background-position: 0% 0%;
+        
+	}
+	100% {
+		background-position: 100% 0%;
+        
+	}
+}
+
+
+/*****************************************************************/
+/* colourful buttons: https://gist.github.com/rajinfiniti/3034092#file-dabblet-html */
+/*****************************************************************/
+.button {
+	/*padding: 13px 40px;*/
+	border: 1px solid;
+	border-radius: 4px;
+	box-shadow: inset 0 -2px 15px 0 rgba(0, 0, 0, 0.15), inset 0 1px 1px 0 rgba(255, 255, 255, 0.5), 0 2px 2px 0 rgba(0, 0, 0, 0.15);
+	display: inline-block;
+	font-weight: bold;
+	color: #fff;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+	transition: opacity 1s;
+	-moz-transition: opacity 1s;
+	-webkit-transition: opacity 1s;
+	-o-transition: opacity 1s;
+
+}
+.red {
+	border-color: #C9362F;
+	background-color: #e67060;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(230, 112, 96)), to(rgb(205, 41, 37)));
+	background-image: -webkit-linear-gradient(top, rgb(230, 112, 96), rgb(205, 41, 37));
+	background-image: -moz-linear-gradient(top, rgb(230, 112, 96), rgb(205, 41, 37));
+	background-image: -o-linear-gradient(top, rgb(230, 112, 96), rgb(205, 41, 37));
+	background-image: -ms-linear-gradient(top, rgb(230, 112, 96), rgb(205, 41, 37));
+	background-image: linear-gradient(top, rgb(230, 112, 96), rgb(205, 41, 37));
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#e67060', EndColorStr='#cd2925');
+}
+.green {
+	border-color: #008f4f;
+	background-color: #00dd95;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(0, 221, 149)), to(rgb(0, 184, 78)));
+	background-image: -webkit-linear-gradient(top, rgb(0, 221, 149), rgb(0, 184, 78));
+	background-image: -moz-linear-gradient(top, rgb(0, 221, 149), rgb(0, 184, 78));
+	background-image: -o-linear-gradient(top, rgb(0, 221, 149), rgb(0, 184, 78));
+	background-image: -ms-linear-gradient(top, rgb(0, 221, 149), rgb(0, 184, 78));
+	background-image: linear-gradient(top, rgb(0, 221, 149), rgb(0, 184, 78));
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#00dd95', EndColorStr='#00b84e');
+}
+.blue {
+	border-color: #194fdc;
+	background-color: #67a4f7;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(103, 164, 247)), to(rgb(37, 96, 237)));
+	background-image: -webkit-linear-gradient(top, rgb(103, 164, 247), rgb(37, 96, 237));
+	background-image: -moz-linear-gradient(top, rgb(103, 164, 247), rgb(37, 96, 237));
+	background-image: -o-linear-gradient(top, rgb(103, 164, 247), rgb(37, 96, 237));
+	background-image: -ms-linear-gradient(top, rgb(103, 164, 247), rgb(37, 96, 237));
+	background-image: linear-gradient(top, rgb(103, 164, 247), rgb(37, 96, 237));
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#67a4f7', EndColorStr='#2560ed');
+}
+.gray {
+	border-color: #363e46;
+	background-color: #6b7179;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(107, 113, 121)), to(rgb(40, 44, 51)));
+	background-image: -webkit-linear-gradient(top, rgb(107, 113, 121), rgb(40, 44, 51));
+	background-image: -moz-linear-gradient(top, rgb(107, 113, 121), rgb(40, 44, 51));
+	background-image: -o-linear-gradient(top, rgb(107, 113, 121), rgb(40, 44, 51));
+	background-image: -ms-linear-gradient(top, rgb(107, 113, 121), rgb(40, 44, 51));
+	background-image: linear-gradient(top, rgb(107, 113, 121), rgb(40, 44, 51));
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#6b7179', EndColorStr='#282c33');
+}
+.button:hover { opacity: 0.85; }
+.button:active { position: relative; top: 1px; }
 
 
 
@@ -246,33 +251,42 @@ button.error:after {
 <form id="myForm">
 name <input type="text" name="entry.1492703236"><br>
 
-<button id="submitButton" type="button" onclick="sendForm()">Send</button>
-
+<div class="progress-btn button red" id="submitButton" onclick="sendForm()" data-progress-style="indefinite">
+	  <div class="btn" >Button</div>
+	  <div class="progress"></div>
 
  </form>
  
  
  <script>
+ function hasClass( target, className )
+ { // a function to test if a target contains a specific class property
+    return new RegExp('(\\s|^)' + className + '(\\s|$)').test(target.className);
+}
+ 
+ 
  /*async*/ function sendForm() {
  
  // First turn submit button into progress button.
   // document.getElementById("submit-button").innerHTML = "Progress";
  
  // target submit button
- var button = document.getElementById("submitButton");
+ var submitButton = document.getElementById("submitButton");
  
  // disable the button from being clicked again
- button.disabled = true;
+ submitButton.disabled = true;
  
 setTimeout(function(){
-        button.className = 'loading';
+        if (!hasClass(submitButton,'active')) {submitButton.classList.add('active');}
     },125);
 
     setTimeout(function(){
-        button.className = 'ready'; // error 
+        submitButton.classList.remove('active'); 
     },4300);
 
 }
  </script>
+ 
+ 
 </body>
 </html>
