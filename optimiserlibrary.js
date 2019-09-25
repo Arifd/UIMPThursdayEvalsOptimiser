@@ -37,9 +37,26 @@ function appendRedundancy()
 	// Process ISO week number
 	document.getElementById("processedISOWeekNumber").value = getWeekNumber(today);
 	
+	
+
+	// THIS SHOULD BE HANDLED in adjust skills
+	/*
+	if (levelChanged)
+	{
+		document.getElementById("fluency").value = 5;
+		document.getElementById("pronunciation").value = 5;
+		document.getElementById("grammar").value = 5;
+		document.getElementById("vocabulary").value = 5;
+		document.getElementById("comprehension").value = 5;
+	}*/
+}
+
+function adjustSkills()
+{ // this should run every time number input has been adjusted
+	
 	// Process Levels + Changed
-	begLvl = parseFloat(document.getElementById("beginningLevel").value);
-	endLvl = parseFloat(document.getElementById("formEndLevel").value);
+	var begLvl = parseFloat(document.getElementById("beginningLevel").value);
+	var endLvl = parseFloat(document.getElementById("formEndLevel").value);
 	// Send what we recieve from the form to UIMP as "Final Score"
 	document.getElementById("endLevel").value = endLvl.toString();
 	var begCEFRLvl = ""; // A1, A2, B1, B2, C1, C2
@@ -60,6 +77,7 @@ function appendRedundancy()
 	endCEFRLvl = berlitz2CEFR(endLvl);
 	document.getElementById("levelAtBeginning").value = begCEFRLvl;
 	document.getElementById("levelAtEnd").value = endCEFRLvl;
+	// apply "Changed Level"
 	if (begCEFRLvl == endCEFRLvl)
 	{
 		document.getElementById("changedLevel").value = "NO";
@@ -70,13 +88,10 @@ function appendRedundancy()
 		document.getElementById("changedLevel").value = "YES";
 		levelChanged = true;
 	}
-	// REMOVED IN FAVOUR OF SIMPLER 'DEFAULT 3' SYSTEM
-	/*
-	function adjustToScore(endLvl, nudge)
-	{
+	
+	// adjust skills buttons to comply with newly entered level
 		var distanceLow = 0.0;
 		var distanceHigh = 0.0;
-		if (levelChanged) {return "5";};
 		if (endCEFRLvl == "A1")
 		{
 			distanceLow = 0.0;
@@ -104,41 +119,24 @@ function appendRedundancy()
 		}
 		if (endCEFRLvl == "C2")
 		{
-			distanceLow = 9.6;
+			distanceLow = 9.1;
 			distanceHigh = 12.0;
 		}
 		var range = distanceHigh - distanceLow;
 		var stepSize = range / 5.0;
 		var score = endLvl - distanceLow;
 		var result = Math.floor(score / stepSize) + 1;
-		result += parseFloat(nudge);
 		
-		// don't let the result go below 3
+		// constrain results
 		if (result < 3) result = 3;
 		if (result > 5) result = 5;
 	
-		return result;
-	}
-	var nudgeA = document.getElementById("nudgeFluency").value;
-	var nudgeB = document.getElementById("nudgePronunciation").value; 
-	var nudgeC = document.getElementById("nudgeGrammar").value;
-	var nudgeD = document.getElementById("nudgeVocabulary").value;
-	var nudgeE = document.getElementById("nudgeComprehension").value;
-	document.getElementById("fluency").value = adjustToScore(endLvl, nudgeA);
-	document.getElementById("pronunciation").value = adjustToScore(endLvl, nudgeB);
-	document.getElementById("grammar").value = adjustToScore(endLvl, nudgeC);
-	document.getElementById("vocabulary").value = adjustToScore(endLvl, nudgeD);
-	document.getElementById("comprehension").value = adjustToScore(endLvl, nudgeE);
-	*/
-	// If the level has changed, make sure all the skills are set at 5!
-	if (levelChanged)
-	{
-		document.getElementById("fluency").value = 5;
-		document.getElementById("pronunciation").value = 5;
-		document.getElementById("grammar").value = 5;
-		document.getElementById("vocabulary").value = 5;
-		document.getElementById("comprehension").value = 5;
-	}
+		// apply new value to skills
+		document.getElementById("fluency-"+result).checked = true;
+		document.getElementById("pronunciation-"+result).checked = true;
+		document.getElementById("grammar-"+result).checked = true;
+		document.getElementById("vocabulary-"+result).checked = true;
+		document.getElementById("comprehension-"+result).checked = true;
 }
 
 function afterSubmit()
@@ -150,7 +148,7 @@ function afterSubmit()
 	document.getElementById("beginningLevel").value = null;
 	document.getElementById("beginningLevel").placeholder = begLvl;
 	document.getElementById("formEndLevel").value = null;
-	document.getElementById("formEndLevel").placeholder = endLvl;
+	document.getElementById("formEndLevel").placeholder = parseFloat(document.getElementById("formEndLevel").value);;
 	
 	// add information of previous form to html
 	// (not yet implemented)
