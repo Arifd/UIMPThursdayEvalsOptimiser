@@ -6,26 +6,39 @@
 
 <form id="myForm">
 name <input type="text" name="entry.1492703236">
-<button type="button" onclick="myFunction()">Click Me!</button>
+<button type="button" onclick="sendForm()">Click Me!</button>
  </form>
  
  
- <script>
- async function myFunction() {alert("yep");
+  <script>
+ async function sendForm() {
  
+ // First turn submit button into progress button.
+ document.getElementById("submitButton").innerHTML = "Progress";
+ 
+ /* ALL GOOD! :D
+
+// this allows us to bypass cors
+// todo: check if this site is running if not use another, if not, go experimental mode
 var url = "https://cors-anywhere.herokuapp.com/" 
+
+// now add the destination url
 url += "https://docs.google.com/forms/d/e/1FAIpQLSeBzokJL941yd1cK6EpZZAfNr_4UjUTi-irPZdsHYHK0ksAug/formResponse";
  
 // Parse formData for use in fetch()
 var formData = new FormData(document.getElementById("myForm"));
-const data = new URLSearchParams();
+var data = new URLSearchParams();
 for (const pair of formData) {
     data.append(pair[0], pair[1]);
 }
+
 // send off the data!
 const resp = await fetch(url, {method: 'post', body: data});
 
+//resp.status = 200; is good. all else is faliure
 await console.log(resp.status);
+
+*/
 
 }
  </script>
