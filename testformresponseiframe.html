@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Using the XMLHttpRequest object</h2>
+
+<script type="text/javascript">var submitted=false;</script>
+<iframe id="hidden_iframe" name="hidden_iframe" onload="if(submitted){check()}" style="display: none;"></iframe>
+
+<form id="myForm" action="https://docs.google.com/forms/d/e/1FAIpQLSeBzokJL941yd1cK6EpZZAfNr_4UjUTi-irPZdsHYHK0ksAugffff/formResponse" target="hidden_iframe">
+name <input type="text" name="entry.1492703236">
+<button type="button" onclick="send()">Change Content</button>
+</form>
+<p id="demo"></p>
+
+<script>
+function send() {
+document.getElementById("myForm").submit();
+submitted=true;
+}
+
+function check() {
+var body = document.getElementById("hidden_iframe").contentWindow.document.body.innerHTML;
+
+alert(body);
+}
+</script>
+
+</body>
+</html>
