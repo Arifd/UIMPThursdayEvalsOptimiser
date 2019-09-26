@@ -276,9 +276,7 @@ name <input type="text" name="entry.1492703236"><br>
  // disable the button from being clicked again
  submitButton.disabled = true;
  
-setTimeout(function(){
-        if (!hasClass(submitButton,'active')) {submitButton.classList.add('active');}
-    },125);
+  if (!hasClass(submitButton,'active')) {submitButton.classList.add('active');}
 
     setTimeout(function(){
         submitButton.classList.remove('active'); 
