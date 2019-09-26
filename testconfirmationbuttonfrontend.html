@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -180,6 +181,7 @@
 /*****************************************************************/
 .button {
 	/*padding: 13px 40px;*/
+    overflow: hidden;
 	border: 1px solid;
 	border-radius: 4px;
 	box-shadow: inset 0 -2px 15px 0 rgba(0, 0, 0, 0.15), inset 0 1px 1px 0 rgba(255, 255, 255, 0.5), 0 2px 2px 0 rgba(0, 0, 0, 0.15);
@@ -246,13 +248,8 @@
 </head>
 <body>
 
-<h2>The Button Element</h2>
-
-<form id="myForm">
-name <input type="text" name="entry.1492703236"><br>
-
-<div class="progress-btn button red" id="submitButton" onclick="sendForm()" data-progress-style="indefinite">
-	  <div class="btn" >Button</div>
+<div class="progress-btn button blue" id="submitButton" onclick="sendForm()" data-progress-style="indefinite">
+	  <div id="submitButtonText" class="btn">Send</div>
 	  <div class="progress"></div>
 
  </form>
@@ -263,24 +260,72 @@ name <input type="text" name="entry.1492703236"><br>
  { // a function to test if a target contains a specific class property
     return new RegExp('(\\s|^)' + className + '(\\s|$)').test(target.className);
 }
+
+function sendForm() {
+
+manageButton("sending");
+// put here backend code to send data
+
+// manageButton("success") - when google confirms all good (status: 200)
+    setTimeout(function(){
+        // manageButton( "sucess"; )
+    },2300);
+
+// manageButton("error") - when google returns an error code
+    setTimeout(function(){
+        manageButton("error");
+    },2300);
+    
+// display your error/confirmation messages, ask what to do then go idle.
+// manageButton("idle");
+
+}
+
  
  
- /*async*/ function sendForm() {
- 
- // First turn submit button into progress button.
-  // document.getElementById("submit-button").innerHTML = "Progress";
+ /*async*/ function manageButton(command) {
  
  // target submit button
  var submitButton = document.getElementById("submitButton");
  
- // disable the button from being clicked again
- submitButton.disabled = true;
+ // since we are now undergoing some kind of command,
+ // disable the button from being clicked again, until otherwise applicable
+ submitButton.onclick = "";
  
-  if (!hasClass(submitButton,'active')) {submitButton.classList.add('active');}
-
-    setTimeout(function(){
-        submitButton.classList.remove('active'); 
-    },4300);
+ // maybe remember previous state of button in orer to go back to it when finished?
+ // var submitButtonPreviousState = submitButton.className;
+ 
+ ///////// Manage commands/button states /////////
+ 
+ // Idle state
+ if (command == "idle") {
+ if (hasClass(submitButton,'active')) { submitButton.classList.remove('active'); }
+ submitButton.className = "progress-btn button blue";
+ document.getElementById("submitButtonText").innerHTML = "Send";
+ }
+ 
+ // Sending state
+ else if (command == "sending") {
+   if (!hasClass(submitButton,'active')) {
+  submitButton.classList.add('active');
+  document.getElementById("submitButtonText").innerHTML = "Sending...";
+  }
+  }
+ 
+ // set a listener that will change button status when animation ready
+ submitButton.addEventListener('animationiteration',  function() {
+ if (command == "sucess") {
+ // change button to sucess
+ submitButton.classList.remove('active');
+ submitButton.className = "progress-btn button green";
+ document.getElementById("submitButtonText").innerHTML = "Sent";
+ } else if (command == "error") {
+ // change button to error
+ submitButton.classList.remove('active');
+ submitButton.className = "progress-btn button red";
+ document.getElementById("submitButtonText").innerHTML = "Error!";
+ }
+ });
 
 }
  </script>
