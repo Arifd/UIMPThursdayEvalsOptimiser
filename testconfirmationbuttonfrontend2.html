@@ -337,23 +337,26 @@ manageButton("sending");
   if (!hasClass(submitButton,'active')) {
   submitButton.classList.add('active');
   document.getElementById("submitButtonText").innerHTML = "Sending...";
- // set a listener that will change button status when animation ready
-  submitButton.addEventListener('animationiteration',  function() {
- if (submitButtonFlag == "success") {setSuccess();}
- else if (submitButtonFlag == "error") {setError();}
- },{once:true);
  }
  }
   
  ///////// Manage commands/button states /////////
+
+// Create a listener that will change button status when animation ready
+  submitButton.addEventListener('animationiteration',  function() {
+if (submitButtonFlag == "idle") {setIdle();}
+ else if (submitButtonFlag == "sending") {setSending();}
+ else if (submitButtonFlag == "error") {setError();}
+ else if (submitButtonFlag == "success") {setSuccess();}
+},{once:true);
+
+
+
  /*
  // if we are active the event listener will already take care of switching states
  if (hasClass(submitButton,'active'))
  {
- if (submitButtonFlag == "idle") {setIdle();}
- else if (submitButtonFlag == "sending") {setSending();}
- else if (submitButtonFlag == "error") {setError();}
- else if (submitButtonFlag == "success") {setSuccess();}
+ 
  }
 */
 }
