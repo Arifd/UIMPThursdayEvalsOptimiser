@@ -258,6 +258,7 @@
 <div class="progress-btn button blue" id="submitButton" onclick="sendForm()" data-progress-style="indefinite">
 	  <div id="submitButtonText" class="btn">Send</div>
 	  <div class="progress"></div>
+      <div id="psuedo-transition-layer"></div>
 </div>
 
 <button onclick="manageButton('error')">mbError</button>
@@ -269,6 +270,11 @@
  function hasClass( target, className )
  { // a helper function to test if a target contains a specific class property
     return new RegExp('(\\s|^)' + className + '(\\s|$)').test(target.className);
+}
+
+function clamp(val, min, max) {
+// a helper function to clamp values
+    return val > max ? max : val < min ? min : val;
 }
 
 function sendForm() {
@@ -308,11 +314,49 @@ manageButton("sending");
  // maybe remember previous state of button in orer to go back to it when finished?
  // var submitButtonPreviousState = submitButton.className;
  
+ // create a pair of transition functions to psuedo blend.
+ function transitionOn() {
+  let elem = document.getElementById("psuedo-transition-layer");
+  elem.style.opacity = 0;
+  elem.style.width = "100%";
+  elem.style.height = "100%";
+  elem.style.borderRadius = "4px";
+  elem.style.backgroundColor = "#ffffff";
+  let full = 70;
+  let opac = 0;
+  let id = setInterval(frame, 50);
+  function frame() {
+	if (opac < full) {
+	opac += 20;
+    elem.style.opacity = clamp(opac/full,0,1);
+    }
+    if (opac >= full) clearInterval(id);
+    
+  }
+}
+function transitionOff() {
+  let elem = document.getElementById("psuedo-transition-layer");
+  let full = 70;
+  let opac = full;
+  let id = setInterval(frame, 50);
+  function frame() {
+	if (opac > 0) {
+	opac -= 20;
+    elem.style.opacity = clamp(opac/full,0,1);
+    }
+    if (opac <= 0) clearInterval(id);
+  }
+}
+ 
  // create functions for the different states
  function setIdle()
  {
  if (hasClass(submitButton,'active')) { submitButton.classList.remove('active'); }
+ if (!hasClass(submitButton,'blue')){
+ transitionOn();
  submitButton.className = "progress-btn button blue";
+ transitionOff();
+ }
  document.getElementById("submitButtonText").innerHTML = "Send";
  // make the button clickable again
  // not working // submitButton.onclick = "sendForm()";
@@ -321,14 +365,22 @@ manageButton("sending");
  function setSuccess()
  {
   submitButton.classList.remove('active');
+  if (!hasClass(submitButton,'green')){
+  transitionOn();
  submitButton.className = "progress-btn button green";
+ transitionOff();
+ }
  document.getElementById("submitButtonText").innerHTML = "Sent";
  }
  
  function setError()
  {
   submitButton.classList.remove('active');
+  if (!hasClass(submitButton,'red')){
+  transitionOn();
  submitButton.className = "progress-btn button red";
+ transitionOff();
+ }
  document.getElementById("submitButtonText").innerHTML = "Error";
  }
  
