@@ -248,7 +248,15 @@
 	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#6b7179', EndColorStr='#282c33');
 }
 .button:hover { opacity: 0.85; }
-.button:active { position: relative; top: 1px; }
+.button:active {
+position: relative;
+top: 1px;
+border-color: #333333;
+  -webkit-box-shadow: inset 0px 10px 40px #333333;
+     -moz-box-shadow: inset 0px 10px 40px #333333;
+          box-shadow: inset 0px 10px 40px #333333;
+   outline: none;
+}
 
 
 
