@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -322,6 +324,7 @@ manageButton("sending");
   elem.style.borderRadius = "4px";
   elem.style.backgroundColor = "#ffffff";
   elem.style.opacity = 1;
+  /*
   let full = 35;
   let opac = 0;
   let id1 = setInterval(frame1, 50);
@@ -332,12 +335,15 @@ manageButton("sending");
     }
     if (opac >= full) clearInterval(id1);
   }
+  */
 }
 function transitionOff() {
   let elem = document.getElementById("psuedo-transition-layer");
   let full = 35;
   let opac = full;
   let id2 = setInterval(frame2, 50);
+  // this method is buggy because it spawns a thread, repeated spawns don't override old ones
+  // so if you make a rapid change then you have two animations occuring at the same time
   function frame2() {
 	if (opac > 0) {
 	opac -= 6;
