@@ -337,17 +337,16 @@ manageButton("sending");
   if (!hasClass(submitButton,'active')) {
   submitButton.classList.add('active');
   document.getElementById("submitButtonText").innerHTML = "Sending...";
-  // If we are sending, we now need to create a listener who will apply the flag at the right time
  // set a listener that will change button status when animation ready
   submitButton.addEventListener('animationiteration',  function() {
  if (submitButtonFlag == "success") {setSuccess();}
  else if (submitButtonFlag == "error") {setError();}
- });
+ },{once:true);
  }
  }
   
  ///////// Manage commands/button states /////////
- 
+ /*
  // if we are active the event listener will already take care of switching states
  if (hasClass(submitButton,'active'))
  {
@@ -356,7 +355,7 @@ manageButton("sending");
  else if (submitButtonFlag == "error") {setError();}
  else if (submitButtonFlag == "success") {setSuccess();}
  }
-
+*/
 }
  </script>
  
