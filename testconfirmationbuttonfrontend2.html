@@ -364,6 +364,7 @@ function transitionOff() {
  // create functions for the different states
  function setIdle()
  {
+ submitButton.style.pointerEvents = "auto";
  if (hasClass(submitButton,'active')) { submitButton.classList.remove('active'); }
  if (!hasClass(submitButton,'blue')){
  transitionOn();
@@ -379,6 +380,7 @@ function transitionOff() {
  
  function setSuccess()
  {
+ submitButton.style.pointerEvents = "none";
   submitButton.classList.remove('active');
   if (!hasClass(submitButton,'green')){
   transitionOn();
@@ -390,6 +392,7 @@ function transitionOff() {
  
  function setError()
  {
+ submitButton.style.pointerEvents = "none";
   submitButton.classList.remove('active');
   if (!hasClass(submitButton,'red')){
   transitionOn();
@@ -401,6 +404,7 @@ function transitionOff() {
  
  function setSending()
  {
+ submitButton.style.pointerEvents = "none";
   if (!hasClass(submitButton,'active')) {
   submitButton.classList.add('active');
   document.getElementById("submitButtonText").innerHTML = "Sending...";
