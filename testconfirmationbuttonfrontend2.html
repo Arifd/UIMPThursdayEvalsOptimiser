@@ -290,7 +290,7 @@ manageButton("sending");
 
 // manageButton("error") - when google returns an error code
     setTimeout(function(){
-        manageButton("error");
+        manageButton("success");
     },2300);
     
 // display your error/confirmation messages, ask what to do then go idle.
@@ -324,7 +324,7 @@ manageButton("sending");
   elem.style.borderRadius = "4px";
   elem.style.backgroundColor = "#ffffff";
   elem.style.opacity = 1;
-  let full = 70;
+  let full = 35;
   let opac = 0;
   let id1 = setInterval(frame1, 50);
   function frame1() {
@@ -337,12 +337,12 @@ manageButton("sending");
 }
 function transitionOff() {
   let elem = document.getElementById("psuedo-transition-layer");
-  let full = 70;
+  let full = 35;
   let opac = full;
   let id2 = setInterval(frame2, 50);
   function frame2() {
 	if (opac > 0) {
-	opac -= 8;
+	opac -= 6;
     elem.style.opacity = clamp(opac/full,0,1);
     }
     if (opac <= 0) clearInterval(id2);
@@ -360,7 +360,7 @@ function transitionOff() {
  }
  document.getElementById("submitButtonText").innerHTML = "Send";
  // make the button clickable again
- // not working // submitButton.onclick = "sendForm()";
+ submitButton.setAttribute('onclick','sendForm()');
  }
  
  function setSuccess()
@@ -394,15 +394,19 @@ function transitionOff() {
  }
   
  ///////// Manage commands/button states /////////
-
-// Create a listener that will change button status when animation ready
-//  submitButton.addEventListener('animationiteration',  function() {
-if (submitButtonFlag == "idle") {setIdle();}
+ function manageStates() {
+ if (submitButtonFlag == "idle") {setIdle();}
  else if (submitButtonFlag == "sending") {setSending();}
  else if (submitButtonFlag == "error") {setError();}
  else if (submitButtonFlag == "success") {setSuccess();}
-//},{once:true);
+ }
+ 
+// if not active, just jump straight, but if active, use an eventlistener
+if (!hasClass(submitButton,'active')) { manageStates(); }
 
+// Create a listener that will change button status when animation ready
+
+else submitButton.addEventListener('animationiteration', function() {manageStates();},{once:true});
 
 
  /*
