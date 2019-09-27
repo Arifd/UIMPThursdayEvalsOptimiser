@@ -343,12 +343,12 @@ manageButton("sending");
  ///////// Manage commands/button states /////////
 
 // Create a listener that will change button status when animation ready
-  submitButton.addEventListener('animationiteration',  function() {
+//  submitButton.addEventListener('animationiteration',  function() {
 if (submitButtonFlag == "idle") {setIdle();}
  else if (submitButtonFlag == "sending") {setSending();}
  else if (submitButtonFlag == "error") {setError();}
  else if (submitButtonFlag == "success") {setSuccess();}
-},{once:true);
+//},{once:true);
 
 
 
