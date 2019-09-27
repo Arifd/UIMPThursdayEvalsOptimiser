@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -360,7 +358,9 @@ function transitionOff() {
  }
  document.getElementById("submitButtonText").innerHTML = "Send";
  // make the button clickable again
- submitButton.setAttribute('onclick','sendForm()');
+ // submitButton.setAttribute('onclick','sendForm()');
+ submitButton.onclick = function(){ sendForm(); };
+
  }
  
  function setSuccess()
