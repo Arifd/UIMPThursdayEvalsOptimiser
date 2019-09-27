@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -322,29 +323,29 @@ manageButton("sending");
   elem.style.height = "100%";
   elem.style.borderRadius = "4px";
   elem.style.backgroundColor = "#ffffff";
+  elem.style.opacity = 1;
   let full = 70;
   let opac = 0;
-  let id = setInterval(frame, 50);
-  function frame() {
+  let id1 = setInterval(frame1, 50);
+  function frame1() {
 	if (opac < full) {
-	opac += 20;
+	opac += 40;
     elem.style.opacity = clamp(opac/full,0,1);
     }
-    if (opac >= full) clearInterval(id);
-    
+    if (opac >= full) clearInterval(id1);
   }
 }
 function transitionOff() {
   let elem = document.getElementById("psuedo-transition-layer");
   let full = 70;
   let opac = full;
-  let id = setInterval(frame, 50);
-  function frame() {
+  let id2 = setInterval(frame2, 50);
+  function frame2() {
 	if (opac > 0) {
-	opac -= 20;
+	opac -= 8;
     elem.style.opacity = clamp(opac/full,0,1);
     }
-    if (opac <= 0) clearInterval(id);
+    if (opac <= 0) clearInterval(id2);
   }
 }
  
