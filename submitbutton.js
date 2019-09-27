@@ -152,5 +152,5 @@ if (!hasClass(submitButton,'active')) { manageStates(); }
 // Create a listener that will change button status when animation ready
 
 else submitButton.addEventListener('animationiteration', function() {manageStates();},{once:true});
-}
 */
+}
