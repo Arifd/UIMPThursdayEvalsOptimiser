@@ -44,6 +44,7 @@ manageButton("sending");
  // var submitButtonPreviousState = submitButton.className;
  
  // create a pair of transition functions to psuedo blend.
+ /*  Old version. to delete. new version triggers a css animation 
  function transitionOn() {
   let elem = document.getElementById("psuedo-transition-layer");
   elem.style.opacity = 0;
@@ -52,18 +53,6 @@ manageButton("sending");
   elem.style.borderRadius = "4px";
   elem.style.backgroundColor = "#ffffff";
   elem.style.opacity = 1;
-  /*
-  let full = 35;
-  let opac = 0;
-  let id1 = setInterval(frame1, 50);
-  function frame1() {
-	if (opac < full) {
-	opac += 40;
-    elem.style.opacity = clamp(opac/full,0,1);
-    }
-    if (opac >= full) clearInterval(id1);
-  }
-  */
 }
 function transitionOff() {
   let elem = document.getElementById("psuedo-transition-layer");
@@ -80,6 +69,7 @@ function transitionOff() {
     if (opac <= 0) clearInterval(id2);
   }
 }
+*/
  
  // create functions for the different states
  function setIdle()
@@ -87,13 +77,12 @@ function transitionOff() {
  submitButton.style.pointerEvents = "auto";
  if (hasClass(submitButton,'active')) { submitButton.classList.remove('active'); }
  if (!hasClass(submitButton,'blue')){
- transitionOn();
  submitButton.className = "progress-btn button blue";
- transitionOff();
+ let sbtxt = document.getElementById('submitButtonText');
+ flash(sbtxt);
  }
  document.getElementById("submitButtonText").innerHTML = "Send";
  // make the button clickable again
- // submitButton.setAttribute('onclick','sendForm()');
  submitButton.onclick = function(){ sendForm(); };
 
  }
@@ -103,9 +92,9 @@ function transitionOff() {
  submitButton.style.pointerEvents = "none";
   submitButton.classList.remove('active');
   if (!hasClass(submitButton,'green')){
-  transitionOn();
  submitButton.className = "progress-btn button green";
- transitionOff();
+ let sbtxt = document.getElementById('submitButtonText');
+ flash(sbtxt);
  }
  document.getElementById("submitButtonText").innerHTML = "Sent";
  }
@@ -115,9 +104,9 @@ function transitionOff() {
  submitButton.style.pointerEvents = "none";
   submitButton.classList.remove('active');
   if (!hasClass(submitButton,'red')){
-  transitionOn();
  submitButton.className = "progress-btn button red";
- transitionOff();
+ let sbtxt = document.getElementById('submitButtonText');
+ flash(sbtxt);
  }
  document.getElementById("submitButtonText").innerHTML = "Error";
  }
