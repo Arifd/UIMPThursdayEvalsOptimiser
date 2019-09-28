@@ -1,3 +1,15 @@
+function flash(element) // alert attention to a change
+ {
+ // let element = document.getElementById("id");
+if (element.classList.contains('flash'))
+{
+element.classList.remove('flash');
+// delay some amount before re-adding flash
+setTimeout(function(){ element.classList.add('flash'); }, 1);
+}
+else element.classList.add('flash');
+}
+
 function appendRedundancy()
 {
 	// determin if passed or failed
