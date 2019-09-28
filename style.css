@@ -68,6 +68,21 @@ body { background-color:#F8F8FF; }
     }
 }*/
 
+/* An introduction class that introduces any element by toggling/adding it in JS. */
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.introduce { 
+animation: 0.7s ease-in-out 0s 1 slideInFromLeft;
+}
+
 
 .titlebar { background-color: #3700B3;
   overflow: hidden;
