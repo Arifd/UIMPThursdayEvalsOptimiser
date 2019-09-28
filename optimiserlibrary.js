@@ -5,7 +5,7 @@ if (element.classList.contains('flash'))
 {
 element.classList.remove('flash');
 // delay some amount before re-adding flash
-setTimeout(function(){ element.classList.add('flash'); }, 1);
+setTimeout(function(){ element.classList.add('flash'); }, 2);
 }
 else element.classList.add('flash');
 }
