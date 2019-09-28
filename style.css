@@ -68,6 +68,12 @@ body { background-color:#F8F8FF; }
     }
 }*/
 
+/*a .flash class so that you can add flash to the class of any element to bring the user attention to it*/
+@keyframes go-invisible {0% { background:#ffffff;} 100% {background:transparent;}}
+.flash {
+animation: 0.5s ease-in-out 0s 1 go-invisible;
+}
+
 /* An introduction class that introduces any element by toggling/adding it in JS. */
 @keyframes slideInFromLeft {
   0% {
