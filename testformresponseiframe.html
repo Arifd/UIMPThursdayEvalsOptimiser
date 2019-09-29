@@ -39,7 +39,8 @@ else element.classList.add('introduce');
 
 <script>
 function setHeight() {
-    parent.document.getElementById('formResponseIframeId').style.height = document['body'].offsetHeight + 'px';
+let iframe = parent.document.getElementById('formResponseIframeId');
+    iframe.style.height = iframe.contentDocument.body.scrollHeight + "px";
 }
 </script>
 
