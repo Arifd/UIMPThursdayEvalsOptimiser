@@ -4,8 +4,9 @@ function flash(element) // alert attention to a change
 if (element.classList.contains('flash'))
 {
 element.classList.remove('flash');
-// delay some amount before re-adding flash
-setTimeout(function(){ element.classList.add('flash'); }, 2);
+// Trigger reflow before re-adding flash
+void element.offsetWidth;
+element.classList.add('flash');
 }
 else element.classList.add('flash');
 }
