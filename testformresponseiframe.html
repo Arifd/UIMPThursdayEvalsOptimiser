@@ -19,6 +19,8 @@ function nextForm() {
 var element = document.getElementById("formResponseContainer");
 if (element.classList.contains('introduce')) {
 element.classList.remove('introduce');
+void element.offsetWidth; // Trigger reflow before re-adding
+element.classList.add('introduce');
 }
 else element.classList.add('introduce');
 }
@@ -27,7 +29,7 @@ else element.classList.add('introduce');
 
 <!-- FORM RESPONSE SECTION -->
 
-<div class="container" style="height:100vh;" id="formResponseContainer">
+<div class="container" style="height:100%;" id="formResponseContainer">
 
 <div class="titlebar">
    <h1 id="formResponseTitle">Status of: Penelope Cruz</h1>
