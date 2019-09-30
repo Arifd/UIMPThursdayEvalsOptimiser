@@ -1,24 +1,20 @@
 // apply a class to an element, with error checking and option to hide the element after. 
-function applyClass(className, element, hide_after = false, delay = 0)
+function applyClass(className, element, hide_after = false)
 {
-  setTimeout(doIt, delay); // optional delay (if stacking animations)
-  function doIt()
+  // find out if element has been passed as the name or the object
+  if (typeof element == 'string') element = document.getElementById(element);
+  if (typeof element != ('string' || 'object')) console.log("applyClass: element not an object nor a string");
+  if (element.classList.contains(className))
   {
-    // find out if element has been passed as the name or the object
-    if (typeof element == 'string') element = document.getElementById(element);
-    if (typeof element != ('string' || 'object')) console.log("applyClass: element not an object nor a string");
-    if (element.classList.contains(className))
-    {
-      element.classList.remove(className);
-      void element.offsetWidth; // Trigger reflow before re-adding
-      element.classList.add(className);
-      // wait for animation to end then remove the element.
-      if (hide_after) element.addEventListener('animationend', function() { element.style.display = 'none'; }, {once: true});
-    }
-    else element.classList.add(className);
+    element.classList.remove(className);
+    void element.offsetWidth; // Trigger reflow before re-adding
+    element.classList.add(className);
     // wait for animation to end then remove the element.
     if (hide_after) element.addEventListener('animationend', function() { element.style.display = 'none'; }, {once: true});
   }
+  else element.classList.add(className);
+  // wait for animation to end then remove the element.
+  if (hide_after) element.addEventListener('animationend', function() { element.style.display = 'none'; }, {once: true});
 }
 
 function appendRedundancy()
