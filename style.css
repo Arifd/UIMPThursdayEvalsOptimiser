@@ -76,6 +76,15 @@ background: -webkit-linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
   background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
 }
 
+/*Simple gradient background*/
+/* https://uigradients.com/#Frost */
+body {
+background: linear-gradient(to right, #000428, #004e92);
+}
+
+
+
+
 /*a .flash class so that you can add flash to the class of any element to bring the user attention to it*/
 @keyframes go-invisible {0% { background:#ffffff;} 100% {background:transparent;}}
 .flash { animation: 0.5s ease-in-out 0s 1 go-invisible; }
