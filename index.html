@@ -47,12 +47,13 @@ if (today.getDay() != (4 || 5)) alert("Hey! Today's not Thursday.\n\nGo away now
     }
     
     function nextForm()
-    {
+    {alert('1');
     let formResponseContainer = document.getElementById('formResponseConntainer');
-    applyClass('exit-top', formResponseContainer, true);
+alert('2');
+    applyClass('exit-top', formResponseContainer, true); alert('3');
     //formResponseContainer.addEventListener('animationend', function(){
 			document.getElementById("theFormDiv").style.display = "block";
-            applyClass('intro-bottom',"theFormDiv");
+            applyClass('intro-bottom',"theFormDiv"); alert('4');
     //      });
     }
     
