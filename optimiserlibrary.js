@@ -157,7 +157,7 @@ function adjustSkills()
 		var result = Math.floor(score / stepSize) + 1;
 		
 		// constrain results
-		if (result < 3) result = 3;
+		if (result < 2) result = 2;
 		if (result > 5) result = 5;
 	
 		// apply new value to skills
