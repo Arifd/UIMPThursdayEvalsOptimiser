@@ -15,6 +15,8 @@ function applyClass(className, element, hide_after = false)
   else element.classList.add(className);
   // wait for animation to end then remove the element.
   if (hide_after) element.addEventListener('animationend', function() { element.style.display = 'none'; }, {once: true});
+  // Clean up by removing any existing className
+  element.addEventListener('animationend', function() { element.classList.remove(className); }, {once: true});
 }
 
 function appendRedundancy()
