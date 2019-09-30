@@ -73,7 +73,8 @@ body { background-color:#F8F8FF; }
 .flash { animation: 0.5s ease-in-out 0s 1 go-invisible; }
 
 /* introduction/exit classes for any element by toggling/adding it in JS. */
---woosh-speed: 0.5s;
+:root { --woosh-speed: 0.5s; }
+
 @keyframes enterFromLeft
 {
   0% { transform: translateX(-100%); opacity: 0; }
