@@ -1,6 +1,3 @@
-// these functions accompany aesthetic-touches.css
-// written and produced by Arif Driessen
-
 // apply a class to an element, with error checking and option to hide the element after. 
 function applyClass(className, element, hide-after = false)
 {
