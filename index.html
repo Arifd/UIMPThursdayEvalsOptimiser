@@ -7,9 +7,10 @@ var today = new Date();
 if (today.getDay() != (4 || 5)) alert("Hey! Today's not Thursday.\n\nGo away now before you perturb the UIMP gods!"); 
 </script>
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<link rel="stylesheet" type="text/css" href="style.css">
-<script src="formpluginlibrary.js" type="text/javascript"></script> 
-<script src="optimiserlibrary.js" type="text/javascript"></script> 
+<link rel="stylesheet" type="text/css" href="https://arifd.github.io/UIMPThursdayEvalsOptimiser/style.css">
+<link rel="stylesheet" type="text/css" href="https://arifd.github.io/UIMPThursdayEvalsOptimiser/buttons.css">
+<script src="https://arifd.github.io/UIMPThursdayEvalsOptimiser/formpluginlibrary.js" type="text/javascript"></script> 
+<script src="https://arifd.github.io/UIMPThursdayEvalsOptimiser/optimiserlibrary.js" type="text/javascript"></script> 
 <script>
 	function showForm()
 	{
@@ -27,17 +28,38 @@ if (today.getDay() != (4 || 5)) alert("Hey! Today's not Thursday.\n\nGo away now
 		// if something valid slected hide this selector div, show the form
 		if (selectedLocation != "nothing selected")
 		{
-			document.getElementById("splashScreenDiv").style.display = "none";
+			//document.getElementById("splashScreenDiv").style.display = "none";
+            applyClass('exit-top',"splashScreenDiv",true);
+            setTimeout(function(){
 			document.getElementById("theFormDiv").style.display = "block";
+            applyClass('intro-bottom',"theFormDiv");
+            },500);
 		}
 	}
+    
+    function displayFormResponseIframe()
+    {
+      applyClass('exit-top', 'theFormDiv', true);
+      document.getElementById('formResponseContainer').style.display = "block";
+      applyClass('intro-bottom', 'formResponseContainer');
+    }
+    
+    function nextForm()
+    {
+    applyClass('exit-top', 'formResponseContainer', true);
+    setTimeout(function(){
+			document.getElementById("theFormDiv").style.display = "block";
+            applyClass('intro-bottom',"theFormDiv");
+            },500);
+    }
+    
 </script>
 </head>
 <body>
 	
 <!-- SPLASH SCREEN -->
 <div id="splashScreenDiv">
-<div class="container">
+<div class="container intro-left">
 <div class="titlebar"><h1>UIMP Thursday Evals Optimiser</h1></div>
 <p>
 This tool is an optimisation of the regular Thursday Evals Form.
@@ -49,7 +71,7 @@ This tool is an optimisation of the regular Thursday Evals Form.
 <b>Usage:</b> When you click submit, this tool sends to Google all the information you would have sent anyway manually using the Google form. Once sent, google will send back a confirmation page that your browser will probably open in a new window or tab. Just close this to go back to the form, refill, and click submit again for the next student.
 </p>
 </div>
-<div class="container">
+<div class="container intro-right">
 <select id="locationSelector">
 	<option value="nothing selected" selected disabled hidden>Select location</option>
 	<option value="Sevilla">Sevilla</option>
@@ -65,7 +87,7 @@ This tool is an optimisation of the regular Thursday Evals Form.
 <div class="container">
 <div class="titlebar"><h1 id="theFormTitle"></h1></div>
 <hr>
-<form id="theForm" autocomplete="off" method="post" target="_blank" onsubmit="afterSubmit()">
+<form id="theForm" autocomplete="off" method="post" target="formResponseIframe" onsubmit="afterSubmit()">
  
     <p>Student's Full name (Exactly as written):</p>
     <div class="tooltip" style="width: 75%">
@@ -199,14 +221,31 @@ This tool is an optimisation of the regular Thursday Evals Form.
 </div>
 </div>
 </div>
-
-	
     
-<input type="submit" onclick="appendRedundancy()" value="Submit">
+<input type="submit" onclick="appendRedundancy(); displayFormResponseIframe();" value="Submit">
 
 </form>
 </div>
 </div>
+
+
+<!-- FORM RESPONSE SECTION -->
+
+<div class="container intro-right" id="formResponseContainer" hidden>
+<div class="titlebar">
+   <h1 id="formResponseTitle">Status of: Penelope Cruz</h1>
+</div>
+ <iframe name="formResponseIframe" id="formResponseIframeId" style="border: 0px; width: 100%; height: 50vh"></iframe>
+<!-- div to make button appear at bottom -->
+  <div style="width: 100%; position: sticky; bottom: 0;  display: flex; align-items: center; justify-content: center;">
+<div class="progress-btn button dark" id="submitButton" onclick="nextForm()" data-progress-style="indefinite">
+	  <div class="btn">Dismiss</div>
+	  <div class="progress"></div>
+</div>
+</div>
+<!-- end button -->
+</div>
+
 
 </body>
 </html>
