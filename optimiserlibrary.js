@@ -2,8 +2,8 @@
 function applyClass(className, element, hide_after = false)
 {
   // find out if element has been passed as the name or the object
-  if (typeof element == string) element = document.getElementById(element);
-  if (typeof element != (string || object)) console.log("applyClass: element not an object nor a string");
+  if (typeof element == 'string') element = document.getElementById(element);
+  if (typeof element != ('string' || 'object')) console.log("applyClass: element not an object nor a string");
   if (element.classList.contains(className))
   {
     element.classList.remove(className);
