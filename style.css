@@ -78,7 +78,7 @@ body { background-color:#F8F8FF; }
   0% { transform: translateX(-100%); opacity: 0; }
   100% { transform: translateX(0); opacity: 1; }
 }
-.introduce-left { animation: 0.7s ease-in-out 0s 1 enterFromLeft; }
+.intro-left { animation: 0.7s ease-in-out 0s 1 enterFromLeft; }
 
 @keyframes exitToLeft
 {
@@ -92,7 +92,7 @@ body { background-color:#F8F8FF; }
   0% { transform: translateX(100%); opacity: 0; }
   100% { transform: translateX(0); opacity: 1; }
 }
-.introduce-right { animation: 0.7s ease-in-out 0s 1 enterFromRight; }
+.intro-right { animation: 0.7s ease-in-out 0s 1 enterFromRight; }
 
 @keyframes exitToRight
 {
