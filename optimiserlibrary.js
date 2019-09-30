@@ -1,14 +1,17 @@
-function flash(element) // alert attention to a change
- {
- // let element = document.getElementById("id");
-if (element.classList.contains('flash'))
+// apply a class to an element, with error checking and option to hide the element after. 
+function applyClass(className, element, hide_after = false)
 {
-element.classList.remove('flash');
-// Trigger reflow before re-adding flash
-void element.offsetWidth;
-element.classList.add('flash');
-}
-else element.classList.add('flash');
+  if (element.classList.contains(className))
+  {
+    element.classList.remove(className);
+    void element.offsetWidth; // Trigger reflow before re-adding
+    element.classList.add(className);
+    // wait for animation to end then remove the element.
+    if (hide_after) element.addEventListener('animationend', function() { element.style.display = 'none'; }, {once: true});
+  }
+  else element.classList.add(className);
+  // wait for animation to end then remove the element.
+  if (hide_after) element.addEventListener('animationend', function() { element.style.display = 'none'; }, {once: true});
 }
 
 function appendRedundancy()
