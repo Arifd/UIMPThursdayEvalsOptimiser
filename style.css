@@ -80,13 +80,6 @@ body { background-color:#F8F8FF; }
 }
 .intro-left { animation: 0.7s ease-in-out 0s 1 enterFromLeft; }
 
-@keyframes exitToLeft
-{
-  0% { transform: translateX(0); opacity: 1; }
-  100% { transform: translateX(-100%); opacity: 0; }
-}
-.exit-left { animation: 0.7s ease-in-out 0s 1 exitToLeft; }
-
 @keyframes enterFromRight
 {
   0% { transform: translateX(100%); opacity: 0; }
@@ -94,12 +87,48 @@ body { background-color:#F8F8FF; }
 }
 .intro-right { animation: 0.7s ease-in-out 0s 1 enterFromRight; }
 
+@keyframes enterFromTop
+{
+  0% { transform: translateY(-100%); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+.intro-top { animation: 0.7s ease-in-out 0s 1 enterFromTop; }
+
+@keyframes enterFromBottom
+{
+  0% { transform: translateY(100%); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+.intro-bottom { animation: 0.7s ease-in-out 0s 1 enterFromBottom; }
+
+@keyframes exitToLeft
+{
+  0% { transform: translateX(0); opacity: 1; }
+  100% { transform: translateX(-100%); opacity: 0; }
+}
+.exit-left { animation: 0.7s ease-in-out 0s 1 exitToLeft; }
+
 @keyframes exitToRight
 {
   0% { transform: translateX(0); opacity: 1; }
   100% { transform: translateX(100%); opacity: 0; }
 }
 .exit-right { animation: 0.7s ease-in-out 0s 1 exitToRight; }
+
+@keyframes exitToTop
+{
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-100%); opacity: 0; }
+}
+.exit-top { animation: 0.7s ease-in-out 0s 1 exitToTop; }
+
+@keyframes exitToBottom
+{
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(100%); opacity: 0; }
+}
+.exit-bottom { animation: 0.7s ease-in-out 0s 1 exitToBottom; }
+/* end: introduction/exit classes for any element by toggling/adding it in JS. */
 
 .titlebar { background-color: #3700B3;
   overflow: hidden;
