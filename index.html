@@ -48,11 +48,12 @@ if (today.getDay() != (4 || 5)) alert("Hey! Today's not Thursday.\n\nGo away now
     
     function nextForm()
     {
+    let theFormDiv = document.getElementById('theFormDiv');
     applyClass('exit-top', 'formResponseContainer', true);
-    setTimeout(function(){
+    theFormDiv.addEventListener('animationend', function(){
 			document.getElementById("theFormDiv").style.display = "block";
             applyClass('intro-bottom',"theFormDiv");
-            },500);
+            });
     }
     
 </script>
