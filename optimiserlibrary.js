@@ -1,3 +1,4 @@
+//RENAME toggleAnimationOneShot
 // apply a class to an element, with error checking and option to hide the element after. 
 function applyClass(className, element, hide_after = false)
 {
