@@ -6,7 +6,7 @@
 <link rel="stylesheet" type="text/css" href="https://arifd.github.io/UIMPThursdayEvalsOptimiser/style.css">
 <link rel="stylesheet" type="text/css" href="https://arifd.github.io/UIMPThursdayEvalsOptimiser/buttons.css">
 <script src="https://arifd.github.io/UIMPThursdayEvalsOptimiser/formpluginlibrary.js" type="text/javascript"></script> 
-<script src="https://arifd.github.io/UIMPThursdayEvalsOptimiser/optimiserlibrary.js" type="text/javascript"></script> 
+<script src="https://arifd.github.io/UIMPThursdayEvalsOptimiser/optimiserlibrary.js" type="text/javascript"></script>
 
 
 
@@ -15,21 +15,14 @@
 	
 <script>
 function nextForm() {
-// this is actually just testing introduce for now
-var element = document.getElementById("formResponseContainer");
-if (element.classList.contains('introduce')) {
-element.classList.remove('introduce');
-void element.offsetWidth; // Trigger reflow before re-adding
-element.classList.add('introduce');
-}
-else element.classList.add('introduce');
+applyClass('exit-right',document.getElementById("formResponseContainer"),true);
 }
 </script>
 
 
 <!-- FORM RESPONSE SECTION -->
 
-<div class="container" id="formResponseContainer">
+<div class="container intro-right" id="formResponseContainer">
 
 <div class="titlebar">
    <h1 id="formResponseTitle">Status of: Penelope Cruz</h1>
