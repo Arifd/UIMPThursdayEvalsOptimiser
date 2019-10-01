@@ -403,10 +403,10 @@ border-color:cornflowerblue;
   transition: opacity 1s;
 }
 .tooltip .tooltiptext::after {
-  content: "test";
+  content: "";
   position: absolute;
   bottom: 100%;
-  left: 50%;
+  left: 25%;
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
@@ -414,7 +414,7 @@ border-color:cornflowerblue;
 }
 .tooltip:hover .tooltiptext {
   visibility: visible;
-  opacity: 0.8;
+  opacity: 1;
 }
 
 
