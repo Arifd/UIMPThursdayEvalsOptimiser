@@ -74,11 +74,15 @@ function appendRedundancy()
 }
 
 function adjustSkills()
-{ // this should run every time number input has been adjusted
+{ // this is called by the html oninput attribute in order to run every time number input has been adjusted
 	
 	// Process Levels + Changed
 	var begLvl = parseFloat(document.getElementById("beginningLevel").value);
 	var endLvl = parseFloat(document.getElementById("formEndLevel").value);
+	
+	// if one of the inputs is 0.0 or NaN the user either hasn't entered anything or something has gone wrong, exit and don't do anything!
+	if ((begLvl || endLvl) == (0.0 || NaN)) return;
+	
 	// Send what we recieve from the form to UIMP as "Final Score"
 	document.getElementById("endLevel").value = endLvl.toString();
 	var begCEFRLvl = ""; // A1, A2, B1, B2, C1, C2
