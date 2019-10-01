@@ -183,12 +183,12 @@ function afterSubmit()
 {	
 	// clean certain form fields
 	document.getElementById("formName").value = "";
-	document.getElementById("formName").placeholder = nameValue;
+	// document.getElementById("formName").placeholder = nameValue;
 	
 	document.getElementById("beginningLevel").value = null;
-	document.getElementById("beginningLevel").placeholder = begLvl;
+	// document.getElementById("beginningLevel").placeholder = begLvl;
 	document.getElementById("formEndLevel").value = null;
-	document.getElementById("formEndLevel").placeholder = parseFloat(document.getElementById("formEndLevel").value);;
+	// document.getElementById("formEndLevel").placeholder = parseFloat(document.getElementById("formEndLevel").value);;
 	
 	// add information of previous form to html
 	// (not yet implemented)
