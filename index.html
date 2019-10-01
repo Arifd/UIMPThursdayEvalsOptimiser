@@ -41,6 +41,7 @@ if (today.getDay() != (4 || 5)) alert("Hey! Today's not Thursday.\n\nGo away now
     
     function displayFormResponseIframe()
     {
+	    // if any element in the form is invalid, return without doing anything (because the form will dissapear but we can't send it off!)
       applyClass('exit-top', 'theFormDiv', true);
       document.getElementById('formResponseContainer').style.display = "block";
       applyClass('intro-bottom', 'formResponseContainer');
