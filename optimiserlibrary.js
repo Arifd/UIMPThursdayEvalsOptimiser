@@ -80,12 +80,16 @@ function adjustSkills()
 	var begLvl = parseFloat(document.getElementById("beginningLevel").value);
 	var endLvl = parseFloat(document.getElementById("formEndLevel").value);
 	
+	// if one of the inputs is 0.0 or NaN the user either hasn't entered anything or something has gone wrong, exit and don't do anything!
+	if (isNaN(begLvl) || isNaN(endLvl) || (begLvl == 0.0) || (endLvl == 0.0)) return;
+	
 	// Since level can never go down, always secretly set the value for formEndLevel to be + 0.1 that of beginningLevel
 	// (not setting min value because that creates a bug where the arrow keys won't function because arrow up is still below min!)
 	if (endLvl < begLvl) document.getElementById("formEndLevel").value = (begLvl + 0.1); 
 	
-	// if one of the inputs is 0.0 or NaN the user either hasn't entered anything or something has gone wrong, exit and don't do anything!
-	if (isNaN(begLvl) || isNaN(endLvl) || (begLvl == 0.0) || (endLvl == 0.0)) return;
+	// print out what the CEFR levels are.
+	document.getElementById('beginningLevelLabel').innerHTML = `Working level: ${begLvl}`;
+	document.getElementById('formEndLevelLabel').innerHTML = `Final score: ${endLvl}`;
 	
 	console.log(begLvl); console.log(endLvl);
 	
