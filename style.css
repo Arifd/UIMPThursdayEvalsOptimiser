@@ -307,6 +307,8 @@ border-color:cornflowerblue;
     border: 2px dashed #444;
 }
 .radio-toolbar input[type="radio"]:checked + label {
+    position: relative;
+    top: 1px;
     background-color: #bfb;
     border-color: #4c4;
 }
