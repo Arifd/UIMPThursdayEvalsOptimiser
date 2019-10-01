@@ -82,7 +82,7 @@ function adjustSkills()
 	
 	// Since level can never go down, always secretly set the value for formEndLevel to be + 0.1 that of beginningLevel
 	// (not setting min value because that creates a bug where the arrow keys won't function because arrow up is still below min!)
-	document.getElementById("formEndLevel").value = (begLvl + 0.1); 
+	if (endLvl < begLvl) document.getElementById("formEndLevel").value = (begLvl + 0.1); 
 	
 	// if one of the inputs is 0.0 or NaN the user either hasn't entered anything or something has gone wrong, exit and don't do anything!
 	if (isNaN(begLvl) || isNaN(endLvl) || (begLvl == 0.0) || (endLvl == 0.0)) {alert("yep"); return;} console.log(begLvl); console.log(endLvl);
