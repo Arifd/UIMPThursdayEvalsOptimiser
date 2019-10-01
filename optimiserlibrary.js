@@ -97,11 +97,11 @@ function adjustSkills()
 	
 	// Since level can never go down, always secretly set the value for formEndLevel to be + 0.1 that of beginningLevel
 	// (not setting min value because that creates a bug where the arrow keys won't function because arrow up is still below min!)
-	if (endLvl < begLvl) document.getElementById("formEndLevel").value = (begLvl + 0.1); 
+	if (endLvl < begLvl) document.getElementById("formEndLevel").value = (Math.round(begLvl + 0.1 * 10) / 10); // rounding begLvl + 0.1 to one place because decimal maths occasionaly prints out .000000004 etc.
 	
 	// print out what the CEFR levels are.
-	document.getElementById('beginningLevelLabel').innerHTML = `Working level: ${berlitz2CEFR(begLvl)}`;
-	document.getElementById('formEndLevelLabel').innerHTML = `Final score: ${berlitz2CEFR(endLvl)}`;
+	document.getElementById('beginningLevelLabel').innerHTML = `Working level | ${berlitz2CEFR(begLvl)}`;
+	document.getElementById('formEndLevelLabel').innerHTML = `Final score | ${berlitz2CEFR(endLvl)}`;
 	
 	console.log(begLvl); console.log(endLvl);
 	
