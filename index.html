@@ -133,7 +133,7 @@ This tool is an optimisation of the regular Thursday Evals Form.
 <div class="divTableRow">
 <div class="divTableCell" style="max-width: 63px">
 <div class="tooltip">
-<label style="display: block;" for="beginningLevel">Working level:</label>
+<label id="beginningLevelLabel" style="display: block;" for="beginningLevel">Working level:</label>
 <input type="number" step=0.1 min="0.0" max="99.9" id=beginningLevel placeholder="0.0" oninput="adjustSkills()" /> <!-- we need beginning level to process changed level -->
 <span class="tooltiptext">This is the level decided by all three teachers at the end of day one. <b>Not</b> the initial level test taken on monday morning</span>
 </div>
@@ -152,7 +152,7 @@ This tool is an optimisation of the regular Thursday Evals Form.
 </div>
 <div class="divTableCell" style="max-width: 63px">
 <div class="tooltip">
-<label style="display: block;" for="formEndLevel">Final score:</label>
+<label id="formEndLevelLabel" style="display: block;" for="formEndLevel">Final score:</label>
 <input type="number" step=0.1 min="0.0" max="99.9" id=formEndLevel placeholder="0.0" oninput="adjustSkills()" /> <!-- This is "final score" -->
 	<input type="hidden" id="endLevel"> <!-- this is what we send off to google. Seperate from formEndLevel because we want to reset the form after submitting, but not the actual value sent to google -->
 </div>
