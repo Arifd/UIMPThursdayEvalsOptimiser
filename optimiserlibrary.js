@@ -73,6 +73,18 @@ function appendRedundancy()
 	}*/
 }
 
+//A helper function
+function berlitz2CEFR(berlitz)
+{
+	if (berlitz < 1.6) { return "A1" }
+	else if (berlitz < 3.6) { return "A2" }
+	else if (berlitz < 5.6) { return "B1" }
+	else if (berlitz < 7.6) { return "B2" }
+	else if (berlitz < 9.1) { return "C1" }
+	else if (berlitz >= 9.1) {return "C2" }
+	else return "ERROR";
+}
+
 function adjustSkills()
 { // this is called by the html oninput attribute in order to run every time number input has been adjusted
 	
@@ -88,8 +100,8 @@ function adjustSkills()
 	if (endLvl < begLvl) document.getElementById("formEndLevel").value = (begLvl + 0.1); 
 	
 	// print out what the CEFR levels are.
-	document.getElementById('beginningLevelLabel').innerHTML = `Working level: ${begLvl}`;
-	document.getElementById('formEndLevelLabel').innerHTML = `Final score: ${endLvl}`;
+	document.getElementById('beginningLevelLabel').innerHTML = `Working level: ${berlitz2CEFR(begLvl)}`;
+	document.getElementById('formEndLevelLabel').innerHTML = `Final score: ${berlitz2CEFR(endLvl)}`;
 	
 	console.log(begLvl); console.log(endLvl);
 	
@@ -98,16 +110,6 @@ function adjustSkills()
 	var begCEFRLvl = ""; // A1, A2, B1, B2, C1, C2
 	var endCEFRLvl = ""; // A1, A2, B1, B2, C1, C2
 	var levelChanged = false;
-	function berlitz2CEFR(berlitz)
-	{
-		if (berlitz < 1.6) { return "A1" }
-		else if (berlitz < 3.6) { return "A2" }
-		else if (berlitz < 5.6) { return "B1" }
-		else if (berlitz < 7.6) { return "B2" }
-		else if (berlitz < 9.1) { return "C1" }
-		else if (berlitz >= 9.1) {return "C2" }
-		else return "ERROR";
-	}
 	// get CEFR Levels
 	begCEFRLvl = berlitz2CEFR(begLvl);
 	endCEFRLvl = berlitz2CEFR(endLvl);
