@@ -70,6 +70,7 @@ body { background-color:#F8F8FF; }
 
 /*Gold bars background*/
 body {
+height: 100%;
 background: -webkit-linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
   background: -o-linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
   background: -moz-linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
