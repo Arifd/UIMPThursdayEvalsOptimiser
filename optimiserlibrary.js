@@ -81,7 +81,7 @@ function adjustSkills()
 	var endLvl = parseFloat(document.getElementById("formEndLevel").value);
 	
 	// if one of the inputs is 0.0 or NaN the user either hasn't entered anything or something has gone wrong, exit and don't do anything!
-	if (isNaN(begLvl) || isNaN(endLvl) || (begLvl == 0.0) || (endLvl == 0.0)) {alert("yep"); return;} console.log(begLevl); console.log(endLvl);
+	if (isNaN(begLvl) || isNaN(endLvl) || (begLvl == 0.0) || (endLvl == 0.0)) {alert("yep"); return;} console.log(begLvl); console.log(endLvl);
 	
 	// Send what we recieve from the form to UIMP as "Final Score"
 	document.getElementById("endLevel").value = endLvl.toString();
