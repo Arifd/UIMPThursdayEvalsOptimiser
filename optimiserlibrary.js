@@ -76,9 +76,12 @@ function appendRedundancy()
 function adjustSkills()
 { // this is called by the html oninput attribute in order to run every time number input has been adjusted
 	
-	// Process Levels + Changed
+	// grab the levels no matter what
 	var begLvl = parseFloat(document.getElementById("beginningLevel").value);
 	var endLvl = parseFloat(document.getElementById("formEndLevel").value);
+	
+	// Since level can never go down, always set the minimum value for formEndLevel to be + 0.1 that of beginningLevel
+	document.getElementById("formEndLevel").min = (begLvl + 0.1); 
 	
 	// if one of the inputs is 0.0 or NaN the user either hasn't entered anything or something has gone wrong, exit and don't do anything!
 	if (isNaN(begLvl) || isNaN(endLvl) || (begLvl == 0.0) || (endLvl == 0.0)) {alert("yep"); return;} console.log(begLvl); console.log(endLvl);
