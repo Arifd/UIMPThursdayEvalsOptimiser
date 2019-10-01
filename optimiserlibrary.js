@@ -95,9 +95,9 @@ function adjustSkills()
 	// if one of the inputs is 0.0 or NaN the user either hasn't entered anything or something has gone wrong, exit and don't do anything!
 	if (isNaN(begLvl) || isNaN(endLvl) || (begLvl == 0.0) || (endLvl == 0.0)) return;
 	
-	// Since level can never go down, always set the value for formEndLevel to be atleast the floor of beginningLevel (so user can play with the decimal place)
-	// (not setting min value because that creates a bug where the arrow keys won't function because arrow up is still below min!)
-	if (endLvl < begLvl) document.getElementById("formEndLevel").value = Math.floor(begLvl);
+	// Since level can never go down, always modify endLvl to be atleast the floor of beginningLevel (so user can play with the decimal place)
+	// Update the value also to reflect modification.
+	if (endLvl < begLvl) { endLvl = Math.floor(begLvl); document.getElementById("formEndLevel").value = endLvl; }
 	
         // print out what the CEFR levels are.
 	document.getElementById('beginningLevelLabel').innerHTML = `Working level: (${berlitz2CEFR(begLvl)})`;
