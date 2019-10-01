@@ -398,7 +398,7 @@ border-color:cornflowerblue;
   z-index: 1;
   top: 150%;
   left: 50%;
-  margin-left: -120px; /* width/2 = center */
+  margin-left: -45px; /* -width/2 = center */
   opacity: 0;
   transition: opacity 1s;
 }
