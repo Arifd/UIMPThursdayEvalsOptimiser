@@ -403,7 +403,7 @@ border-color:cornflowerblue;
   transition: opacity 1s;
 }
 .tooltip .tooltiptext::after {
-  content: "";
+  content: "test";
   position: absolute;
   bottom: 100%;
   left: 50%;
