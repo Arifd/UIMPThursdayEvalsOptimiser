@@ -100,8 +100,8 @@ function adjustSkills()
 	if (endLvl < begLvl) document.getElementById("formEndLevel").value = (Math.round(begLvl + 0.1 * 10) / 10); // rounding begLvl + 0.1 to one place because decimal maths occasionaly prints out .000000004 etc.
 	
 	// print out what the CEFR levels are.
-	document.getElementById('beginningLevelLabel').innerHTML = `Working level | ${berlitz2CEFR(begLvl)}`;
-	document.getElementById('formEndLevelLabel').innerHTML = `Final score | ${berlitz2CEFR(endLvl)}`;
+	document.getElementById('beginningLevelLabel').innerHTML = `Working level: (${berlitz2CEFR(begLvl)})`;
+	document.getElementById('formEndLevelLabel').innerHTML = `Final score: (${berlitz2CEFR(endLvl)})`;
 	
 	console.log(begLvl); console.log(endLvl);
 	
