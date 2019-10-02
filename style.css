@@ -311,7 +311,7 @@ border-color:cornflowerblue;
 .radio-toolbar input[type="radio"]:checked + label {
     background-color: #bfb;
     border: 1px solid #4c4;
-    margin: 1 1 1 1px; /* margin to make up for missing border */
+    margin: 2 2 2 2px; /* margin to make up for missing border */
 }
 
 
