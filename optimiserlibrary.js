@@ -86,7 +86,7 @@ function berlitz2CEFR(berlitz)
 }
 
 function adjustSkills()
-{ // this is called by the html oninput attribute in order to run every time number input has been adjusted
+{ // this is called by the html onblur attribute in order to run every time number input has been adjusted
 	
 	// grab the levels no matter what
 	var begLvl = parseFloat(document.getElementById("beginningLevel").value);
@@ -96,8 +96,8 @@ function adjustSkills()
 	if (isNaN(begLvl) || isNaN(endLvl) || (begLvl == 0.0) || (endLvl == 0.0)) return;
 	
 	// Since level can never go down, always modify endLvl to be atleast the floor of beginningLevel (so user can play with the decimal place)
-	// Update the value also to reflect modification.
-	if (endLvl != Math.floor(endLvl)) if (endLvl < begLvl) { endLvl = Math.floor(begLvl) ; document.getElementById("formEndLevel").value = endLvl; }
+	// Update the form value also to reflect modification.
+	if (endLvl < begLvl) { endLvl = Math.floor(begLvl + 0.1) ; document.getElementById("formEndLevel").value = endLvl; /*shake the input*/ }
 	
         // print out what the CEFR levels are.
 	document.getElementById('beginningLevelLabel').innerHTML = `Working level: (${berlitz2CEFR(begLvl)})`;
