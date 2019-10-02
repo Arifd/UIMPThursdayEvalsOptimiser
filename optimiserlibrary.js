@@ -20,6 +20,20 @@ function applyClass(className, element, hide_after = false)
   element.addEventListener('animationend', function() { element.classList.remove(className); }, {once: true});
 }
 
+// in FF there is a 'bug' that clicking the number input buttons don't focus the number input.
+// this function forces the browser to focus when button clicked.
+document.onreadystatechange = function() {
+  if (document.readyState == "complete") {
+    var inputs = document.querySelectorAll('[type="number"]');
+    for (var i = 0; i < inputs.length; i++) {
+      inputs[i].onclick = function() {
+        this.focus();
+      }
+    }
+  }
+}
+
+
 function appendRedundancy()
 {
 	// determin if passed or failed
