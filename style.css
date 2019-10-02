@@ -173,7 +173,6 @@ display: table-cell;
   max-width: 40rem;
   background: #fafafa;
   border-radius: 1px;
-  opacity: 0.5;
 }
 
 .container::before {
