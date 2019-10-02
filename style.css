@@ -86,7 +86,20 @@ background: linear-gradient(to right, #000428, #004e92);
 }
 */
 
-
+@keyframes one-shake
+{
+0% { transform: translateX(0); }
+25% { transform: translateX(-2px); }
+50% { transform: translateX(0); }
+75% { transform: translateX(2px); }
+100% { transform: translateX(0); }
+}
+.shake
+{
+animation-name: one-shake;
+animation-duration: 100ms;
+animation-iteration-count: 3;
+}
 
 /*a .flash class so that you can add flash to the class of any element to bring the user attention to it*/
 @keyframes go-invisible {0% { background:#ffffff;} 100% {background:transparent;}}
