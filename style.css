@@ -310,7 +310,7 @@ border-color:cornflowerblue;
 }
 .radio-toolbar input[type="radio"]:checked + label {
     background-color: #bfb;
-    border: 4px solid #4c4;
+    border: 1px solid #4c4;
 }
 
 
