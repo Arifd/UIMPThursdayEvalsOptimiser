@@ -1,4 +1,4 @@
-/* create a shake animation (animate  tranform x -1, 1, 0 (left 1px, right 1px, normal) trigger with triggeranimationoneshot()) */
+/* I'll create a shake animation (animate  tranform x -1, 1, 0 (left 1px, right 1px, normal) trigger with triggeranimationoneshot()) */
 
 @import url(https://fonts.googleapis.com/css?family=Roboto);
 body,
@@ -310,7 +310,8 @@ border-color:cornflowerblue;
 }
 .radio-toolbar input[type="radio"]:checked + label {
     background-color: #bfb;
-    border: 1px solid #4c4;
+    border: 0px solid #4c4;
+    margin: 2 2 2 2px; /* margin to make up for missing border */
 }
 
 
