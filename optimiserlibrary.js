@@ -111,7 +111,7 @@ function adjustSkills()
 	
 	// Since level can never go down, always modify endLvl to be atleast the floor of beginningLevel (so user can play with the decimal place)
 	// Update the form value also to reflect modification.
-	if (endLvl < begLvl) { endLvl = Math.floor(begLvl + 0.1) ; document.getElementById("formEndLevel").value = endLvl; /*shake the input*/ }
+	if (endLvl < begLvl) { endLvl = Math.floor(begLvl + 0.1) ; document.getElementById("formEndLevel").value = endLvl; applyClass("shake","formEndLevel"); }
 	
         // print out what the CEFR levels are.
 	document.getElementById('beginningLevelLabel').innerHTML = `Working level: (${berlitz2CEFR(begLvl)})`;
