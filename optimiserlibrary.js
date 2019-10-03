@@ -110,7 +110,7 @@ function adjustSkills()
 	if (isNaN(begLvl) || isNaN(endLvl) || (begLvl == 0.0) || (endLvl == 0.0)) return;
 
 	// Since levels can't go down, reject this case and return early
-	if (endLvl <= begLvl) { endLvl = null ; document.getElementById("formEndLevel").value = endLvl; applyClass("shake","formEndLevel"); return;}
+	if (endLvl <= begLvl) { endLvl = undefined; document.getElementById("formEndLevel").value = endLvl; applyClass("shake","formEndLevel"); return;}
 	
         // print out what the CEFR levels are.
 	document.getElementById('beginningLevelLabel').innerHTML = `Working level: (${berlitz2CEFR(begLvl)})`;
