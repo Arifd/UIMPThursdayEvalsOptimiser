@@ -18,7 +18,12 @@ body *::before {
   box-sizing: border-box;
 }
 
-body { background-color:#F8F8FF; }
+body {
+background-color:#F8F8FF;
+display: flex;
+justify-content: center;
+align-items: center;
+ }
 
 /* Grey subtle gradient */
 /*body {
