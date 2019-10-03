@@ -150,7 +150,7 @@ function adjustSkills()
 		document.getElementById("grammar-"+i).checked = true;
 		document.getElementById("vocabulary-"+i).checked = true;
 		document.getElementById("comprehension-"+i).checked = true;
-                if (++i <= 5) setTimeout(animateLevelChange(i), 1000);
+                if (++i <= 5) setTimeout(animateLevelChange, 500, i);
                 }
                 animateLevelChange(1);
 		return;
