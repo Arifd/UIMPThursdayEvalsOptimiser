@@ -101,10 +101,15 @@ function berlitz2CEFR(berlitz)
 
 function adjustSkills()
 { // this is called by the html onblur attribute in order to run every time number input has been adjusted
-	
+
 	// grab the levels no matter what
 	var begLvl = parseFloat(document.getElementById("beginningLevel").value);
 	var endLvl = parseFloat(document.getElementById("formEndLevel").value);
+
+        //Reset: print out what the CEFR levels are. (Will be recalculated later)
+	document.getElementById('beginningLevelLabel').innerHTML = "Working level:";
+	document.getElementById('formEndLevelLabel').innerHTML = "Final score:";
+
 	
 	// if one of the inputs is 0.0 or NaN the user either hasn't entered anything or something has gone wrong, exit and don't do anything!
 	if (isNaN(begLvl) || isNaN(endLvl) || (begLvl == 0.0) || (endLvl == 0.0)) return;
