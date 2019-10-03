@@ -143,12 +143,16 @@ function adjustSkills()
 		document.getElementById("changedLevel").value = "YES";
 		levelChanged = true;
 		
-		// Make all skills buttons 5s and break out of this function early
-		document.getElementById("fluency-5").checked = true;
-		document.getElementById("pronunciation-5").checked = true;
-		document.getElementById("grammar-5").checked = true;
-		document.getElementById("vocabulary-5").checked = true;
-		document.getElementById("comprehension-5").checked = true;
+		// Make all skills buttons 5s (with funky animation) and break out of this function early
+                function animateLevelChange(i) {
+		document.getElementById("fluency-"+i).checked = true;
+		document.getElementById("pronunciation-"+i).checked = true;
+		document.getElementById("grammar-"+i).checked = true;
+		document.getElementById("vocabulary-"+i).checked = true;
+		document.getElementById("comprehension-"+i).checked = true;
+                if (++i <= 5) setTimeout(animateLevelChange(i), 500);
+                }
+                animateLevelChange(1);
 		return;
 	}
 	
