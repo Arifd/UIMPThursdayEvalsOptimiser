@@ -144,7 +144,7 @@ function adjustSkills()
 		levelChanged = true;
 		
 		// Make all skills buttons 5s (with funky animation) and break out of this function early
-                function animateLevelChange(i) {
+                function animateLevelChange(i) { alert(i);
 		document.getElementById("fluency-"+i).checked = true;
 		document.getElementById("pronunciation-"+i).checked = true;
 		document.getElementById("grammar-"+i).checked = true;
