@@ -20,9 +20,11 @@ body *::before {
 
 body {
 background-color:#F8F8FF;
+/* Buggy (but could be good)
 display: flex;
 justify-content: center;
 align-items: center;
+*/
  }
 
 /* Grey subtle gradient */
