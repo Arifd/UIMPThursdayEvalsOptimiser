@@ -107,8 +107,10 @@ function adjustSkills()
 	var endLvl = parseFloat(document.getElementById("formEndLevel").value);
 
         //Reset: print out what the CEFR levels are. (Will be recalculated later)
+         /*
 	document.getElementById('beginningLevelLabel').innerHTML = "Working level:";
 	document.getElementById('formEndLevelLabel').innerHTML = "Final score:";
+         */
 
 	
 	// if one of the inputs is 0.0 or NaN the user either hasn't entered anything or something has gone wrong, exit and don't do anything!
@@ -118,9 +120,10 @@ function adjustSkills()
 	if (endLvl <= begLvl) { endLvl = undefined; document.getElementById("formEndLevel").value = endLvl; applyClass("shake","formEndLevel"); return;}
 	
         // print out what the CEFR levels are.
-	document.getElementById('beginningLevelLabel').innerHTML = `Working level: (${berlitz2CEFR(begLvl)})`;
+	/*
+        document.getElementById('beginningLevelLabel').innerHTML = `Working level: (${berlitz2CEFR(begLvl)})`;
 	document.getElementById('formEndLevelLabel').innerHTML = `Final score: (${berlitz2CEFR(endLvl)})`;
-
+        */
 	console.log(begLvl); console.log(endLvl);
 	
 	// Send what we recieve from the form to UIMP as "Final Score"
