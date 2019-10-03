@@ -196,7 +196,7 @@ function adjustSkills()
 		
 		// constrain results
 		if (result < 2) result = 2;
-		if (result > 5) result = 5;
+		if (result > 4) result = 4;
 	
 		// apply new value to skills
 		document.getElementById("fluency-"+result).checked = true;
