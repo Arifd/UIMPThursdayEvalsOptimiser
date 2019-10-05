@@ -2,9 +2,9 @@
 // apply a class to an element, with error checking and option to hide the element after. 
 function applyClass(className, element, hide_after = false)
 {
-  // find out if element has been passed as the name or the object
+  // find out if element has been passed as a string reference or the Element itself
   if (typeof element === 'string') element = document.getElementById(element);
-  if (typeof element != ('string' || 'object')) console.log("applyClass: element not an object nor a string (" + element + ": " + typeof element + ")");
+  if (!(element instanceof Element)) console.log("applyClass: element not an object nor a string (" + element + ": " + typeof element + ")");
   if (element.classList.contains(className))
   {
     element.classList.remove(className);
