@@ -72,19 +72,6 @@ function appendRedundancy()
 	}
 	// Process ISO week number
 	document.getElementById("processedISOWeekNumber").value = getWeekNumber(today);
-	
-	
-
-	// THIS SHOULD BE HANDLED in adjust skills
-	/*
-	if (levelChanged)
-	{
-		document.getElementById("fluency").value = 5;
-		document.getElementById("pronunciation").value = 5;
-		document.getElementById("grammar").value = 5;
-		document.getElementById("vocabulary").value = 5;
-		document.getElementById("comprehension").value = 5;
-	}*/
 }
 
 //A helper function
@@ -111,9 +98,10 @@ function adjustSkills()
 	document.getElementById('formEndLevelLabel').innerHTML = "Final score:";
   
 
-	
-	// if one of the inputs is 0.0 or NaN the user either hasn't entered anything or something has gone wrong, exit and don't do anything!
-	if (isNaN(begLvl) || isNaN(endLvl) || (begLvl == 0.0) || (endLvl == 0.0)) return;
+	// Check if the inputs have valid numbers in them, if not, return from this function early.
+	// if one of the inputs is 0.0 or NaN, or Null or undefined, a boolean test will return false.
+	inputsNotReady = (...inputs) => inputs.some(i => !Boolean(i));
+	if (inputsNotReady(begLvl, endLvl)) return;
 
 	// Since levels can't go down, reject this case and return early
 	if (endLvl <= begLvl) { endLvl = undefined; document.getElementById("formEndLevel").value = endLvl; applyClass("shake","formEndLevel"); return;}
