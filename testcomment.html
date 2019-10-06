@@ -38,75 +38,107 @@ commentData = Object.assign(...mapped);
   window.addEventListener('DOMContentLoaded', init)
 </script>
 
+<script>
+// a helper function to parse template literals from within strings
+String.prototype.interpolate = function(params) {
+  const names = Object.keys(params);
+  const vals = Object.values(params);
+  return new Function(...names, `return \`${this}\`;`)(...vals);
+}
+
+var name = "Elena";
+
+var adj = "great";
+
+var skill = "fluency";
+
+var select = function(...args) { return args[Math.floor(Math.random() * args.length)]; }; 
+
+var optional = function(arg) { if (Math.random() < 0.5) return arg; else return ""; };
+ 
+</script>
+
 
 </head>
 <body>
 
-<p id="demo"></p>
 
 <button onclick="comment()">Click me</button>
+
+<p id="demo"></p>
+
 
 <script>
 function comment()
 {
+  function dotOrExclamation()
+  {
+    if (Math.random() > 0.5) return "!";
+    else return ".";
+  }
+
   // the string that will contain the comment
   var theComment = "";
 
   // determine arrangement of comment
-  // for now only one arrangement. In future, array of arrays (?)
-  var order = ['week','personal','focus','positive','closer'];
+  var orderA = ['week','personal','focus','positive','closer'];
+  var orderB = ['personal','week','focus','positive','closer'];
+  var orderC = ['positive','focus','closer'];
+  var orderD = ['week','focus','positive','closer'];
+  var orderD = ['personal','focus','positive','closer'];
+
+  var order = select(orderA, orderB, orderC, orderD);
 
   // loop through order, selecting a random commentData and adding it to theComment
   for (let i = 0; i < order.length; i++)
   {
     // if week first, wee need to add the name first.
-    if ((i === 0) && (order[i] === "week")) theComment += "Alexandra ";
+    if ((i === 0) && (order[i] === "week")) theComment += "${name} ";
+
+    // if personal first, wee need to add the name first.
+    if ((i === 0) && (order[i] === "personal")) theComment += "${name} ";
 
     // if personal and week are neighours we need to add an " and " in between them
     if (((order[i] === "personal") && (order[i-1] === "week")) || ((order[i] === "week") && (order[i-1] === "personal")))  theComment += " and ";
-
-    // when we hit i === 2 we need to add a full stop, always.
-    if (i === 2) theComment += ". ";
 
     /////// Main comment adder /////// 
 
     theComment += commentData[order[i]][Math.floor(Math.random() * commentData[order[i]].length)];
 
-   /////// Main comment adder /////// 
+   /////// END Main comment adder /////// 
+
+    // if personal and week are neighours we need to add a full stop after
+    if (((order[i] === "personal") && (order[i-1] === "week")) || ((order[i] === "week") && (order[i-1] === "personal")))  theComment += dotOrExclamation() + " ";
 
     // after adding to the comment, when we hit "focus" we need some logic to determine which skill to talk about after. for now, just go to "fluency"
     if (order[i] === "focus") theComment += ". " + commentData["fluency"][Math.floor(Math.random() * commentData["fluency"].length)] + ". ";
 
-    // if positive is first, we need to add the name after, otherwise, just a full stop.
-    if ((i === 0) && (order[i] === "positive")) theComment += "Alexandra";
-    else if (order[i] === "positive") theComment += ". ";
+    // if "positive" is first, we need to add the name after. otherwise, elsewhere in the comment it needs a full stop.
+    if ((i === 0) && (order[i] === "positive")) theComment += " ${name}! ";
+    else if (order[i] === "positive") theComment += dotOrExclamation() + " ";
+
+    // if "personal" is first and there is no week after, we need to add a full stop and space
+    if ((i === 0) && (order[i] === "personal") && (order[i+1] !== "week")) theComment += dotOrExclamation() + " ";
 
 
     // after the closer, we need to add some punctuation
-    if (order[i] === "closer")
-    {
-      if (Math.random() > 0.5) theComment += "!";
-      else theComment += ".";
-    } 
+    if (order[i] === "closer") theComment += dotOrExclamation() + " ";
+
   } // End of compiling comment.
 
-  // capitalise first letter after full stop.
-  function capitalise(str) 
-{
-    str = str.split(". ");
+  // parse template literals
+  theComment = theComment.interpolate({});
 
-    for (var i = 0, x = str.length; i < x; i++) {
-        str[i] = str[i][0].toUpperCase() + str[i].substr(1);
-    }
-
-    return str.join(". ");
+  // capitalise every first letter after a full stop or exclamation.
+  function sentenceCase(input, lowercaseBefore) {
+    input = ( input === undefined || input === null ) ? '' : input;
+    if (lowercaseBefore) { input = input.toLowerCase(); }
+    return input.toString().replace( /(^|[!\.] *)([a-z])/g, function(match, separator, char) {
+        return separator + char.toUpperCase();
+    });
 }
 
-  theComment = capitalise(theComment);
-
-
-  // parse template literals
-
+  theComment = sentenceCase(theComment);
 
   // FINALLY print out results
   document.getElementById("demo").innerHTML = theComment;
