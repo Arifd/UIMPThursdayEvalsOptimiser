@@ -31,7 +31,7 @@ commentData = Object.assign(...mapped);
 
     // console.log(commentData);
 
-alert(commentData['week'].length);
+ // alert(commentData['week'][0]);
 
   }
 
@@ -41,6 +41,32 @@ alert(commentData['week'].length);
 
 </head>
 <body>
+
+<p id="demo"></p>
+
+<button onclick="comment()">Click me</button>
+
+<script>
+function comment()
+{
+  // the string that will contain the comment
+  var theComment = "";
+
+  // determine arrangement of comment
+  // for now only one arrangement. In future, array of arrays (?)
+  var order = ['week','personal','focus','positive','closer'];
+
+  // loop through order, selecting a random commentData and adding it to theComment
+  for (let i = 0; i < order.length; i++)
+  {
+    theComment += commentData[order[i]][Math.floor(Math.random() * commentData[order[i]].length)];
+  }
+
+  // print out results
+  document.getElementById("demo").innerHTML = theComment;
+}
+</script>
+
 
 
 </body>
