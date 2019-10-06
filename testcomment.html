@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+<script type='text/javascript'>    
+  var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1y2pe9-kgELYp8gUHu6fjGOClm2XT1QcBXCufXD4Hjxc/edit?usp=sharing';
+
+  function init() {
+    Tabletop.init( { key: publicSpreadsheetUrl,
+                     callback: parseSpreadsheet,
+                     simpleSheet: true } )
+  }
+
+  function parseSpreadsheet(data, tabletop) {
+    alert('Successfully processed!');
+
+// Tabletop returns objects as rows, we need to recombine them into arrays of columns
+// https://github.com/jsoma/tabletop/issues/170#issuecomment-538659494
+// Get the keys
+const keys = Object.keys(data[0]);
+// Turn them into a list of objects
+const mapped = keys.map( function(key) {
+    // Get the key's value for each existing object, only keep non-empty ones
+    return ({ [key]: data.map( o => o[key] ).filter( value => value ) });
+})
+// Turn that list into a global object
+commentData = Object.assign(...mapped);
+
+
+    // console.log(commentData);
+
+alert(commentData['week'].length);
+
+  }
+
+  window.addEventListener('DOMContentLoaded', init)
+</script>
+
+
+</head>
+<body>
+
+
+</body>
+</html>
