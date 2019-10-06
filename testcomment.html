@@ -49,11 +49,13 @@ String.prototype.interpolate = function(params) {
 
 var name = "Elena";
 
-var adj = "great";
-
 var skill = "fluency";
 
-var select = function(...args) { return args[Math.floor(Math.random() * args.length)]; }; 
+function select(...args) { return args[Math.floor(Math.random() * args.length)]; }; 
+  
+function adj() { select("great","wonderful","fantastic","terrific","outstanding","brilliant","tremendous"); };
+
+var adj = "great";
 
 var optional = function(arg) { if (Math.random() < 0.5) return arg; else return ""; };
 
@@ -96,10 +98,11 @@ if (order.length === 0) order.push("positive");
 if (Math.random() > 0.5) order.push("focus");
 // optional "positive when not in first position
 if (order[0] !== "positive") if (Math.random() > 0.5) order.push("positive");
-// always add the closer
+// always add a closer
 order.push("closer");
 
 console.log(order);
+console.log(order.length);
   
   // OLD VERSION
   /*
