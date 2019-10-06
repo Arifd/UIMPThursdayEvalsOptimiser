@@ -2,7 +2,8 @@
 <html>
 <head>
 <title>Page Title</title>
-
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+  
 <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
 <script type='text/javascript'>    
   var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1y2pe9-kgELYp8gUHu6fjGOClm2XT1QcBXCufXD4Hjxc/edit?usp=sharing';
@@ -55,6 +56,11 @@ var skill = "fluency";
 var select = function(...args) { return args[Math.floor(Math.random() * args.length)]; }; 
 
 var optional = function(arg) { if (Math.random() < 0.5) return arg; else return ""; };
+
+function optionalArray(...args)
+{
+  return args.filter(args => {if (Math.random() < 0.5) return true; else return false;})
+};
  
 </script>
 
@@ -71,43 +77,60 @@ var optional = function(arg) { if (Math.random() < 0.5) return arg; else return 
 <script>
 function comment()
 {
+  // helper function
   function dotOrExclamation()
   {
-    if (Math.random() > 0.5) return "!";
-    else return ".";
+    if (Math.random() > 0.5) return "!"; else return ".";
   }
-
-  // the string that will contain the comment
-  var theComment = "";
+  
+  var theComment = ""; // the string that will contain the final comment
+  var order = []; // the array that contains the structure of the comment
 
   // determine arrangement of comment
+  
+ // do we want any combination of week, personal, personal week, either or both?
+if (Math.random() > 0.5) order = order.concat(optionalArray("week","personal")); else order = order.concat(optionalArray("personal","week"));
+// if nothing, then add "positive" to first position
+if (order.length === 0) order.push("positive");
+// optional focus
+if (Math.random() > 0.5) order.push("focus");
+// optional "positive when not in first position
+if (order[0] !== "positive") if (Math.random() > 0.5) order.push("positive");
+// always add the closer
+order.push("closer");
+
+console.log(order);
+  
+  // OLD VERSION
+  /*
   var orderA = ['week','personal','focus','positive','closer'];
   var orderB = ['personal','week','focus','positive','closer'];
   var orderC = ['positive','focus','closer'];
   var orderD = ['week','focus','positive','closer'];
   var orderD = ['personal','focus','positive','closer'];
 
-  var order = select(orderA, orderB, orderC, orderD);
-
+  order = select(orderA, orderB, orderC, orderD);
+  */
+  
   // loop through order, selecting a random commentData and adding it to theComment
   for (let i = 0; i < order.length; i++)
   {
-    // if week first, wee need to add the name first.
+    // if week first, we need to add the name first.
     if ((i === 0) && (order[i] === "week")) theComment += "${name} ";
 
-    // if personal first, wee need to add the name first.
+    // if personal first, we need to add the name first.
     if ((i === 0) && (order[i] === "personal")) theComment += "${name} ";
-
-    // if personal and week are neighours we need to add an " and " in between them
-    if (((order[i] === "personal") && (order[i-1] === "week")) || ((order[i] === "week") && (order[i-1] === "personal")))  theComment += " and ";
 
     /////// Main comment adder /////// 
 
     theComment += commentData[order[i]][Math.floor(Math.random() * commentData[order[i]].length)];
 
    /////// END Main comment adder /////// 
-
-    // if personal and week are neighours we need to add a full stop after
+   
+   // if personal and week are going to be neighours we need to add an " and " in between them
+    if (((order[i] === "personal") && (order[i+1] === "week")) || ((order[i] === "week") && (order[i+1] === "personal")))  theComment += " and ";
+    
+    // if personal and week WERE neighours we need to add a full stop after.
     if (((order[i] === "personal") && (order[i-1] === "week")) || ((order[i] === "week") && (order[i-1] === "personal")))  theComment += dotOrExclamation() + " ";
 
     // after adding to the comment, when we hit "focus" we need some logic to determine which skill to talk about after. for now, just go to "fluency"
@@ -117,9 +140,8 @@ function comment()
     if ((i === 0) && (order[i] === "positive")) theComment += " ${name}! ";
     else if (order[i] === "positive") theComment += dotOrExclamation() + " ";
 
-    // if "personal" is first and there is no week after, we need to add a full stop and space
-    if ((i === 0) && (order[i] === "personal") && (order[i+1] !== "week")) theComment += dotOrExclamation() + " ";
-
+    // if "personal" is first and there is no week after, or "week" is first and there is no "personal" after we need to add a full stop and space
+    if (((i === 0) && (order[i] === "personal") && (order[i+1] !== "week")) || ((i === 0) && (order[i] === "week") && (order[i+1] !== "personal"))) theComment += dotOrExclamation() + " ";
 
     // after the closer, we need to add some punctuation
     if (order[i] === "closer") theComment += dotOrExclamation() + " ";
