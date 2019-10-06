@@ -68,11 +68,11 @@ function comment()
     // when we hit i === 2 we need to add a full stop, always.
     if (i === 2) theComment += ". ";
 
-    /////// Main comment Logic /////// 
+    /////// Main comment adder /////// 
 
     theComment += commentData[order[i]][Math.floor(Math.random() * commentData[order[i]].length)];
 
-   /////// Main comment Logic /////// 
+   /////// Main comment adder /////// 
 
     // after adding to the comment, when we hit "focus" we need some logic to determine which skill to talk about after. for now, just go to "fluency"
     if (order[i] === "focus") theComment += ". " + commentData["fluency"][Math.floor(Math.random() * commentData["fluency"].length)] + ". ";
@@ -91,6 +91,18 @@ function comment()
   } // End of compiling comment.
 
   // capitalise first letter after full stop.
+  function capitalise(str) 
+{
+    str = str.split(". ");
+
+    for (var i = 0, x = str.length; i < x; i++) {
+        str[i] = str[i][0].toUpperCase() + str[i].substr(1);
+    }
+
+    return str.join(". ");
+}
+
+  theComment = capitalise(theComment);
 
 
   // parse template literals
