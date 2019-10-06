@@ -60,9 +60,7 @@ function comment()
   for (let i = 0; i < order.length; i++)
   {
     // if week first, wee need to add the name first.
-    // if ((i === 0) && (order[i] === "week")) theComment += "Alexandra ";
-    // no no to above... Always add the name first, no matter what
-    if (i === 0) theComment += "Alexandra ";
+    if ((i === 0) && (order[i] === "week")) theComment += "Alexandra ";
 
     // if personal and week are neighours we need to add an " and " in between them
     if (((order[i] === "personal") && (order[i-1] === "week")) || ((order[i] === "week") && (order[i-1] === "personal")))  theComment += " and ";
@@ -70,13 +68,18 @@ function comment()
     // when we hit i === 2 we need to add a full stop, always.
     if (i === 2) theComment += ". ";
 
+    /////// Main comment Logic /////// 
+
     theComment += commentData[order[i]][Math.floor(Math.random() * commentData[order[i]].length)];
+
+   /////// Main comment Logic /////// 
 
     // after adding to the comment, when we hit "focus" we need some logic to determine which skill to talk about after. for now, just go to "fluency"
     if (order[i] === "focus") theComment += ". " + commentData["fluency"][Math.floor(Math.random() * commentData["fluency"].length)] + ". ";
 
-    // after "positive" we need a full stop
-    if (order[i] === "positive") theComment += ". ";
+    // if positive is first, we need to add the name after, otherwise, just a full stop.
+    if ((i === 0) && (order[i] === "positive")) theComment += "Alexandra";
+    else if (order[i] === "positive") theComment += ". ";
 
 
     // after the closer, we need to add some punctuation
@@ -85,9 +88,15 @@ function comment()
       if (Math.random() > 0.5) theComment += "!";
       else theComment += ".";
     } 
-  }
+  } // End of compiling comment.
 
-  // print out results
+  // capitalise first letter after full stop.
+
+
+  // parse template literals
+
+
+  // FINALLY print out results
   document.getElementById("demo").innerHTML = theComment;
 }
 </script>
