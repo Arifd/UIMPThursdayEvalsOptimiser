@@ -63,7 +63,7 @@ function personality()
 };
 // adjectives that I can't use because I need to modify the article before it: expressive, energetic, enthusiastic, easy-going
 
-var optional = function(arg) { if (Math.random() < 0.5) return arg; else return ""; };
+var optional = function(arg) { if (Math.random() < 0.5) return arg; else return null; };
 
 function optionalArray(...args)
 {
