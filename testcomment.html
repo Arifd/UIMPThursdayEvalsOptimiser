@@ -45,6 +45,45 @@ String.prototype.interpolate = function(params) {
   return new Function(...names, `return \`${this}\`;`)(...vals);
 }
 
+// a helper function to fix articles that need changing from 'a' to 'an'
+function fixArticles(text)
+{
+  // a function to insert and return a string
+  function insert(str, index, value)
+  {
+    return str.substr(0, index) + value + str.substr(index);
+  }
+  
+  function testVowel(index)
+  {
+    let match = false;
+    let vowels = ["a","e","i","o","u"];
+    for (const vowel of vowels) if (text.charAt(index) === vowel) match = true;
+    if (match === true) return true; else return false;
+  }
+  
+  for (let i = 0; i < text.length; i++)
+  {
+    let truthTable = []; // for if simplicity
+    truthTable[0] = (text.charAt(i-3) === " ");
+    truthTable[1] = (text.charAt(i-2) === "a");
+    truthTable[2] = (text.charAt(i-1) === " ");
+    
+    if (truthTable[0] && truthTable[1] && truthTable[2]) if (testVowel(i)) text = insert(text,i-1,"n");
+  }
+  return text;
+}
+
+// a helper function to capitalise first letters after sentence enders (.!?)
+function sentenceCase(input, lowercaseBefore) {
+    input = ( input === undefined || input === null ) ? '' : input;
+    if (lowercaseBefore) { input = input.toLowerCase(); }
+    return input.toString().replace( /(^|[\.!?] *)([a-z])/g, function(match, separator, char) {
+        return separator + char.toUpperCase();
+    });
+}
+  
+  
 var name = "Elena";
 
 var skill = "fluency";
@@ -158,16 +197,11 @@ console.log(order);
 
   // parse template literals
   theComment = theComment.interpolate({});
+  
+  // fix any incorrect articles
+  theComment = fixArticles(theComment);
 
   // capitalise every first letter after a full stop or exclamation or question mark.
-  function sentenceCase(input, lowercaseBefore) {
-    input = ( input === undefined || input === null ) ? '' : input;
-    if (lowercaseBefore) { input = input.toLowerCase(); }
-    return input.toString().replace( /(^|[\.!?] *)([a-z])/g, function(match, separator, char) {
-        return separator + char.toUpperCase();
-    });
-}
-
   theComment = sentenceCase(theComment);
 
   // FINALLY print out results
