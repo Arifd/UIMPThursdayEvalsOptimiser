@@ -154,11 +154,11 @@ console.log(order.length);
   // parse template literals
   theComment = theComment.interpolate({});
 
-  // capitalise every first letter after a full stop or exclamation.
+  // capitalise every first letter after a full stop or exclamation or question mark.
   function sentenceCase(input, lowercaseBefore) {
     input = ( input === undefined || input === null ) ? '' : input;
     if (lowercaseBefore) { input = input.toLowerCase(); }
-    return input.toString().replace( /(^|[!\.] *)([a-z])/g, function(match, separator, char) {
+    return input.toString().replace( /(^|[\.!?] *)([a-z])/g, function(match, separator, char) {
         return separator + char.toUpperCase();
     });
 }
