@@ -92,15 +92,15 @@ function select(...args) { return args[Math.floor(Math.random() * args.length)];
   
 function adj()
 {
-  return select("great","wonderful","fantastic","terrific","brilliant","tremendous","fabulous","magnificant","remarkable"); 
+  return select("great","wonderful","fantastic","terrific","brilliant","tremendous","fabulous","magnificant","remarkable","outstanding","amazing","awesome","incredible","excellent"); 
 };
-// adjectives that I can't use because I need to modify the article before it: outstanding, amazing, awesome, incredible, excellent
+// watch out! adjectives that need to be fixed with helper function an: outstanding, amazing, awesome, incredible, excellent
 
 function personality()
 {
-  return select("charismatic","bubbly","chatty","creative","communicative","enthusiastic","hard-working","nice","pro-active","thoughtful","likeable","giving","cheerful","convivial"); 
+  return select("charismatic","bubbly","chatty","creative","communicative","enthusiastic","hard-working","nice","pro-active","thoughtful","likeable","giving","cheerful","convivial","expressive","energetic","enthusiastic","easy-going"); 
 };
-// adjectives that I can't use because I need to modify the article before it: expressive, energetic, enthusiastic, easy-going
+// watch out! adjectives that need to be fixed with helper function an: expressive, energetic, enthusiastic, easy-going
 
 function optional(arg) { if (Math.random() < 0.5) return arg; else return ""; };
 
