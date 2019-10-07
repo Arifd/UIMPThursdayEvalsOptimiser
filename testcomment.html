@@ -59,7 +59,7 @@ function fixArticles(text)
     let match = false;
     let vowels = ["a","e","i","o","u"];
     for (const vowel of vowels) if (text.charAt(index) === vowel) match = true;
-    if (match === true) return true; else return false;
+    return match;
   }
   
   for (let i = 0; i < text.length; i++)
