@@ -53,8 +53,16 @@ var skill = "fluency";
 
 function select(...args) { return args[Math.floor(Math.random() * args.length)]; }; 
   
-function adj() {return  select("great","wonderful","fantastic","terrific","outstanding","brilliant","tremendous","fabulous","magnificant","remarkable"); };
+function adj()
+{ select("great","wonderful","fantastic","terrific","brilliant","tremendous","fabulous","magnificant","remarkable"); 
+};
+// adjectives that I can't use because I need to modify the article before it: outstanding, amazing, awesome, incredible, excellent
 
+function personality()
+{
+  return select("charismatic","bubbly","chatty","creative","communicative","enthusiastic","hard-working","nice","pro-active","thoughtful","likeable","giving","cheerful","convivial"); 
+};
+// adjectives that I can't use because I need to modify the article before it: expressive, energetic, enthusiastic, easy-going
 var optional = function(arg) { if (Math.random() < 0.5) return arg; else return ""; };
 
 function optionalArray(...args)
