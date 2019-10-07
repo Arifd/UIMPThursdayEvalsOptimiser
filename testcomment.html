@@ -53,9 +53,7 @@ var skill = "fluency";
 
 function select(...args) { return args[Math.floor(Math.random() * args.length)]; }; 
   
-function adj() { select("great","wonderful","fantastic","terrific","outstanding","brilliant","tremendous"); };
-
-var adj = "great";
+function adj() {return  select("great","wonderful","fantastic","terrific","outstanding","brilliant","tremendous","fabulous","magnificant","remarkable"); };
 
 var optional = function(arg) { if (Math.random() < 0.5) return arg; else return ""; };
 
