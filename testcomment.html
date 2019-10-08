@@ -90,47 +90,72 @@ var skill = "fluency";
 
 function select(...args) { return args[Math.floor(Math.random() * args.length)]; }; 
   
-function adj(article = false)
-{
-  // without a paramenter, just spit out a random adjective from the combination of both arrays
-  
-  // separate arrays for articles 'a' and 'an'
-  var adj_a = ["great","wonderful","fantastic","terrific","brilliant","tremendous","fabulous","magnificant","remarkable"]
-  var adj_an = ["outstanding","amazing","awesome","incredible","excellent"]; 
-                                                
-  // generate a random index array into both arrays
-  var index = Math.floor(Math.random() * (adj_a.length + adj_an.length));
-                         
-  if (article) // prepend either a symbol to let the wrapper function know what to prepend
-  {
-    if (index >= adj_a.length) return ":" + adj_an[index - adj_a.length];
-    else return "." + adj_a[index];
-  }
-  // article is false, just return the plain adjective
-  else if (index >= adj_a.length) return adj_an[index - adj_a.length]; else return adj_a[index];
-};
-
-function an_adj()
-{
-  var res = adj(true);
-  if (res.startsWith(":")) res = res.replace(":", "an ");
-  if (res.startsWith(".")) res = res.replace(".", "a " );
-  return res
-}
-
-function personality()
-{
-  return select("charismatic","bubbly","chatty","creative","communicative","enthusiastic","hard-working","nice","pro-active","thoughtful","likeable","giving","cheerful","convivial","expressive","energetic","enthusiastic","easy-going"); 
-};
-// watch out! adjectives that need to be fixed with helper function an: expressive, energetic, enthusiastic, easy-going
-
 function optional(arg) { if (Math.random() < 0.5) return arg; else return ""; };
 
 function optionalArray(...args)
 {
   return args.filter(args => {if (Math.random() < 0.5) return true; else return false;})
 };
- 
+  
+function adj(type = "general", article = false)
+{
+  // without a paramenter, just spit out a random adjective from the combination of both arrays
+  
+  // separate arrays for articles 'a' and 'an'
+  var adj_a = ["great","wonderful","fantastic","terrific","brilliant","tremendous","fabulous","magnificant","remarkable"]
+  var adj_an = ["outstanding","amazing","awesome","incredible","excellent"];
+  var personality_a = ["charismatic","bubbly","chatty","creative","communicative","hard-working","nice","pro-active","thoughtful","likeable","giving","cheerful","convivial"];
+  var personality_an = ["expressive","energetic","enthusiastic","easy-going"];
+  
+  // these will hold the whatever the type parameter decides
+  var template_a = [];
+  var template_an = [];
+  
+  // decide what to put into the templates
+  if (type === "general")
+  {
+   template_a = adj_a;
+   template_an = adj_an;
+  }
+  if (type === "personality")
+  {
+   template_a = personality_a;
+   template_an = personality_an;
+  }
+                                                
+  // generate a random index array into both arrays
+  var index = Math.floor(Math.random() * (template_a.length + template_an.length));
+                         
+  if (article) // prepend either a symbol to let the wrapper function know what to prepend
+  {
+    if (index >= template_a.length) return ":" + template_an[index - template_a.length];
+    else return "." + template_a[index];
+  }
+  // article is false, just return the plain adjective
+  else if (index >= template_a.length) return template_an[index - template_a.length]; else return template_a[index];
+};
+
+function personality()
+{ 
+  adj("personality",false);
+};
+
+function an_adj() // a wrapper to prepend the correct article
+{
+  var res = adj("general", true);
+  if (res.startsWith(":")) res = res.replace(":", "an ");
+  if (res.startsWith(".")) res = res.replace(".", "a " );
+  return res
+}
+  
+function a_personality() // a wrapper to prepend the correct article
+{
+  var res = adj("personal", true);
+  if (res.startsWith(":")) res = res.replace(":", "an ");
+  if (res.startsWith(".")) res = res.replace(".", "a " );
+  return res
+}
+
 </script>
 
 
