@@ -179,31 +179,23 @@ function comment()
   var theComment = ""; // the string that will contain the final comment
   var order = []; // the array that contains the structure of the comment
 
-  // determine arrangement of comment
-  
+function generate() {
+//in case of looping make sure we start with a clean slate!
+theComment = ""; order = [];
+
+// determine arrangement of comment  
  // do we want any combination of week, personal, personal week, either or both?
 if (Math.random() > 0.5) order = order.concat(optionalArray("week","personal")); else order = order.concat(optionalArray("personal","week"));
 // if nothing, then add "positive" to first position
 if (order.length === 0) order.push("positive");
-// optional focus
-if (Math.random() > 0.5) order.push("focus");
+// optional focus --> focus logic will be determined by need (all skills same? no focus!)
+if (Math.random() > 0.5) order.push("focuspre");
 // optional "positive when not in first position
 if (order[0] !== "positive") if (Math.random() > 0.5) order.push("positive");
-// always add a closer
-order.push("closer");
+// sometimes add a closer
+if (Math.random() > 0.5) order.push("closer");
 
 console.log(order);
-  
-  // OLD VERSION
-  /*
-  var orderA = ['week','personal','focus','positive','closer'];
-  var orderB = ['personal','week','focus','positive','closer'];
-  var orderC = ['positive','focus','closer'];
-  var orderD = ['week','focus','positive','closer'];
-  var orderD = ['personal','focus','positive','closer'];
-
-  order = select(orderA, orderB, orderC, orderD);
-  */
   
   // loop through order, selecting a random commentData and adding it to theComment
   for (let i = 0; i < order.length; i++)
@@ -226,8 +218,9 @@ console.log(order);
     // if personal and week WERE neighours we need to add a full stop after.
     if (((order[i] === "personal") && (order[i-1] === "week")) || ((order[i] === "week") && (order[i-1] === "personal")))  theComment += dotOrExclamation() + " ";
 
-    // after adding to the comment, when we hit "focus" we need some logic to determine which skill to talk about after. for now, just go to "fluency"
-    if (order[i] === "focus") theComment += ". " + commentData["fluency"][Math.floor(Math.random() * commentData["fluency"].length)] + ". ";
+    // after adding to the comment, when we hit "focuspre" we need need to add "focus" and then some logic to determine which skill to talk about. for now, just go to "fluency"
+    if (order[i] === "focuspre") theComment += ", " + commentData["focus"][Math.floor(Math.random() * commentData["focus"].length)] +
+    ". " + commentData["fluency"][Math.floor(Math.random() * commentData["fluency"].length)] + ". ";
 
     // if "positive" is first, we need to add the name after. otherwise, elsewhere in the comment it needs a full stop.
     if ((i === 0) && (order[i] === "positive")) theComment += " ${name}! ";
@@ -237,16 +230,16 @@ console.log(order);
     if (((i === 0) && (order[i] === "personal") && (order[i+1] !== "week")) || ((i === 0) && (order[i] === "week") && (order[i+1] !== "personal"))) theComment += dotOrExclamation() + " ";
 
     // after the closer, we need to add some punctuation
-    if (order[i] === "closer") theComment += dotOrExclamation() + " ";
+    if (order[i] === "closer") theComment += dotOrExclamation();
 
   } // End of compiling comment.
 
   // parse template literals
   theComment = theComment.interpolate({});
-  
-  // fix any incorrect articles
-  // there shouldn't be! don't use this
-  //theComment = fixArticles(theComment);
+}
+
+// keep generating until we have a sufficiently long enough comment
+while (theComment.length < 60) generate();
 
   // capitalise every first letter after a full stop or exclamation or question mark.
   theComment = sentenceCase(theComment);
