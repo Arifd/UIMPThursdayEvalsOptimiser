@@ -90,15 +90,32 @@ var skill = "fluency";
 
 function select(...args) { return args[Math.floor(Math.random() * args.length)]; }; 
   
-function adj()
+function adj(article = false)
 {
-  return select("great","wonderful","fantastic","terrific","brilliant","tremendous","fabulous","magnificant","remarkable","outstanding","amazing","awesome","incredible","excellent"); 
-}; // Watch out! Words that begin with consonant but require article 'an' (e.g. 'honest')
+  // without a paramenter, just spit out a random adjective from the combination of both arrays
+  
+  // separate arrays for articles 'a' and 'an'
+  var adj_a = ["great","wonderful","fantastic","terrific","brilliant","tremendous","fabulous","magnificant","remarkable"]
+  var adj_an = ["outstanding","amazing","awesome","incredible","excellent"]; 
+                                                
+  // generate a random index array into both arrays
+  var index = Math.floor(Math.random() * (adj_a.length + adj_an.length));
+                         
+  if (article) // prepend either a symbol to let the wrapper function know what to prepend
+  {
+    if (index >= adj_a.length) return ":" + adj_an[index - adj_a.length];
+    else return "." + adj_a[index];
+  }
+  // article is false, just return the plain adjective
+  else if (index >= adj_a.length) return adj_an[index - adj_a.length]; else return adj_a[index];
+};
 
-function a_adj() // a wrapper to prepend the correct article (a/an) before the adjective
+function an_adj()
 {
-  var res = adj();
-  return ((/^[aeiou]/i).test(res.charAt(0)) ? "an " : "a ") + res;
+  var res = adj(true);
+  if (res.startsWith(":")) res = res.replace(":", "an ");
+  if (res.startsWith(".")) res = res.replace(".", "a " );
+  return res
 }
 
 function personality()
