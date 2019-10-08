@@ -112,8 +112,8 @@ function adj(article = false)
 
 function an_adj()
 {
-  var res = adj(true);
-  if (res.startsWith(":")) res = res.replace(":", "an ");
+  var res = adj(true);
+  if (res.startsWith(":")) res = res.replace(":", "an ");
   if (res.startsWith(".")) res = res.replace(".", "a " );
   return res
 }
@@ -221,7 +221,8 @@ console.log(order);
   theComment = theComment.interpolate({});
   
   // fix any incorrect articles
-  theComment = fixArticles(theComment);
+  // there shouldn't be! don't use this
+  //theComment = fixArticles(theComment);
 
   // capitalise every first letter after a full stop or exclamation or question mark.
   theComment = sentenceCase(theComment);
