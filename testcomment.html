@@ -99,8 +99,6 @@ function optionalArray(...args)
   
 function adj(type = "general", article = false)
 {
-  // without a paramenter, just spit out a random adjective from the combination of both arrays
-  
   // separate arrays for articles 'a' and 'an'
   var adj_a = ["great","wonderful","fantastic","terrific","brilliant","tremendous","fabulous","magnificant","remarkable"]
   var adj_an = ["outstanding","amazing","awesome","incredible","excellent"];
@@ -126,7 +124,7 @@ function adj(type = "general", article = false)
   // generate a random index array into both arrays
   var index = Math.floor(Math.random() * (template_a.length + template_an.length));
                          
-  if (article) // prepend either a symbol to let the wrapper function know what to prepend
+  if (article) // prepend a unique symbol to let the wrapper function know what article to replace
   {
     if (index >= template_a.length) return ":" + template_an[index - template_a.length];
     else return "." + template_a[index];
