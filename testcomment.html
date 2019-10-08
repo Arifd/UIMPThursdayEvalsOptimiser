@@ -93,8 +93,13 @@ function select(...args) { return args[Math.floor(Math.random() * args.length)];
 function adj()
 {
   return select("great","wonderful","fantastic","terrific","brilliant","tremendous","fabulous","magnificant","remarkable","outstanding","amazing","awesome","incredible","excellent"); 
-};
-// watch out! adjectives that need to be fixed with helper function an: outstanding, amazing, awesome, incredible, excellent
+}; // Watch out! Words that begin with consonant but require article 'an' (e.g. 'honest')
+
+function a_adj() // a wrapper to prepend the correct article (a/an) before the adjective
+{
+  var res = adj();
+  return ((/^[aeiou]/i).test(res.charAt(0)) ? "an " : "a ") + res;
+}
 
 function personality()
 {
