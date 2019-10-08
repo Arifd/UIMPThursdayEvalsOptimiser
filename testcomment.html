@@ -115,11 +115,12 @@ function adj(type = "general", article = false)
    template_a = adj_a;
    template_an = adj_an;
   }
-  if (type === "personality")
+  else if (type === "personality")
   {
    template_a = personality_a;
    template_an = personality_an;
   }
+  else return "";
                                                 
   // generate a random index array into both arrays
   var index = Math.floor(Math.random() * (template_a.length + template_an.length));
@@ -132,12 +133,7 @@ function adj(type = "general", article = false)
   // article is false, just return the plain adjective
   else if (index >= template_a.length) return template_an[index - template_a.length]; else return template_a[index];
 };
-
-function personality()
-{ 
-  return adj("personality",false);
-};
-
+  
 function an_adj() // a wrapper to prepend the correct article
 {
   var res = adj("general", true);
@@ -146,9 +142,14 @@ function an_adj() // a wrapper to prepend the correct article
   return res
 }
   
+function personality()
+{ 
+  return adj("personality",false);
+};
+  
 function a_personality() // a wrapper to prepend the correct article
 {
-  var res = adj("personal", true);
+  var res = adj("personality", true);
   if (res.startsWith(":")) res = res.replace(":", "an ");
   if (res.startsWith(".")) res = res.replace(".", "a " );
   return res
