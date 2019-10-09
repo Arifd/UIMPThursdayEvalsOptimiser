@@ -43,7 +43,9 @@ function appendRedundancy()
 	if (passOrFailStatus) document.getElementById("passOrFail").value = "Pass";
 	else document.getElementById("passOrFail").value = "Fail";
 	
-	alert(document.getElementById("firstName").value);
+	// transfer formNames into to-be-sent-to-google form ids
+	document.getElementById("lastName").value = document.getElementById("formLastName").value;
+	document.getElementById("firstName").value = document.getElementById("formFirstName").value;
 	
 	// Process date
 	var today = new Date();
