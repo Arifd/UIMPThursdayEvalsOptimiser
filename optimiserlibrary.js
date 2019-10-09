@@ -194,7 +194,7 @@ function adjustSkills()
 }
 
 function afterSubmit()
-{	
+{	// WARNING: this function will wipe the fields before they've been sent to google. That's why I null the 'formField' id's rather than the ones that get directly sent to google
 	// clean certain form fields
 	document.getElementById("formFirstName").value = "";
 	document.getElementById("formLastName").value = "";
