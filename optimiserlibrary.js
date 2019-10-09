@@ -43,6 +43,8 @@ function appendRedundancy()
 	if (passOrFailStatus) document.getElementById("passOrFail").value = "Pass";
 	else document.getElementById("passOrFail").value = "Fail";
 	
+	alert(document.getElementById("firstName").value);
+	
 	// Process date
 	var today = new Date();
 	if (today.getDay() == 4) var theFriday = new Date(today.getTime() + (24 * 60 * 60 * 1000));
