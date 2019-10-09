@@ -192,8 +192,8 @@ function adjustSkills()
 function afterSubmit()
 {	
 	// clean certain form fields
-	document.getElementById("formName").value = "";
-	// document.getElementById("formName").placeholder = nameValue;
+	document.getElementById("firstName").value = "";
+	document.getElementById("lastName").value = "";
 	
 	document.getElementById("beginningLevel").value = null;
 	// document.getElementById("beginningLevel").placeholder = begLvl;
