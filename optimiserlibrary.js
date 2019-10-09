@@ -199,9 +199,9 @@ function afterSubmit()
 	document.getElementById("formLastName").value = "";
 	
 	document.getElementById("beginningLevel").value = null;
-	// document.getElementById("beginningLevel").placeholder = begLvl;
 	document.getElementById("formEndLevel").value = null;
-	// document.getElementById("formEndLevel").placeholder = parseFloat(document.getElementById("formEndLevel").value);;
+	
+	adjustSkills(); // run this function to reset any internal workings
 	
 	// add information of previous form to html
 	// (not yet implemented)
