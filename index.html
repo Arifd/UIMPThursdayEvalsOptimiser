@@ -44,7 +44,7 @@ if (today.getDay() != (4 || 5)) alert("Hey! Today's not Thursday.\n\nGo away now
 	    //Todo: if any element in the form is invalid, return without doing anything (because the form will dissapear but we can't send it off!)
 
       // prepare the title of the form
-	document.getElementById("formResponseTitle").innerHTML = "Status of: " + nameValue;
+	document.getElementById("formResponseTitle").innerHTML = "Status of: " + document.getElementById("formFirstName").value;
 
       // Display form
       applyClass('exit-top', 'theFormDiv', true);
@@ -100,13 +100,14 @@ This tool is an optimisation of the regular Thursday Evals Form.
 <hr>
 <form id="theForm" autocomplete="off" method="post" target="formResponseIframe" onsubmit="afterSubmit()">
  
-    <p>Student's Full name (Exactly as written):</p>
-    <div class="tooltip" style="width: 75%">
-    <input type="text" style="width:100%" id=formName placeholder="Name" />
-    <span class="tooltiptext">Make sure to separate first name from last name with a comma... i.e."<b>Encinas Bardem, Javier Angel</b>"</span>
-    </div><br><br>
-    <input type="hidden" id=processedLastName value="lastName" />
-    <input type="hidden" id=processedFirstName value="firstName" />
+    <p>Student's Full name</p>
+    
+    <input type="text" id=formLastName placeholder="Last Name" />, 
+    <input type="text" id=formFirstName placeholder="First Name" />
+    <input type="hidden" id=lastName value="lastname" />, 
+    <input type="hidden" id=firstName value="firstname" />
+    
+    <br><br>
 
     <!-- Location -->
     <input type="hidden" id="location" value="location" />
