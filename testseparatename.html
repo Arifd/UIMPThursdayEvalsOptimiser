@@ -44,7 +44,7 @@ if (today.getDay() != (4 || 5)) alert("Hey! Today's not Thursday.\n\nGo away now
 	    //Todo: if any element in the form is invalid, return without doing anything (because the form will dissapear but we can't send it off!)
 
       // prepare the title of the form
-	document.getElementById("formResponseTitle").innerHTML = "Status of: " + nameValue;
+	document.getElementById("formResponseTitle").innerHTML = "Status of: " + document.getElementById("formFirstName").value;
 
       // Display form
       applyClass('exit-top', 'theFormDiv', true);
@@ -103,7 +103,7 @@ This tool is an optimisation of the regular Thursday Evals Form.
     <p>Student's Full name</p>
     
     <input type="text" id=formLastName placeholder="Last Name" />, 
-    <input type="text" id=formFirstName placeholder="First Name" onblur="learnName()" />
+    <input type="text" id=formFirstName placeholder="First Name" />
     <input type="hidden" id=lastName value="lastname" />, 
     <input type="hidden" id=firstName value="firstname" />
     
