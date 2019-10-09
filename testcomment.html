@@ -218,9 +218,9 @@ console.log(order);
     // if personal and week WERE neighours we need to add a full stop after.
     if (((order[i] === "personal") && (order[i-1] === "week")) || ((order[i] === "week") && (order[i-1] === "personal")))  theComment += dotOrExclamation() + " ";
 
-    // after adding to the comment, when we hit "focuspre" we need need to add "focus" and then some logic to determine which skill to talk about. for now, just go to "fluency"
+    // after adding to the comment, when we hit "focuspre" we need need to add "focus" and then optionally "skill" (which is determined at declaration by the skills inputted in the form)
     if (order[i] === "focuspre") theComment += ", " + commentData["focus"][Math.floor(Math.random() * commentData["focus"].length)] +
-    ". " + optional(commentData["fluency"][Math.floor(Math.random() * commentData["fluency"].length)] + ". ");
+    ". " + optional(commentData[skill][Math.floor(Math.random() * commentData[skill].length)] + ". ");
 
     // if "positive" is first, we need to add the name after. otherwise, elsewhere in the comment it needs a full stop.
     if ((i === 0) && (order[i] === "positive")) theComment += " ${name}! ";
