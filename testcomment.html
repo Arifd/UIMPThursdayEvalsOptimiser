@@ -220,7 +220,7 @@ console.log(order);
 
     // after adding to the comment, when we hit "focuspre" we need need to add "focus" and then some logic to determine which skill to talk about. for now, just go to "fluency"
     if (order[i] === "focuspre") theComment += ", " + commentData["focus"][Math.floor(Math.random() * commentData["focus"].length)] +
-    ". " + commentData["fluency"][Math.floor(Math.random() * commentData["fluency"].length)] + ". ";
+    ". " + optional(commentData["fluency"][Math.floor(Math.random() * commentData["fluency"].length)] + ". ");
 
     // if "positive" is first, we need to add the name after. otherwise, elsewhere in the comment it needs a full stop.
     if ((i === 0) && (order[i] === "positive")) theComment += " ${name}! ";
