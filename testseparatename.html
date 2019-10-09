@@ -1,0 +1,252 @@
+<!-- note, all the setTimeouts should be eventlistener 'animationend' -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>UIMP Thursday Evals Optimiser</title>
+<!--<script>
+var today = new Date();
+if (today.getDay() != (4 || 5)) alert("Hey! Today's not Thursday.\n\nGo away now before you perturb the UIMP gods!"); 
+</script>-->
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="https://arifd.github.io/UIMPThursdayEvalsOptimiser/style.css">
+<link rel="stylesheet" type="text/css" href="https://arifd.github.io/UIMPThursdayEvalsOptimiser/buttons.css">
+<script src="https://arifd.github.io/UIMPThursdayEvalsOptimiser/formpluginlibrary.js" type="text/javascript"></script> 
+<script src="https://arifd.github.io/UIMPThursdayEvalsOptimiser/optimiserlibrary.js" type="text/javascript"></script> 
+<script>
+	function showForm()
+	{
+		// grab the results of the selector
+		var selectedLocation = document.getElementById("locationSelector").value;
+
+		// loadup the right entry.xxxxxx for each form field
+		if (selectedLocation == "nothing selected") pluginBlank();
+		else if (selectedLocation == "Test") pluginDummyForm();
+		else if (selectedLocation == "Sevilla") pluginSevilla();
+
+		// prepare the title of the form
+		document.getElementById("theFormTitle").innerHTML = selectedLocation;
+
+		// if something valid slected hide this selector div, show the form
+		if (selectedLocation != "nothing selected")
+		{
+			//document.getElementById("splashScreenDiv").style.display = "none";
+            applyClass('exit-top',"splashScreenDiv",true);
+            setTimeout(function(){
+			document.getElementById("theFormDiv").style.display = "block";
+            applyClass('intro-bottom',"theFormDiv");
+            },500);
+		}
+	}
+    
+    function displayFormResponseIframe()
+    {
+	    //Todo: if any element in the form is invalid, return without doing anything (because the form will dissapear but we can't send it off!)
+
+      // prepare the title of the form
+	document.getElementById("formResponseTitle").innerHTML = "Status of: " + nameValue;
+
+      // Display form
+      applyClass('exit-top', 'theFormDiv', true);
+     let formResponseContainer = document.getElementById('formResponseContainer');
+    formResponseContainer.style.display = "block";
+      applyClass('intro-bottom', formResponseContainer);
+    }
+    
+    function nextForm()
+    {
+    let formResponseContainer = document.getElementById('formResponseContainer');
+
+    applyClass('exit-top', formResponseContainer, true);
+    formResponseContainer.addEventListener('animationend', function(){
+            applyClass('intro-bottom',"theFormDiv");
+document.getElementById("theFormDiv").style.display = "block";
+          }, {once: true});
+    }
+    
+</script>
+</head>
+<body>
+	
+<!-- SPLASH SCREEN -->
+<div id="splashScreenDiv">
+<div class="container intro-left">
+<div class="titlebar"><h1>UIMP Thursday Evals Optimiser</h1></div>
+<p>
+This tool is an optimisation of the regular Thursday Evals Form.
+</p>
+<p>Removing a ton of redundant user input, while still providing the UIMP <b>exactly</b> the same information.
+</p>
+<hr>
+<p>
+<b>Usage:</b> When you click submit, this tool sends to Google all the information you would have sent anyway manually using the Google form. Once sent, google will send back its usual confirmation page. Just hit my dismiss button to go back to the form, refill, and submit again for the next student.
+</p>
+</div>
+<div class="container intro-right">
+<select id="locationSelector">
+	<option value="nothing selected" selected disabled hidden>Select location</option>
+	<option value="Sevilla">Sevilla</option>
+	<option value="Test">Dummy Form (for testing)</option>
+</select>
+<button type="button" id="goButton" onclick="showForm()">Go!</button>
+</div>
+</div>
+
+
+<!-- THE OPTIMISED FORM -->
+<div id="theFormDiv" hidden>
+<div class="container">
+<div class="titlebar"><h1 id="theFormTitle"></h1></div>
+<hr>
+<form id="theForm" autocomplete="off" method="post" target="formResponseIframe" onsubmit="afterSubmit()">
+ 
+    <p>Student's Full name:</p>
+    </div><br><br>
+    <input type="text" id=processedLastName placeholder="Last Name" />
+    <input type="text" id=processedFirstName placeholder="First Name" />
+
+    <!-- Location -->
+    <input type="hidden" id="location" value="location" />
+
+    <!-- Friday date -->
+    <!-- still needs processing, is just giving you today's date -->
+ 	<input type="hidden" id=formMonth value="month" />
+  	<input type="hidden" id=formDay value="day" />
+  	<input type="hidden" id=formYear value="year" />
+
+  	<!-- Pass or Fail -->
+  	<input type="hidden" id="passOrFail" value="Pass" />
+
+  	<!-- ISO Week Number -->
+  	<input type="hidden" id=processedISOWeekNumber value="ISOWeekNumber" />
+
+	<input type="text" style="width: 75%" id="group" placeholder="Group" /> <br>
+
+	<input type="text" style="width: 75%" id="teachersNames" placeholder="Teacher's Name(s)" /> <br> <br>
+
+	<!-- CEFR Level at Beginning -->
+	<input type="hidden" id=levelAtBeginning value="levelAtBeginning" />
+
+	<!-- CEFR Level at End -->
+	<input type="hidden" id=levelAtEnd value="levelAtEnd" />
+
+
+<!-- Table to hold both levels horizontally -->
+<div class="divTable">
+<div class="divTableBody">
+<div class="divTableRow">
+<div class="divTableCell" style="max-width: 63px">
+<div class="tooltip">
+<label id="beginningLevelLabel" style="display: block;" for="beginningLevel">Working level:</label>
+<input type="number" step=0.1 min="0.0" max="99.9" id=beginningLevel placeholder="0.0" onblur="adjustSkills()" /> <!-- we need beginning level to process changed level -->
+<span class="tooltiptext">This is the level decided by all three teachers at the end of day one. <b>Not</b> the initial level test taken on monday morning</span>
+</div>
+</div>
+<div class="divTableCell" style="vertical-align: middle;">
+    <label style="display: block;" for="formPassOrFail">Pass or fail:</label>
+    <!-- start: Pass or Fail switch -->
+    <div class="onoffswitch">
+    <input type="checkbox" class="onoffswitch-checkbox" id="formPassOrFail" checked>
+    <label class="onoffswitch-label" for="formPassOrFail">
+        <span class="onoffswitch-inner"></span>
+        <span class="onoffswitch-switch"></span>
+    </label>
+    </div>
+    <!-- end: Pass or Fail switch -->
+</div>
+<div class="divTableCell" style="max-width: 63px">
+<div class="tooltip">
+<label id="formEndLevelLabel" style="display: block;" for="formEndLevel">Final score:</label>
+<input type="number" step=0.1 min="0.0" max="99.9" id=formEndLevel placeholder="0.0" onblur="adjustSkills()" /> <!-- This is "final score" -->
+	<input type="hidden" id="endLevel"> <!-- this is what we send off to google. Seperate from formEndLevel because we want to reset the form after submitting, but not the actual value sent to google -->
+</div>
+</div>
+</div>
+</div>
+</div>
+	
+	<!-- Changed Level -->
+	<input type="hidden" id=changedLevel value="changedLevel" />
+
+	<div class="radio-toolbar">
+	<label class="radio-toolbar-title">Fluency:</label>
+	<input type="radio" id="fluency-1" name="fluency" value="1" /><label for="fluency-1">1</label>
+        <input type="radio" id="fluency-2" name="fluency" value="2" /><label for="fluency-2">2</label>
+        <input type="radio" id="fluency-3" name="fluency" value="3" checked /><label for="fluency-3">3</label>
+        <input type="radio" id="fluency-4" name="fluency" value="4" /><label for="fluency-4">4</label>
+        <input type="radio" id="fluency-5" name="fluency" value="5" /><label for="fluency-5">5</label>
+        </div>
+
+        <div class="radio-toolbar">
+	<label class="radio-toolbar-title">Pronunciation:</label>
+	<input type="radio" id="pronunciation-1" name="pronunciation" value="1" /><label for="pronunciation-1">1</label>
+        <input type="radio" id="pronunciation-2" name="pronunciation" value="2" /><label for="pronunciation-2">2</label>
+        <input type="radio" id="pronunciation-3" name="pronunciation" value="3" checked /><label for="pronunciation-3">3</label>
+        <input type="radio" id="pronunciation-4" name="pronunciation" value="4" /><label for="pronunciation-4">4</label>
+        <input type="radio" id="pronunciation-5" name="pronunciation" value="5" /><label for="pronunciation-5">5</label>
+        </div> 
+
+	<div class="radio-toolbar">
+	<label class="radio-toolbar-title">Grammar:</label>
+	<input type="radio" id="grammar-1" name="grammar" value="1" /><label for="grammar-1">1</label>
+        <input type="radio" id="grammar-2" name="grammar" value="2" /><label for="grammar-2">2</label>
+        <input type="radio" id="grammar-3" name="grammar" value="3" checked /><label for="grammar-3">3</label>
+        <input type="radio" id="grammar-4" name="grammar" value="4" /><label for="grammar-4">4</label>
+        <input type="radio" id="grammar-5" name="grammar" value="5" /><label for="grammar-5">5</label>
+        </div> 
+
+	<div class="radio-toolbar">
+	<label class="radio-toolbar-title">Vocabulary:</label>
+	<input type="radio" id="vocabulary-1" name="vocabulary" value="1" /><label for="vocabulary-1">1</label>
+        <input type="radio" id="vocabulary-2" name="vocabulary" value="2" /><label for="vocabulary-2">2</label>
+        <input type="radio" id="vocabulary-3" name="vocabulary" value="3" checked /><label for="vocabulary-3">3</label>
+        <input type="radio" id="vocabulary-4" name="vocabulary" value="4" /><label for="vocabulary-4">4</label>
+        <input type="radio" id="vocabulary-5" name="vocabulary" value="5" /><label for="vocabulary-5">5</label>
+        </div> 
+
+	<div class="radio-toolbar">
+	<label class="radio-toolbar-title">Comprehension:</label>
+	<input type="radio" id="comprehension-1" name="comprehension" value="1" /><label for="comprehension-1">1</label>
+        <input type="radio" id="comprehension-2" name="comprehension" value="2" /><label for="comprehension-2">2</label>
+        <input type="radio" id="comprehension-3" name="comprehension" value="3" checked /><label for="comprehension-3">3</label>
+        <input type="radio" id="comprehension-4" name="comprehension" value="4" /><label for="comprehension-4">4</label>
+        <input type="radio" id="comprehension-5" name="comprehension" value="5" /><label for="comprehension-5">5</label>
+        </div>
+	
+	<br>
+
+	<label for="formHomework">Homework:</label>
+	<input type="number" id="formHomework" min="1" max="5" value="5"> <br>
+
+	<label for="formParticipation">Participation:</label>
+	<input type="number" id="formParticipation" min="1" max="5" value="5"> <br><br>
+    
+<textarea id="comment" minlength="30" rows="2" style="width: 90%" placeholder="Comment (min 30 characters)"></textarea>
+    
+<input type="submit" onclick="appendRedundancy(); displayFormResponseIframe();" value="Submit">
+
+</form>
+</div>
+</div>
+
+
+<!-- FORM RESPONSE SECTION -->
+
+<div class="container intro-right" id="formResponseContainer" hidden>
+<div class="titlebar">
+   <h1 id="formResponseTitle">Status of: Penelope Cruz</h1>
+</div>
+ <iframe name="formResponseIframe" id="formResponseIframeId" style="border: 0px; width: 100%; height: 50vh"></iframe>
+<!-- div to make button appear at bottom -->
+  <div style="width: 100%; position: sticky; bottom: 0;  display: flex; align-items: center; justify-content: center;">
+<div class="progress-btn button dark" id="submitButton" onclick="nextForm()" data-progress-style="indefinite">
+	  <div class="btn">Dismiss</div>
+	  <div class="progress"></div>
+</div>
+</div>
+<!-- end button -->
+</div>
+
+
+</body>
+</html>
