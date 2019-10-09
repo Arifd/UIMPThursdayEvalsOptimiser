@@ -2,8 +2,8 @@ function pluginBlank()
 {
 	document.getElementById("theForm").action = "";
 
-	document.getElementById("processedLastName").name = "";
-	document.getElementById("processedFirstName").name = "";
+	document.getElementById("lastName").name = "";
+	document.getElementById("firstName").name = "";
 
 	document.getElementById("location").name = "";
 	// you need to manually fill in the location field here
@@ -48,8 +48,8 @@ function pluginDummyForm()
 {
 	document.getElementById("theForm").action = "https://docs.google.com/forms/d/e/1FAIpQLSeBzokJL941yd1cK6EpZZAfNr_4UjUTi-irPZdsHYHK0ksAug/formResponse";
 
-	document.getElementById("processedLastName").name = "entry.1492703236";
-	document.getElementById("processedFirstName").name = "entry.691428241";
+	document.getElementById("lastName").name = "entry.1492703236";
+	document.getElementById("firstName").name = "entry.691428241";
 
 	document.getElementById("location").name = "entry.2016812996";
 	// you need to manually fill in the location field here
@@ -94,8 +94,8 @@ function pluginSevilla()
 {
 	document.getElementById("theForm").action = "https://docs.google.com/forms/d/e/1FAIpQLSc3PkotOa24gfWMa-PN-gZjcvGygCEb3-c13qaEAsh2AMWX3Q/formResponse";
 
-	document.getElementById("processedLastName").name = "entry.539992332";
-	document.getElementById("processedFirstName").name = "entry.1885495846";
+	document.getElementById("lastName").name = "entry.539992332";
+	document.getElementById("firstName").name = "entry.1885495846";
 
 	document.getElementById("location").name = "entry.1609186721";
 	// you need to manually fill in the location field here
