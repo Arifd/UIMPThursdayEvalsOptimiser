@@ -33,9 +33,6 @@ document.onreadystatechange = function() {
   }
 }
 
-// update global variable storing name when first name form field onblur
-function learnName() {nameValue = document.getElementById("firstName").value;}
-
 function appendRedundancy()
 {
 	// determin if passed or failed
