@@ -1,2 +1,2 @@
 # UIMPThursdayEvalsOptimiser
-Removes Human error and cuts out redundancy when submitting your online thursday evals!
+Removes human error and cuts out redundancy when submitting your online thursday evals!
