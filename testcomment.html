@@ -219,7 +219,7 @@ console.log(order);
     if (((order[i] === "personal") && (order[i-1] === "week")) || ((order[i] === "week") && (order[i-1] === "personal")))  theComment += dotOrExclamation() + " ";
 
     // after adding to the comment, when we hit "focuspre" we need need to add "focus" and then optionally "skill" (which is determined at declaration by the skills inputted in the form)
-    if (order[i] === "focuspre") theComment += ", " + commentData["focus"][Math.floor(Math.random() * commentData["focus"].length)] +
+    if (order[i] === "focuspre") theComment += ", " + commentData["focuspost"][Math.floor(Math.random() * commentData["focus"].length)] +
     ". " + optional(commentData[skill][Math.floor(Math.random() * commentData[skill].length)] + ". ");
 
     // if "positive" is first, we need to add the name after. otherwise, elsewhere in the comment it needs a full stop.
