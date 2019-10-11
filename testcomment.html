@@ -184,16 +184,18 @@ function generate() {
 theComment = ""; order = [];
 
 // Determine if we will add a focus
-// if skills not same etc.
-var addFocus = true;
+// (if skills not same etc.)
+var addFocus = (Math.random() > 0.5);
+// Determine if we will use the single or double focus format
+var useDoubleFocus = (Math.random() > 0.5);
 
 // determine arrangement of comment  
  // do we want any combination of week, personal, personal week, either or both?
 if (Math.random() > 0.5) order = order.concat(optionalArray("week","personal")); else order = order.concat(optionalArray("personal","week"));
 // if nothing, then add "positive" to first position
 if (order.length === 0) order.push("positive");
-// optional focus --> focus logic will be determined by need (all skills same? no focus!)
-if (Math.random() > 0.5) order.push("focuspre");
+// Determine focus
+if (useDouble) order.push("focuspre"); else order.push("focussingle");
 // optional "positive when not in first position
 if (order[0] !== "positive") if (Math.random() > 0.5) order.push("positive");
 // sometimes add a closer
@@ -223,7 +225,7 @@ console.log(order);
     if (((order[i] === "personal") && (order[i-1] === "week")) || ((order[i] === "week") && (order[i-1] === "personal")))  theComment += dotOrExclamation() + " ";
 
     // after adding to the comment, when we hit "focuspre" we need need to add "focus" and then optionally "skill" (which is determined at declaration by the skills inputted in the form)
-    if (order[i] === "focuspre") theComment += ", " + commentData["focuspost"][Math.floor(Math.random() * commentData["focus"].length)] +
+    if (order[i] === "focuspre") theComment += ", " + commentData["focuspost"][Math.floor(Math.random() * commentData["focuspost"].length)] +
     ". " + optional(commentData[skill][Math.floor(Math.random() * commentData[skill].length)] + ". ");
 
     // if "positive" is first, we need to add the name after. otherwise, elsewhere in the comment it needs a full stop.
