@@ -164,6 +164,13 @@ function a_personality() // a wrapper to prepend the correct article
 
 <button onclick="comment()">Click me</button>
 
+<button onclick="setSkill('fluency')">fluency</button>
+<button onclick="setSkill('vocabulary')">vocab</button>
+<button onclick="setSkill('grammar')">grammar</button>
+<button onclick="setSkill('comprehension')">comprehension</button>
+
+<button onclick="setSkill('none')">none</button>
+
 <p id="demo"></p>
 
 
@@ -184,8 +191,8 @@ function generate() {
 theComment = ""; order = [];
 
 // Determine if we will add a focus
-// (if skills not same etc.)
-var addFocus = (Math.random() > 0.5);
+// (if skills not all 5s etc.)
+var addFocus = (skill !== 'none');
 // Determine if we will use the single or double focus format
 var useDoubleFocus = (Math.random() > 0.5);
 
@@ -255,6 +262,9 @@ while (theComment.length < 60) generate();
 }
 </script>
 
+<script>
+function setSkill(v) { skill = v; }
+</script>
 
 
 </body>
