@@ -236,7 +236,7 @@ console.log(order);
     ". " + optional(commentData[skill][Math.floor(Math.random() * commentData[skill].length)] + ". ");
 
     // after a "focussingle" we need a full stop
-    If (order[i] === "focussingle") theComment += ".";
+    if (order[i] === "focussingle") theComment += ".";
 
     // if "positive" is first, we need to add the name after. otherwise, elsewhere in the comment it needs a full stop.
     if ((i === 0) && (order[i] === "positive")) theComment += " ${name}! ";
