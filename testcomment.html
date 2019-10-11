@@ -183,6 +183,10 @@ function generate() {
 //in case of looping make sure we start with a clean slate!
 theComment = ""; order = [];
 
+// Determine if we will add a focus
+// if skills not same etc.
+var addFocus = true;
+
 // determine arrangement of comment  
  // do we want any combination of week, personal, personal week, either or both?
 if (Math.random() > 0.5) order = order.concat(optionalArray("week","personal")); else order = order.concat(optionalArray("personal","week"));
