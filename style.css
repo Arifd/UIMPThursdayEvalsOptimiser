@@ -255,8 +255,7 @@ form input {
 }
 
 input[type="text"] {
-		margin-top: 8px;
-        margin-bottom: 8px;
+		margin-top: 16px;
 }
 
 input[type="number"] {
