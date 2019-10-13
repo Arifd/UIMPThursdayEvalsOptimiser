@@ -28,6 +28,7 @@ if (today.getDay() != (4 || 5)) alert("Hey! Today's not Thursday.\n\nGo away now
 		document.getElementById("theFormTitle").innerHTML = selectedLocation;
 		
 		// make sure the submit button is enabled only when the form is valid.
+		// TODO:: NEED TO MAKE A BETTER SUBMIT BUTTON, THAT RUNS A CUSTOM JS CHECK VALIDITY, THEN APPENDS, THEN JS SUBMITS FORM
 		document.getElementById("theForm").addEventListener('change', function()
 	        {
                 if (document.getElementById("theForm").checkValidity())
