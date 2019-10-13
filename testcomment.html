@@ -38,12 +38,8 @@ commentData = Object.assign(...mapped);
 </script>
 
 <script>
-// a helper function to parse template literals from within strings
-String.prototype.interpolate = function(params) {
-  const names = Object.keys(params);
-  const vals = Object.values(params);
-  return new Function(...names, `return \`${this}\`;`)(...vals);
-}
+// a helper function to parse template literals embedded inside pure strings
+function stringToTemplateLiteral(string) { return new Function(`return \`${string}\`;`)(); }
 
 // a helper function to fix articles that need changing from 'a' to 'an'
 function fixArticles(text)
@@ -251,7 +247,7 @@ console.log(order);
   } // End of compiling comment.
 
   // parse template literals
-  theComment = theComment.interpolate({});
+  theComment = stringToTemplateLiteral(theComment);
 }
 
 // keep generating until we have a sufficiently long enough comment
