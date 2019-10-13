@@ -239,8 +239,6 @@ form input {
         background: transparent;
 	line-height: 1.5em;
 	padding:1px 1px;
-	margin-top: 8px;
-        margin-bottom: 8px;
 	outline:none;
         border: none;
         border-bottom: 2px solid #999999;
@@ -254,6 +252,11 @@ form input {
 	    -ms-transition:0.2s ease all;
 	     -o-transition:0.2s ease all;
 	        transition:0.2s ease all;
+}
+
+input[type="text"] {
+		margin-top: 8px;
+        margin-bottom: 8px;
 }
 
 input[type="number"] {
