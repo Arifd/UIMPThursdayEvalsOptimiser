@@ -26,6 +26,15 @@ if (today.getDay() != (4 || 5)) alert("Hey! Today's not Thursday.\n\nGo away now
 
 		// prepare the title of the form
 		document.getElementById("theFormTitle").innerHTML = selectedLocation;
+		
+		// make sure the submit button is enabled only when the form is valid.
+		document.getElementById("theForm").addEventListener('change', function()
+	        {
+                if (document.getElementById("theForm").checkValidity())
+			document.getElementById("submitButton").disabled = false;
+			else document.getElementById("submitButton").disabled = true;
+                });
+
 
 		// if something valid slected hide this selector div, show the form
 		if (selectedLocation != "nothing selected")
@@ -237,7 +246,7 @@ This tool is an optimisation of the regular Thursday Evals Form.
     
 <textarea id="comment" minlength="30" rows="2" style="width: 90%" placeholder="Comment (min 30 characters)"></textarea>
     
-<input type="submit" onclick="appendRedundancy(); displayFormResponseIframe();" value="Submit">
+<input type="submit" id="submitButton" onclick="appendRedundancy(); displayFormResponseIframe();" value="Submit">
 
 </form>
 </div>
