@@ -66,7 +66,7 @@ if (today.getDay() != (4 || 5)) alert("Hey! Today's not Thursday.\n\nGo away now
     function nextForm()
     {
     let formResponseContainer = document.getElementById('formResponseContainer');
-    document.getElementById('formResponseIframe').src = "";
+    document.getElementById('formResponseIframe').src = "blank.html";
 
     applyClass('exit-top', formResponseContainer, true);
     formResponseContainer.addEventListener('animationend', function(){
