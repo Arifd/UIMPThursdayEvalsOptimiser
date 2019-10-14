@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>extract entries</title>
+
+<script>
+// https://stackoverflow.com/questions/28488777/get-all-input-field-names-from-an-html-form-with-code
+function extractEntries()
+{
+  let formElement = document.forms[0];
+  const extractedEntires = [];
+  const inputs = formElement.elements;  
+  for (let i = 0; i < inputs.length; i++)
+  {
+    if(inputs[i].name.includes("entry."))
+      extractedEntires.push(inputs[i].name);
+  }
+  return extractedEntires;
+}
+</script>
+
+</head>
+<body>
+
+<div></div>
+
+<script>
+var responseData;
+fetch('https://cors-anywhere.herokuapp.com/https://docs.google.com/forms/d/e/1FAIpQLSeBzokJL941yd1cK6EpZZAfNr_4UjUTi-irPZdsHYHK0ksAug/viewform')
+.then(response => response.text())
+  .then(text => {
+    const parser = new DOMParser();
+    const htmlDocument = parser.parseFromString(text, "text/html");
+    const section = htmlDocument.documentElement.querySelector("form");
+    document.querySelector("div").appendChild(section); // run extractEntries() on 'section'
+  })
+.catch(error => console.error(error))
+
+document.getElementById("demo").innerHTML = responseData;
+</script>
+
+
+</body>
+</html>
