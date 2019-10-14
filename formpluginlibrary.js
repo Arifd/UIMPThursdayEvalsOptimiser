@@ -71,8 +71,6 @@ function pluginDummyForm()
 	document.getElementById("levelAtBeginning").name = "entry.1977718501";
 	// CEFR Level at End
 	document.getElementById("levelAtEnd").name = "entry.1619190485";
-	// final score
-	document.getElementById("endLevel").name = "entry.1815583882";
 
 	document.getElementById("changedLevel").name = "entry.502099535";
 
@@ -84,6 +82,9 @@ function pluginDummyForm()
 
 	document.getElementById("formHomework").name = "entry.2054164790";
 	document.getElementById("formParticipation").name = "entry.230056582";
+	
+	// final score
+	document.getElementById("endLevel").name = "entry.1815583882";
 
 	document.getElementById("comment").name = "entry.1141405581";
 }
@@ -117,8 +118,6 @@ function pluginSevilla()
 	document.getElementById("levelAtBeginning").name = "entry.86321645";
 	// CEFR Level at End
 	document.getElementById("levelAtEnd").name = "entry.605540039";
-	// final score
-	document.getElementById("endLevel").name = "entry.642928071";
 
 	document.getElementById("changedLevel").name = "entry.1898877679";
 
@@ -130,6 +129,9 @@ function pluginSevilla()
 
 	document.getElementById("formHomework").name = "entry.1208927224";
 	document.getElementById("formParticipation").name = "entry.642674893";
+	
+	// final score
+	document.getElementById("endLevel").name = "entry.642928071";
 
 	document.getElementById("comment").name = "entry.1977146748";
 }
@@ -163,8 +165,6 @@ function pluginCartagena()
 	document.getElementById("levelAtBeginning").name = "entry.86321645";
 	// CEFR Level at End
 	document.getElementById("levelAtEnd").name = "entry.605540039";
-	// final score
-	document.getElementById("endLevel").name = "entry.642928071";
 
 	document.getElementById("changedLevel").name = "entry.1898877679";
 
@@ -176,6 +176,9 @@ function pluginCartagena()
 
 	document.getElementById("formHomework").name = "entry.1208927224";
 	document.getElementById("formParticipation").name = "entry.642674893";
+	
+	// final score
+	document.getElementById("endLevel").name = "entry.642928071";
 
 	document.getElementById("comment").name = "entry.1977146748";
 }
