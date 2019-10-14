@@ -192,11 +192,16 @@ var addFocus = (skill != 'none');
 // Determine if we will use the single or double focus format
 var useDoubleFocus = (Math.random() > 0.5);
 
-// determine arrangement of comment  
+// determine arrangement of comment //
+
+// Decide if we will use intro
+if (Math.random() > 0.5) order.push("intro");
+else {
  // do we want any combination of week, personal, personal week, either or both?
 if (Math.random() > 0.5) order = order.concat(optionalArray("week","personal")); else order = order.concat(optionalArray("personal","week"));
 // if nothing, then add "positive" to first position
 if (order.length === 0) order.push("positive");
+}
 // Determine focus
 if (addFocus) if (useDoubleFocus) order.push("focuspre"); else order.push("focussingle");
 // optional "positive when not in first position
