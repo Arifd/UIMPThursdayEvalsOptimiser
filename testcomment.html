@@ -225,6 +225,9 @@ console.log(order);
     theComment += commentData[order[i]][Math.floor(Math.random() * commentData[order[i]].length)];
 
    /////// END Main comment adder /////// 
+
+   // after intro we need a space before next iteration
+   if (order[i] === "intro") theComment += " ";
    
    // if personal and week are going to be neighours we need to add an " and " in between them
     if (((order[i] === "personal") && (order[i+1] === "week")) || ((order[i] === "week") && (order[i+1] === "personal")))  theComment += " and ";
