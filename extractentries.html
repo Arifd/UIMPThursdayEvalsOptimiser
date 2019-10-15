@@ -5,11 +5,25 @@
 
 <script>
 // https://stackoverflow.com/questions/28488777/get-all-input-field-names-from-an-html-form-with-code
-function extractEntries()
+
+// still need to:
+// create text input field collect variable for URL. strip /viewform and make it /formResponse
+// somehow extract location (another text input field?) get it from URL?
+// apply to the form.
+// apply all of this to index.html
+
+</script>
+
+</head>
+<body>
+
+<p id="demo"></p>
+
+<script>
+function extractEntries(form)
 {
-  let formElement = document.forms[0];
   const extractedEntires = [];
-  const inputs = formElement.elements;  
+  const inputs = form.elements;  
   for (let i = 0; i < inputs.length; i++)
   {
     if(inputs[i].name.includes("entry."))
@@ -17,26 +31,66 @@ function extractEntries()
   }
   return extractedEntires;
 }
-</script>
 
-</head>
-<body>
+function pluginCustomURL(extractedEntries)
+{
+document.getElementById("theForm").action = "";
 
-<div></div>
+	document.getElementById("lastName").name = extractedEntries[0];
+	document.getElementById("firstName").name = extractedEntries[1];
 
-<script>
-var responseData;
+	document.getElementById("location").name = extractedEntries[2];
+	// you need to manually fill in the location field here
+	document.getElementById("location").value = "Test";
+
+	document.getElementById("formMonth").name = extractedEntries[3];
+	document.getElementById("formDay").name = extractedEntries[4];
+	document.getElementById("formYear").name = extractedEntries[0];
+
+	document.getElementById("passOrFail").name = extractedEntries[0];
+
+	document.getElementById("processedISOWeekNumber").name = extractedEntries[0];
+
+	document.getElementById("group").name = extractedEntries[0];
+
+	document.getElementById("teachersNames").name = extractedEntries[0];
+
+	// CEFR Level at Beginning
+	document.getElementById("levelAtBeginning").name = extractedEntries[0];
+	// CEFR Level at End
+	document.getElementById("levelAtEnd").name = extractedEntries[0];
+
+	document.getElementById("changedLevel").name = extractedEntries[0];
+
+	for (let i = 1; i < 6; i++) {document.getElementById("fluency-"+i).name = extractedEntries[0];}
+	for (let i = 1; i < 6; i++) {document.getElementById("pronunciation-"+i).name = extractedEntries[0];}
+	for (let i = 1; i < 6; i++) {document.getElementById("grammar-"+i).name = extractedEntries[0];}
+	for (let i = 1; i < 6; i++) {document.getElementById("vocabulary-"+i).name = extractedEntries[0];}
+	for (let i = 1; i < 6; i++) {document.getElementById("comprehension-"+i).name = extractedEntries[0];}
+
+	document.getElementById("formHomework").name = extractedEntries[0];
+	document.getElementById("formParticipation").name = extractedEntries[0];
+	
+	// final score
+	document.getElementById("endLevel").name = extractedEntries[0];
+
+	document.getElementById("comment").name = extractedEntries[0];
+}
+
+console.log("fetching data...");
+
 fetch('https://cors-anywhere.herokuapp.com/https://docs.google.com/forms/d/e/1FAIpQLSeBzokJL941yd1cK6EpZZAfNr_4UjUTi-irPZdsHYHK0ksAug/viewform')
 .then(response => response.text())
   .then(text => {
     const parser = new DOMParser();
     const htmlDocument = parser.parseFromString(text, "text/html");
-    const section = htmlDocument.documentElement.querySelector("form");
-    document.querySelector("div").appendChild(section); // run extractEntries() on 'section'
+    var formElement = htmlDocument.forms[0];
+    var result = extractEntries(formElement);
+    console.log(result);
   })
 .catch(error => console.error(error))
 
-document.getElementById("demo").innerHTML = responseData;
+
 </script>
 
 
