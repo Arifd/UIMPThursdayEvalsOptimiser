@@ -96,7 +96,7 @@ function adjustSkills()
 	document.getElementById('formEndLevelLabel').innerHTML = "Final score:";
 	
 	// Reset: levelIsChanged
-	levelIsChanged = false; // a global variable used by the comment generator to know if student is close to the next level
+	levelIsClose = false; // a global variable used by the comment generator to know if student is close to the next level
 
 	// Check if the inputs have valid numbers in them, if not, return from this function early.
 	// if one of the inputs is 0.0 or NaN, or Null or undefined, a boolean test will return false.
@@ -132,7 +132,6 @@ function adjustSkills()
 	{
 		document.getElementById("changedLevel").value = "YES";
 		levelChanged = true;
-		levelIsClose = false;
 		
 		// Make all skills buttons 5s (with funky animation) and break out of this function early
                 function animateLevelChange(i) {
