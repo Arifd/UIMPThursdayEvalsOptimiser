@@ -180,6 +180,7 @@ function adjustSkills()
 			distanceHigh = 12.0;
 		}
 	        levelIsClose = ((distanceHigh - endLvl) <= 0.25); // levelIsClose is used by comment generator to indicate if they are close to the next level
+	        console.log("levelIsClose: " + levelIsClose);
 		var range = distanceHigh - distanceLow;
 		var stepSize = range / 5.0;
 		var score = endLvl - distanceLow;
