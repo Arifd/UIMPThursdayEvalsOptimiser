@@ -94,7 +94,9 @@ function adjustSkills()
         //Reset: print out what the CEFR levels are. (Will be recalculated later)
 	document.getElementById('beginningLevelLabel').innerHTML = "Working level:";
 	document.getElementById('formEndLevelLabel').innerHTML = "Final score:";
-  
+	
+	// Reset: levelIsChanged
+	levelIsChanged = false; // a global variable used by the comment generator to know if student is close to the next level
 
 	// Check if the inputs have valid numbers in them, if not, return from this function early.
 	// if one of the inputs is 0.0 or NaN, or Null or undefined, a boolean test will return false.
@@ -103,6 +105,8 @@ function adjustSkills()
 
 	// Since levels can't go down, reject this case and return early
 	if (endLvl <= begLvl) { endLvl = null; document.getElementById("formEndLevel").value = endLvl; applyClass("shake","formEndLevel"); return;}
+	
+	// END error checking, we are good to go!
 	
         // print out what the CEFR levels are
         document.getElementById('beginningLevelLabel').innerHTML = `Working level: (${berlitz2CEFR(begLvl)})`;
@@ -175,6 +179,7 @@ function adjustSkills()
 			distanceLow = 9.1;
 			distanceHigh = 12.0;
 		}
+	        levelIsClose = ((distanceHigh - endLvl) <= 0.25); // levelIsClose is used by comment generator to indicate if they are close to the next level
 		var range = distanceHigh - distanceLow;
 		var stepSize = range / 5.0;
 		var score = endLvl - distanceLow;
