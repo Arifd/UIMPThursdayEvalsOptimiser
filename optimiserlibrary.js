@@ -132,6 +132,7 @@ function adjustSkills()
 	{
 		document.getElementById("changedLevel").value = "YES";
 		levelChanged = true;
+		levelIsClose = false;
 		
 		// Make all skills buttons 5s (with funky animation) and break out of this function early
                 function animateLevelChange(i) {
