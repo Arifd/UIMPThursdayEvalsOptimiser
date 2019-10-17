@@ -33,6 +33,34 @@ document.onreadystatechange = function() {
   }
 }
 
+function calcLowestSkill()
+// if one skill is lower than the others return the name of that skill, otherwise return none
+{
+  let skills = { fluency: null, pronunciation: null, grammar: null, vocabulary: null, comprehension: null }
+
+  // keep track of the bottom end in order to know whill skill is lowest, and how many
+  let lowestValue = 6; // start beyond range in order to always hit 
+  let lowestCount = 0;
+  let lowestSkill = "";
+
+  for (const key in skills)
+  {
+    skills[key] = document.querySelector(`input[name="${key}"]:checked`).value;
+    if (skills[key] == lowestValue)
+    {
+      lowestCount++;
+      lowestSkill = "none";
+    }
+    if (skills[key] < lowestValue)
+    {
+      lowestValue = skills[key];
+      lowestCount = 1;
+      lowestSkill = key;
+    }
+  }
+  return lowestSkill;
+}
+
 function appendRedundancy()
 {
 	// determin if passed or failed
