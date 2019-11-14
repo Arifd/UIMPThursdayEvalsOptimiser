@@ -24,6 +24,7 @@ if (today.getDay() != (4 || 5)) alert("Hey! Today's not Thursday.\n\nGo away now
 		else if (selectedLocation == "Test") pluginDummyForm();
 		else if (selectedLocation == "Sevilla") pluginSevilla();
 		else if (selectedLocation == "Cartagena") pluginCartagena();
+		else if (selectedLocation == "Barcelona") pluginBarcelona();
 
 		// prepare the title of the form
 		document.getElementById("theFormTitle").innerHTML = selectedLocation;
@@ -99,7 +100,8 @@ This tool is an optimisation of the regular Thursday Evals Form.
 	<option value="nothing selected" selected disabled hidden>Select location</option>
 	<option value="Sevilla">Sevilla</option>
 	<option value="Cartagena">Cartagena</option>
-	<option value="Sevilla" disabled>-</option>
+	<option value="Cartagena">Barcelona</option>
+	<option value="Sevilla" disabled></option>
 	<option value="Test">Dummy Form (for testing)</option>
 </select>
 <button type="button" id="goButton" onclick="showForm()">Go!</button>
