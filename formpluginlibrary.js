@@ -1,46 +1,4 @@
-function pluginBlank()
-{
-	document.getElementById("theForm").action = "";
-
-	document.getElementById("lastName").name = "";
-	document.getElementById("firstName").name = "";
-
-	document.getElementById("location").name = "";
-	// you need to manually fill in the location field here
-	document.getElementById("location").value = "";
-
-	document.getElementById("formMonth").name = "";
-	document.getElementById("formDay").name = "";
-	document.getElementById("formYear").name = "";
-
-	document.getElementById("passOrFail").name = "";
-
-	document.getElementById("processedISOWeekNumber").name = "";
-
-	document.getElementById("group").name = "";
-
-	document.getElementById("teachersNames").name = "";
-
-	// CEFR Level at Beginning
-	document.getElementById("levelAtBeginning").name = "";
-	// CEFR Level at End
-	document.getElementById("levelAtEnd").name = "";
-	// final score
-	document.getElementById("endLevel").name = "";
-
-	document.getElementById("changedLevel").name = "";
-
-	for (let i = 1; i < 6; i++) {document.getElementById("fluency-"+i).name = "";}
-	for (let i = 1; i < 6; i++) {document.getElementById("pronunciation-"+i).name = "";}
-	for (let i = 1; i < 6; i++) {document.getElementById("grammar-"+i).name = "";}
-	for (let i = 1; i < 6; i++) {document.getElementById("vocabulary-"+i).name = "";}
-	for (let i = 1; i < 6; i++) {document.getElementById("comprehension-"+i).name = "";}
-
-	document.getElementById("formHomework").name = "";
-	document.getElementById("formParticipation").name = "";
-
-	document.getElementById("comment").name = "";
-}
+function pluginBlank() {}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -185,3 +143,47 @@ function pluginCartagena()
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
+function pluginBarcelona()
+{
+	document.getElementById("theForm").action = "https://docs.google.com/forms/d/e/1FAIpQLScsaGLogmqg8rVVDZs3NGtvbFVrFyYko29XewwzjSWxfVDxjQ/formResponse";
+
+	document.getElementById("lastName").name = "entry.539992332";
+	document.getElementById("firstName").name = "entry.1885495846";
+
+	document.getElementById("location").name = "entry.1609186721";
+	// you need to manually fill in the location field here
+	document.getElementById("location").value = "Barcelona";
+
+	document.getElementById("formMonth").name = "entry.905372383_day";
+	document.getElementById("formDay").name = "entry.905372383_month";
+	document.getElementById("formYear").name = "entry.905372383_year";
+
+	document.getElementById("passOrFail").name = "entry.420853720";
+
+	document.getElementById("processedISOWeekNumber").name = "entry.1784072739";
+
+	document.getElementById("group").name = "entry.1771980111";
+
+	document.getElementById("teachersNames").name = "entry.42228523";
+
+	// CEFR Level at Beginning
+	document.getElementById("levelAtBeginning").name = "entry.86321645";
+	// CEFR Level at End
+	document.getElementById("levelAtEnd").name = "entry.605540039";
+
+	document.getElementById("changedLevel").name = "entry.1898877679";
+
+	for (let i = 1; i < 6; i++) {document.getElementById("fluency-"+i).name = "entry.916825764";}
+	for (let i = 1; i < 6; i++) {document.getElementById("pronunciation-"+i).name = "entry.1764100518";}
+	for (let i = 1; i < 6; i++) {document.getElementById("grammar-"+i).name = "entry.2128361282";}
+	for (let i = 1; i < 6; i++) {document.getElementById("vocabulary-"+i).name = "entry.978742957";}
+	for (let i = 1; i < 6; i++) {document.getElementById("comprehension-"+i).name = "entry.24510025";}
+
+	document.getElementById("formHomework").name = "entry.1208927224";
+	document.getElementById("formParticipation").name = "entry.642674893";
+	
+	// final score
+	document.getElementById("endLevel").name = "entry.642928071";
+
+	document.getElementById("comment").name = "entry.1977146748";
+}
